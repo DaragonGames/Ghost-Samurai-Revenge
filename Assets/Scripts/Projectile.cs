@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    private float duration = 5f;
+    private float duration = 1f;
     private int piercing = 10000;
     private string sourceTag = "Player";
     private float contactDamage = 20;
@@ -24,16 +24,17 @@ public class Projectile : MonoBehaviour
         transform.position += direction * Time.deltaTime * movementSpeed;
     }
 
-    void OnCollisionEnter2D(Collision2D collision2D) 
+    void OnTriggerEnter2D(Collider2D col)
     {
-        if (collision2D.gameObject.tag == "Player" && sourceTag == "Enemy")
+        Vector3 knockbackDirection = (col.transform.position - transform.position).normalized;
+        if (col.gameObject.tag == "Player" && sourceTag == "Enemy")
         {            
-            collision2D.transform.GetComponent<Player>().TakeDamage(contactDamage);
+            col.transform.GetComponent<Player>().TakeDamage(contactDamage);
             Pierce();
         }
-        if (collision2D.gameObject.tag == "Enemy" && sourceTag == "Player")
+        if (col.gameObject.tag == "Enemy" && sourceTag == "Player")
         {
-            collision2D.transform.GetComponent<Enemy>().TakeDamage(contactDamage);
+            col.transform.GetComponent<Enemy>().TakeDamage(contactDamage,knockbackDirection*3);
             Pierce();
         }        
     }

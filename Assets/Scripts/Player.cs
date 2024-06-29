@@ -45,7 +45,7 @@ public class Player : MonoBehaviour
             Vector3 attackDirection = (Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position);
             attackDirection.z = 0;
             attackDirection.Normalize();
-            GameObject projectile = Instantiate(attackPrefab, transform.position + attackDirection, Quaternion.identity, transform);
+            GameObject projectile = Instantiate(attackPrefab, transform.position + attackDirection, Quaternion.identity,transform);
             
             // Rotate the Projectile
             float angle = Vector3.Angle(attackDirection, Vector3.left);
