@@ -1,14 +1,17 @@
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using Unity.PlasticSCM.Editor.WebApi;
 using UnityEngine;
 
 public class LevelGenerator : MonoBehaviour
 {
     private int height=4;
     private int width=4;
+    private float roomWidth = 16;
+    private float roomHeight = 9;
+    private float overlapp = 1;
+
     private Dictionary<int, Room> rooms= new Dictionary<int, Room>();
+    private int start;
     public GameObject roomPrefab;
 
     void Start()
@@ -18,10 +21,12 @@ public class LevelGenerator : MonoBehaviour
 
     void GenerateLevel()
     {
-        int start = Random.Range(0,width);
+        start = Random.Range(0,width);
         int end = Random.Range(0,width) + width*(height-1);
         int current = start;
-        rooms.Add(start, CreateNewRoom(start));
+        Room startRoom =CreateNewRoom(start);
+        startRoom.SetAsStart();
+        rooms.Add(start, startRoom);
 
         while (current != end)
         {
@@ -47,11 +52,18 @@ public class LevelGenerator : MonoBehaviour
                 rooms[current].createOpening(next -current);
                 rooms[next].createOpening(current -next);
                 current=next;
-            }          
-        }     
+            }
+        } 
+        rooms[end].SetAsEnd(); 
+           
         BetterStartChoices(start);
         BetterExit(end);  
         MoreConnections(0.05f);
+        
+        while (rooms.Count < 8)
+        {
+            CreateExtraRoom();
+        }
     }
 
     public List<int> PossibleNeighbours(int toCheck)
@@ -80,8 +92,10 @@ public class LevelGenerator : MonoBehaviour
 
     public Room CreateNewRoom(int id) 
     {
-        Vector3 position = new Vector3(id%width,(int)(id/height),0);
-        GameObject obj = Instantiate(roomPrefab, position, Quaternion.identity);
+        float x = (id%width - start) * (roomWidth-overlapp); 
+        float y = Mathf.RoundToInt(id/height) * (roomHeight-overlapp); 
+        Vector3 position = new Vector3(x,y,5);
+        GameObject obj = Instantiate(roomPrefab, position, Quaternion.identity,transform);
         Room room= obj.GetComponent<Room>();
         room.SetID(id);
         return room;
@@ -170,10 +184,8 @@ public class LevelGenerator : MonoBehaviour
         int random =  Random.Range(0,width*height);
         while (rooms.ContainsKey(random))
         {
-            Random.Range(0,width*height);
+            random = Random.Range(0,width*height);
         }
-
-        rooms.Add(random, CreateNewRoom(random));
 
         List<int> possibilities = new List<int>{};
 
@@ -187,6 +199,7 @@ public class LevelGenerator : MonoBehaviour
 
         if (possibilities.Count > 0)
         {
+            rooms.Add(random, CreateNewRoom(random));
             int id = possibilities[Random.Range(0,possibilities.Count)];
             rooms[random].createOpening(id -random);
             rooms[id].createOpening(random -id);

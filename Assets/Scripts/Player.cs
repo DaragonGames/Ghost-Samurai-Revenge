@@ -8,8 +8,10 @@ public class Player : MonoBehaviour
 
     private float health;
     private PlayerStats stats;
-    private bool immuneToDamage = false;
-    private bool attacking = false;
+    private bool immuneToDamage, attacking, enteringRoom;
+    private Vector3 destinatedDirection;
+
+
 
 
     // Start is called before the first frame update
@@ -18,6 +20,12 @@ public class Player : MonoBehaviour
         stats = new PlayerStats();
         health = stats.maxHealth;
         GameManager.Instance.player = gameObject;
+        GameManager.EnterNewRoom += EnterRoom; 
+    }
+
+    void OnDestroy()
+    {
+        GameManager.EnterNewRoom -= EnterRoom; 
     }
 
     // Update is called once per frame
@@ -29,8 +37,15 @@ public class Player : MonoBehaviour
             return;
         }
 
-        HandleMovement();
-        HandleAttacks();
+        if (enteringRoom)
+        {
+            transform.position += destinatedDirection*Time.deltaTime;
+        }
+        else
+        {
+            HandleMovement();
+            HandleAttacks();
+        }        
     }
 
     void HandleAttacks()
@@ -95,6 +110,15 @@ public class Player : MonoBehaviour
         StartCoroutine(immunityFrames(stats.invisibleFramesDuration));
     }
 
+    public void EnterRoom(Vector3 center)
+    {
+        enteringRoom = true;
+        destinatedDirection = center - transform.position;
+        destinatedDirection.z = transform.position.z;
+        destinatedDirection.Normalize();
+        StartCoroutine(enterRoomDelay());
+    }
+
     private IEnumerator immunityFrames(float time)
     {
         yield return new WaitForSeconds(time); 
@@ -105,6 +129,12 @@ public class Player : MonoBehaviour
     {
         yield return new WaitForSeconds(time); 
         attacking = false;
+    }
+
+    private IEnumerator enterRoomDelay()
+    {
+        yield return new WaitForSeconds(1); 
+        enteringRoom = false;
     }
 
     public float GetHealth() { return health; }
