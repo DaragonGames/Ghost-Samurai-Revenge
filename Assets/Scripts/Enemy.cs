@@ -4,7 +4,7 @@ public class Enemy : MonoBehaviour
 {
     // Changeable Stats
     private float contactDamage = 10f;
-    private float movementSpeed = 1f;
+    private float movementSpeed = 3f;
     private float health = 20f;
 
     // Code based Variables: do not change
@@ -14,7 +14,12 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        if (Random.value > 0.5f)
+        {
+            movementSpeed = 1;
+            health = 80;
+            contactDamage = 20;
+        }
     }
 
     // Update is called once per frame

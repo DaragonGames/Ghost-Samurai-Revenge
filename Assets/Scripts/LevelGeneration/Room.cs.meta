@@ -3,7 +3,13 @@ guid: e5b16a1b1b160a145a20ff871d91308f
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - doorLeft: {instanceID: 0}
+  - doorRight: {instanceID: 0}
+  - doorUp: {instanceID: 0}
+  - doorDown: {instanceID: 0}
+  - enemies: {instanceID: 0}
+  - spawnables: {fileID: 11400000, guid: 4f1b128eec4a51147ab2eb2ce946fecd, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

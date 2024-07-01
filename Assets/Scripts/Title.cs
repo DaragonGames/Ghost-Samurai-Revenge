@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Tori : MonoBehaviour
+public class Title : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -16,10 +16,8 @@ public class Tori : MonoBehaviour
         
     }
 
-    void OnCollisionStay2D(Collision2D collision2D) {
-        if (collision2D.gameObject.tag == "Player")
-        {
-            GameManager.Instance.LeaveGrove();
-        }
+    public void StartGame()
+    {
+        GameManager.Instance.LeaveGrove();
     }
 }

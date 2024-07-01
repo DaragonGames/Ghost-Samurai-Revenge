@@ -6,9 +6,8 @@ using UnityEngine;
 public class Room : MonoBehaviour
 {
     public GameObject doorLeft, doorRight, doorUp, doorDown;
-    public GameObject enemyPrefab;
-    public GameObject toriPrefab;
     public Transform enemies;
+    public Spawnables spawnables;
 
     private int ID;
     private bool leftOpen, rightOpen, upOpen, downOpen, isCleared, isStart, isEnd, isEntered;
@@ -50,7 +49,7 @@ public class Room : MonoBehaviour
 
         if (isEnd)
         {
-            Instantiate(toriPrefab, position+Vector3.up*3.5f, Quaternion.identity, transform);
+            Instantiate(spawnables.torii, position+Vector3.up*3.5f, Quaternion.identity, transform);
             return;
         }
         if (isStart)
@@ -58,7 +57,7 @@ public class Room : MonoBehaviour
             return;
         }
         
-        GameObject obj = Instantiate(enemyPrefab, position, Quaternion.identity, enemies);
+        GameObject obj = Instantiate(spawnables.enemies[0], position, Quaternion.identity, enemies);
         obj.GetComponent<Enemy>().SetRoomID(ID);
     }
 

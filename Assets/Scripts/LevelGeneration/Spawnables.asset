@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4472bae2f13b3584e836cc2213931f28, type: 3}
+  m_Name: Spawnables
+  m_EditorClassIdentifier: 
+  enemies:
+  - {fileID: 1341384979412546765, guid: 47b34a20863c3a748bb317ffbd038801, type: 3}
+  obstacles: []
+  torii: {fileID: 6422280938306566123, guid: d7f9fd9bb3c58f94594d4db0cec2703a, type: 3}

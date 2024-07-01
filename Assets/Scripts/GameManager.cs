@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -22,22 +23,24 @@ public class GameManager : MonoBehaviour
         else
         {
             Destroy(gameObject);
-        }
-        
+        }        
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-
-
     public static event Action<Vector3> EnterNewRoom;
     public static void OnRoomEnterEvent(Vector3 position)
     {
         EnterNewRoom?.Invoke( position);
+    }
+
+    public void LeaveGrove()
+    {
+        gameState = GameState.Reading;
+        SceneManager.LoadScene("Reading");
+    }
+
+    public void EnterGrove()
+    {
+        gameState = GameState.InGame;
+        SceneManager.LoadScene("Game");
     }
 
     
