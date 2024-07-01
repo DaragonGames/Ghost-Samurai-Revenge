@@ -94,7 +94,7 @@ public class LevelGenerator : MonoBehaviour
     {
         float x = (id%width - start) * (roomWidth-overlapp); 
         float y = Mathf.RoundToInt(id/height) * (roomHeight-overlapp); 
-        Vector3 position = new Vector3(x,y,5);
+        Vector3 position = new Vector3(x,y,0);
         GameObject obj = Instantiate(roomPrefab, position, Quaternion.identity,transform);
         Room room= obj.GetComponent<Room>();
         room.SetID(id);

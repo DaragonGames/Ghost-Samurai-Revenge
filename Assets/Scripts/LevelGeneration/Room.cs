@@ -45,7 +45,7 @@ public class Room : MonoBehaviour
 
     void Start()
     {
-        Vector3 position = transform.position-Vector3.forward;
+        Vector3 position = transform.position;
 
         if (isEnd)
         {
