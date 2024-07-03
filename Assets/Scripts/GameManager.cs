@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public GameState gameState;
     public GameObject player;
     public int currentRoomID = -1;
+    private int collectedSheets = 100;
 
     // Start is called before the first frame update
     void Awake()
@@ -18,6 +19,7 @@ public class GameManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
+            TestimonyHandler.LoadTestimonies();
             DontDestroyOnLoad(gameObject);
         }
         else
@@ -41,6 +43,20 @@ public class GameManager : MonoBehaviour
     {
         gameState = GameState.InGame;
         SceneManager.LoadScene("Game");
+    }
+
+    public void SelectTestimony(int id)
+    {
+        TestimonyHandler.SelectTestimonies(id);
+        collectedSheets--;
+        if (collectedSheets > 0)
+        {
+            SceneManager.LoadScene("Reading");
+        }    
+        else
+        {
+            EnterGrove();
+        }    
     }
 
     

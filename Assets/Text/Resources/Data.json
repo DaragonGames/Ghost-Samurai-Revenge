@@ -2,22 +2,53 @@
     "list": [
         {
             "id": 0,
-            "Testifier": "Woodcutter",
-            "testimony": "There was once a man.",
+            "testifier": "The Testimony of a Woodcutter",
+            "testimony": "The fallen bamboo-blades around it were stained with bloody blossoms. No, the blood was no longer running.",
             "description": "Does nothing you fool!",
             "effectId": 0
         },
         {
-            "id": 0,
-            "Testifier": "Woodcutter",
-            "testimony": "There was once a man.",
+            "id": 1,
+            "testifier": "The Testimony of an old Women",
+            "testimony": "He was of a gende disposition, so I am sure he did nothing to provoke the anger of others. ",
             "description": "Does nothing you fool!",
             "effectId": 0
         },
         {
-            "id": 0,
-            "Testifier": "Woodcutter",
-            "testimony": "There was once a man.",
+            "id": 2,
+            "testifier": "The Testimony of an traveling Buddhist",
+            "testimony": "And I remember that he carried some twenty odd arrows in his- quiver.",
+            "description": "Does nothing you fool!",
+            "effectId": 0
+        }
+        ,
+        {
+            "id": 3,
+            "testifier": "The Testimony of a Policeman",
+            "testimony": "You say that this bow and these arrows look like the ones owned by the dead man?",
+            "description": "Does nothing you fool!",
+            "effectId": 0
+        }
+        ,
+        {
+            "id": 4,
+            "testifier": "The Testimony of a Masago the wife",
+            "testimony": "A streak of sinking sunlight streamed through the clump of cedars and bamboos, and shone on his pale face.",
+            "description": "Does nothing you fool!",
+            "effectId": 0
+        }
+        ,
+        {
+            "id": 5,
+            "testifier": "The Testimony of a medium",
+            "testimony": "Someone ... that someone drew the small sword sofdyout of my breast in its invisible hand.",
+            "description": "Does nothing you fool!",
+            "effectId": 0
+        },
+        {
+            "id": 6,
+            "testifier": "The Testimony of Tajomaru the Bandit",
+            "testimony": "When he came in front of the grove, I told them that the treasures were buried in it, and I asked them to come and see.",
             "description": "Does nothing you fool!",
             "effectId": 0
         }

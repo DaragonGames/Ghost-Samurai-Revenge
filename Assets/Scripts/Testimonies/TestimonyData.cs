@@ -2,11 +2,11 @@ using System.Collections.Generic;
 
 [System.Serializable]
 public class TestimonyData {
-    public int id = 0;
-    public string Testifier = "Woodcutter";
-    public string testimony = "There was once a man.";
-    public string description = "Does nothing you fool!";
-    public int effectId = 0;
+    public int id;
+    public string testifier;
+    public string testimony;
+    public string description;
+    public int effectId;
 }
 
 [System.Serializable]

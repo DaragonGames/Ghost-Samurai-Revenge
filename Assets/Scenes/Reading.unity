@@ -215,6 +215,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0b97827ad01c014eb75215b10411d2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  testifierTMP: {fileID: 1549781885}
+  testimonyTMP: {fileID: 325516332}
+  descriptionTMP: {fileID: 950277182}
 --- !u!1 &17983170
 GameObject:
   m_ObjectHideFlags: 0
@@ -333,7 +336,7 @@ GameObject:
   - component: {fileID: 22801619}
   - component: {fileID: 22801618}
   m_Layer: 5
-  m_Name: Text (TMP) (1)
+  m_Name: Text Testifier
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -467,7 +470,7 @@ GameObject:
   - component: {fileID: 185171074}
   - component: {fileID: 185171073}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Text Testimony
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -601,7 +604,7 @@ GameObject:
   - component: {fileID: 325516333}
   - component: {fileID: 325516332}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Text Testimony
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -870,7 +873,7 @@ GameObject:
   - component: {fileID: 431963647}
   - component: {fileID: 431963646}
   m_Layer: 5
-  m_Name: Text (TMP) (2)
+  m_Name: Text Description
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1004,7 +1007,7 @@ GameObject:
   - component: {fileID: 513154453}
   - component: {fileID: 513154452}
   m_Layer: 5
-  m_Name: Text (TMP) (2)
+  m_Name: Text Description
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1541,7 +1544,7 @@ GameObject:
   - component: {fileID: 950277183}
   - component: {fileID: 950277182}
   m_Layer: 5
-  m_Name: Text (TMP) (2)
+  m_Name: Text Description
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1890,6 +1893,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0b97827ad01c014eb75215b10411d2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  testifierTMP: {fileID: 22801618}
+  testimonyTMP: {fileID: 185171073}
+  descriptionTMP: {fileID: 431963646}
 --- !u!1 &1260126929
 GameObject:
   m_ObjectHideFlags: 0
@@ -2050,6 +2056,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0b97827ad01c014eb75215b10411d2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  testifierTMP: {fileID: 1769093563}
+  testimonyTMP: {fileID: 1750068671}
+  descriptionTMP: {fileID: 513154452}
 --- !u!1 &1510293630
 GameObject:
   m_ObjectHideFlags: 0
@@ -2212,7 +2221,7 @@ GameObject:
   - component: {fileID: 1549781886}
   - component: {fileID: 1549781885}
   m_Layer: 5
-  m_Name: Text (TMP) (1)
+  m_Name: Text Testifier
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2479,7 +2488,7 @@ GameObject:
   - component: {fileID: 1750068672}
   - component: {fileID: 1750068671}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Text Testimony
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2614,7 +2623,7 @@ GameObject:
   - component: {fileID: 1769093564}
   - component: {fileID: 1769093563}
   m_Layer: 5
-  m_Name: Text (TMP) (1)
+  m_Name: Text Testifier
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
