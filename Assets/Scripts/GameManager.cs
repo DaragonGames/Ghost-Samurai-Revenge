@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     public GameObject player;
     public int currentRoomID = -1;
     private int collectedSheets = 100;
+    public GameData gameData;
 
     // Start is called before the first frame update
     void Awake()
@@ -21,6 +22,7 @@ public class GameManager : MonoBehaviour
             Instance = this;
             TestimonyHandler.LoadTestimonies();
             DontDestroyOnLoad(gameObject);
+            gameData = new GameData();
         }
         else
         {

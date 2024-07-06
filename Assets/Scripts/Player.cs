@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public GameObject attackPrefab;
+    public GameObject slicePrefab;
+    public GameObject arrowPrefab;
 
     private float health;
     private PlayerStats stats;
@@ -50,26 +51,58 @@ public class Player : MonoBehaviour
 
     void HandleAttacks()
     {
-        if (Input.GetMouseButtonDown(0) && !attacking)
+        if (attacking)
+        {
+            return;
+        }
+        if (Input.GetMouseButtonDown(0))
         {
             // Set the Attack State
             attacking = true;
-            StartCoroutine(attackingFrames(1f));
+            StartCoroutine(attackingFrames(stats.attackSpeed));
+            CreateProjectile(slicePrefab, "static");
 
-            // Create the Projectile
-            Vector3 attackDirection = (Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position);
-            attackDirection.z = 0;
-            attackDirection.Normalize();
-            GameObject projectile = Instantiate(attackPrefab, transform.position + attackDirection, Quaternion.identity,transform);
             
-            // Rotate the Projectile
-            float angle = Vector3.Angle(attackDirection, Vector3.left);
-            if (attackDirection.y >0)
-            {
-                angle = angle * -1;
-            }
-            projectile.transform.Rotate(new Vector3(0,0,angle));
         }
+        if (Input.GetMouseButtonDown(1))
+        {
+            // Set the Attack State
+            attacking = true;
+            StartCoroutine(attackingFrames(stats.attackSpeed));
+            CreateProjectile(arrowPrefab, "moving");
+            
+        }
+    }
+
+    void CreateProjectile(GameObject prefab, string type) 
+    {
+        // Create the Projectile
+        Vector3 attackDirection = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+        attackDirection.z = 0;
+        attackDirection.Normalize();
+        Vector3 spawnPosition = transform.position + attackDirection - new Vector3(0, 0.75f,0);
+        GameObject projectile = Instantiate(prefab, spawnPosition, Quaternion.identity);
+        
+        // Rotate the Projectile
+        float angle = Vector3.Angle(attackDirection, Vector3.left);
+        if (attackDirection.y >0)
+        {
+            angle = angle * -1;
+        }
+        projectile.transform.Rotate(new Vector3(0,0,angle));
+
+        // Set its Values
+        switch (type)
+        {
+            case "static":
+                projectile.GetComponent<Projectile>().SetSliceValues(stats, stats.attackSpeed);
+                projectile.transform.parent = transform;
+                break;
+            case "moving":
+                projectile.GetComponent<Projectile>().SetArrowValues(stats, attackDirection);
+                break;
+        }
+        
     }
 
     void HandleMovement()
@@ -93,19 +126,18 @@ public class Player : MonoBehaviour
             movement += Vector3.right;
         } 
 
-        float sprintSpeedFactor = Input.GetKey(KeyCode.LeftShift) ? stats.sprintingSpeedMultiplier : 1f;
-
-        transform.position += movement.normalized * Time.deltaTime * sprintSpeedFactor * stats.movementSpeed;  
+        transform.position += movement.normalized * Time.deltaTime * stats.movementSpeed;  
 
     }
 
-    public void TakeDamage(float amount)
+    public void TakeDamage(float amount, float piercingDamage)
     {
         if (immuneToDamage)
         {
             return;
         }
-        health -= amount;
+        float damageFlat = amount * (1-stats.defensePercentage) + piercingDamage - stats.trueDefense;
+        health -= Mathf.Min(Mathf.Max(damageFlat, stats.maxDamage),GameManager.Instance.gameData.minDamage);
         immuneToDamage = true;
         StartCoroutine(immunityFrames(stats.invisibleFramesDuration));
     }
@@ -138,5 +170,6 @@ public class Player : MonoBehaviour
     }
 
     public float GetHealth() { return health; }
+    public void UpdateStats() {stats.SetStats();}
 
 }

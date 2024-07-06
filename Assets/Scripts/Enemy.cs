@@ -50,13 +50,13 @@ public class Enemy : MonoBehaviour
     void OnCollisionStay2D(Collision2D collision2D) {
         if (collision2D.gameObject.tag == "Player")
         {
-            collision2D.transform.GetComponent<Player>().TakeDamage(contactDamage);
+            collision2D.transform.GetComponent<Player>().TakeDamage(contactDamage, 0);
         }
     }
 
-    public void TakeDamage(float amount, Vector3 knockback)
+    public void TakeDamage(float amount, float piercingDamage, Vector3 knockback)
     {
-        health -= amount;
+        health -= amount + piercingDamage;
         this.knockback = knockback;
     }
 

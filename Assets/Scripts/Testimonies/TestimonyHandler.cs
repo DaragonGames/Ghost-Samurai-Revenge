@@ -51,6 +51,6 @@ public static class TestimonyHandler
         shownTestimonies = new List<int>();
         selectedTestimonies.Add(id);
         seenTestimonies.Remove(id);
-        Debug.Log("Avaible: " + avaibleTestimonies.Count + " Seen: " + seenTestimonies.Count + " Selected: "+ selectedTestimonies.Count + " Shown: " + shownTestimonies.Count); 
+        Debug.Log("Avaible: " + avaibleTestimonies.Count + " Seen: " + seenTestimonies.Count + " Selected: "+ selectedTestimonies.Count); 
     }
 }
