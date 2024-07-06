@@ -44,7 +44,7 @@ public class Projectile : MonoBehaviour
         if (col.gameObject.tag == "Enemy" && sourceTag == "Player")
         {
             float crit = (Random.value<critChance) ? critDamageMultiplier : 1;
-            col.transform.GetComponent<Enemy>().TakeDamage(contactDamage*crit,piercingDamage*crit, knockbackDirection*knockbackStrength);
+            col.transform.GetComponent<Enemy>().TakeDamage(contactDamage*crit,piercingDamage*crit, knockbackDirection,knockbackStrength);
             Pierce();   
         }  
     }
