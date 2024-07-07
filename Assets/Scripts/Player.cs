@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
     private PlayerStats stats;
     private bool immuneToDamage, attacking, enteringRoom;
     private Vector3 destinatedDirection;
+    private Animator animator;
 
 
 
@@ -22,6 +23,7 @@ public class Player : MonoBehaviour
         health = stats.maxHealth;
         GameManager.Instance.player = gameObject;
         GameManager.EnterNewRoom += EnterRoom; 
+        animator = GetComponent<Animator>();
     }
 
     void OnDestroy()
@@ -46,7 +48,8 @@ public class Player : MonoBehaviour
         {
             HandleMovement();
             HandleAttacks();
-        }        
+        }    
+        animator.SetBool("Attacking", attacking);    
     }
 
     void HandleAttacks()
@@ -61,7 +64,6 @@ public class Player : MonoBehaviour
             attacking = true;
             StartCoroutine(attackingFrames(stats.attackSpeed));
             CreateProjectile(slicePrefab, "static");
-
             
         }
         if (Input.GetMouseButtonDown(1))
@@ -107,24 +109,31 @@ public class Player : MonoBehaviour
 
     void HandleMovement()
     {
+        if (attacking) {return;}  
+
         Vector3 movement = Vector3.zero;
 
         if (Input.GetKey("w"))
         {
             movement += Vector3.up;
+            animator.SetInteger("Facing", 0);
         }
         if (Input.GetKey("s"))
         {
-            movement += Vector3.down;    
+            movement += Vector3.down;  
+            animator.SetInteger("Facing", 2);  
         } 
         if (Input.GetKey("a"))
         {
-            movement += Vector3.left;       
+            movement += Vector3.left;
+            animator.SetInteger("Facing", 3);       
         }
         if (Input.GetKey("d"))
         {
             movement += Vector3.right;
+            animator.SetInteger("Facing", 1);  
         } 
+        animator.SetBool("Moving", movement.magnitude > 0);
 
         transform.position += movement.normalized * Time.deltaTime * stats.movementSpeed;  
 
@@ -137,7 +146,7 @@ public class Player : MonoBehaviour
             return;
         }
         float damageFlat = amount * (1-stats.defensePercentage) + piercingDamage - stats.trueDefense;
-        health -= Mathf.Min(Mathf.Max(damageFlat, stats.maxDamage),GameManager.Instance.gameData.minDamage);
+        health -= Mathf.Max(Mathf.Min(damageFlat, stats.maxDamage),GameManager.Instance.gameData.minDamage);
         immuneToDamage = true;
         StartCoroutine(immunityFrames(stats.invisibleFramesDuration));
     }
@@ -160,7 +169,7 @@ public class Player : MonoBehaviour
     private IEnumerator attackingFrames(float time)
     {
         yield return new WaitForSeconds(time); 
-        attacking = false;
+        attacking = false;        
     }
 
     private IEnumerator enterRoomDelay()

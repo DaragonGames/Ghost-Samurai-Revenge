@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     public GameState gameState;
     public GameObject player;
     public int currentRoomID = -1;
-    private int collectedSheets = 100;
+    public int collectedSheets = 0;
     public GameData gameData;
 
     // Start is called before the first frame update

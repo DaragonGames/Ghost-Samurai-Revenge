@@ -1,22 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Turret : Enemy
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public override void MoveCharacter() { return; }
 
-    public override void CharacterAction() {}
+    public override void CharacterAction() {
+        Vector3 position = new Vector3();
+        Instantiate(spawnAble,position, Quaternion.identity);
+    }
 }

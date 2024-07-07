@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    private float duration;
-    private int piercing;
-    private string sourceTag;
-    private float movementSpeed;
-    private float contactDamage;
-    private float knockbackStrength;
-    private float piercingDamage;
-    private float critChance;
-    private float critDamageMultiplier;
-    private Vector3 direction = new Vector3(0, 0,0);
+    public float duration = 3;
+    public int piercing = 0;
+    public string sourceTag = "";
+    public float movementSpeed = 4;
+    public float contactDamage = 10;
+    public float knockbackStrength = 0;
+    public float piercingDamage = 0;
+    public float critChance = 0;
+    public float critDamageMultiplier = 1;
+    public Vector3 direction = new Vector3(0, 0,0);
 
 
 
@@ -83,5 +83,14 @@ public class Projectile : MonoBehaviour
         piercingDamage = stats.piercingDamage;
         critChance = stats.critChance;
         critDamageMultiplier = stats.critDamageMultiplier;
+    }
+
+    public void SetEnemyProjectileValues(Vector3 direction, float movementSpeed, float flightTime, float damage)
+    {
+        sourceTag = "Enemy";
+        this.direction = direction;        
+        this.movementSpeed = movementSpeed;
+        duration = flightTime;
+        contactDamage = damage;
     }
 }
