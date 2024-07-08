@@ -21,15 +21,18 @@ public class Enemy : MonoBehaviour
 
     // Code based Variables: do not change
     private Vector3 knockback = Vector3.zero;
-    private int roomID = -1;
+    protected int roomID = -1;
     private bool invincible = false;
-    private float actionCounter;
+    protected float actionCounter;
+
+    void Start()
+    {
+        actionCounter = actionSpeed;
+    }
 
     // Update is called once per frame
     void Update()
-    {
-        actionCounter = actionSpeed;
-        
+    {       
         // Handle Knockback
         transform.position += knockback * Time.deltaTime;
         knockback -= knockback.normalized * Time.deltaTime;  
@@ -45,6 +48,7 @@ public class Enemy : MonoBehaviour
             {
                 Instantiate(itemPrefab, transform.position, Quaternion.identity);
             }
+            CharacterFinalAction();
             Destroy(gameObject);
         }
         health += healthGeneration*Time.deltaTime;
@@ -64,14 +68,10 @@ public class Enemy : MonoBehaviour
         CharacterBonusAction();        
     }
 
-    public virtual void MoveCharacter()
-    {
-        Vector3 playerPosition = GameManager.Instance.player.transform.position;
-        Vector3 direction = (playerPosition - transform.position).normalized;
-        transform.position += direction * movementSpeed * Time.deltaTime;
-    }
+    public virtual void MoveCharacter() {}
     public virtual void CharacterAction() {}
     public virtual void CharacterBonusAction() {}
+    public virtual void CharacterFinalAction() {}
 
     void OnCollisionStay2D(Collision2D collision2D) {
         if (collision2D.gameObject.tag == "Player")
@@ -88,7 +88,7 @@ public class Enemy : MonoBehaviour
         }
         float damageFlat = amount * (1-defensePercentage) + piercingDamage - trueDefense;
         health -= Mathf.Max(damageFlat ,GameManager.Instance.gameData.minDamage);
-        this.knockback =knockback * Mathf.Min(knockbackStrength - knockbackResistance, 0);
+        this.knockback =knockback * Mathf.Max(knockbackStrength - knockbackResistance, 0);
         invincible = true;
         StartCoroutine(immunityFrames());
     }

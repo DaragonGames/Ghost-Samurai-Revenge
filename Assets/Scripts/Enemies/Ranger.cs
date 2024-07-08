@@ -3,9 +3,23 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class Turret : Enemy
+public class Ranger : Enemy
 {
-    public override void MoveCharacter() { return; }
+    public float attackRange = 12f;
+    public float fleeRange = 2.5f;
+
+    public override void MoveCharacter() { 
+        Vector3 playerPosition = GameManager.Instance.player.transform.position;
+        Vector3 distanceToPlayer = playerPosition - transform.position;
+        if ( distanceToPlayer.magnitude < fleeRange) 
+        {
+            transform.position -= distanceToPlayer.normalized * movementSpeed * Time.deltaTime;
+        }
+        if (distanceToPlayer.magnitude > attackRange) 
+        {
+            transform.position += distanceToPlayer.normalized * movementSpeed * Time.deltaTime;
+        }
+    }
 
     public override void CharacterAction() {
         // Create the Projectile

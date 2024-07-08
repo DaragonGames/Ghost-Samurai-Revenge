@@ -45,20 +45,14 @@ public class Room : MonoBehaviour
 
     void Start()
     {
-        Vector3 position = transform.position;
-
-        if (isEnd)
-        {
-            Instantiate(spawnables.torii, position+Vector3.up*3.5f, Quaternion.identity, transform);
-            return;
-        }
         if (isStart)
         {
-            return;
+
         }
-        
-        GameObject obj = Instantiate(spawnables.enemies[0], position, Quaternion.identity, enemies);
-        obj.GetComponent<Enemy>().SetRoomID(ID);
+        if (isEnd)
+        {
+            Instantiate(spawnables.torii, transform.position+Vector3.up*3.5f, Quaternion.identity, transform);
+        }   
     }
 
     void Update()
@@ -77,7 +71,7 @@ public class Room : MonoBehaviour
             doorUp.SetActive(!upOpen);
             doorDown.SetActive(!downOpen);
         }  
-        if (enemies.childCount == 0)
+        if (enemies.childCount == 0 && isEntered)
         {
             isCleared = true;
         }      
@@ -86,6 +80,10 @@ public class Room : MonoBehaviour
     void OnTriggerEnter2D(Collider2D col) {
         if (col.gameObject.tag == "Player")
         {
+            if (!isStart && !isEntered)
+            {
+                fillRoom(col.transform.position);
+            }            
             GameManager.OnRoomEnterEvent(transform.position);            
             StartCoroutine(DelayRoomAction());
         }        
@@ -96,6 +94,14 @@ public class Room : MonoBehaviour
         yield return new WaitForSeconds(1f); 
         isEntered = true;
         GameManager.Instance.currentRoomID = ID;
+    }
+
+    public void fillRoom(Vector3 playerPosition)
+    {
+        Vector3 position = transform.position;
+        GameObject prefab = spawnables.enemies[Random.Range(0,spawnables.enemies.Count)];
+        GameObject obj = Instantiate(prefab, position, Quaternion.identity, enemies);
+        obj.GetComponent<Enemy>().SetRoomID(ID);
     }
 
 }

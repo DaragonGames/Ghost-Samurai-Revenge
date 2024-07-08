@@ -28,7 +28,6 @@ public class CameraMover : MonoBehaviour
             if (direction.magnitude < Time.deltaTime*2f)
             {
                 transform.position = supposedPosition;
-                Debug.Log("" + counter);
                 counter = 0;
             }
             else

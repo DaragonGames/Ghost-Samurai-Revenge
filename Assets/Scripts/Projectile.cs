@@ -13,9 +13,7 @@ public class Projectile : MonoBehaviour
     public float piercingDamage = 0;
     public float critChance = 0;
     public float critDamageMultiplier = 1;
-    public Vector3 direction = new Vector3(0, 0,0);
-
-
+    private Vector3 direction = new Vector3(0, 0,0);
 
     // Start is called before the first frame update
     void Start()
@@ -65,10 +63,10 @@ public class Projectile : MonoBehaviour
         this.direction = direction;
         sourceTag = "Player";
         contactDamage = stats.arrowDamage;
+        knockbackStrength = stats.knockbackStrength;
         movementSpeed = stats.arrowSpeed;
         piercing = stats.arrowPiercing;
-        duration = stats.arrowFlightDuration;
-        knockbackStrength = stats.knockbackStrength;
+        duration = stats.arrowFlightDuration;        
         piercingDamage = stats.piercingDamage;
         critChance = stats.critChance;
         critDamageMultiplier = stats.critDamageMultiplier;
@@ -76,21 +74,21 @@ public class Projectile : MonoBehaviour
 
     public void SetSliceValues(PlayerStats stats, float duration)
     {   
-        this.duration = duration; 
+        direction = Vector3.zero;
         sourceTag = "Player";   
         contactDamage = stats.sliceDamage;
         knockbackStrength = stats.knockbackStrength;
+        movementSpeed = 0;
+        piercing = 1000;
+        this.duration = duration; 
         piercingDamage = stats.piercingDamage;
         critChance = stats.critChance;
         critDamageMultiplier = stats.critDamageMultiplier;
     }
 
-    public void SetEnemyProjectileValues(Vector3 direction, float movementSpeed, float flightTime, float damage)
+    public void SetValues(string source, Vector3 direction)
     {
-        sourceTag = "Enemy";
-        this.direction = direction;        
-        this.movementSpeed = movementSpeed;
-        duration = flightTime;
-        contactDamage = damage;
+        this.direction = direction;
+        sourceTag = source;
     }
 }
