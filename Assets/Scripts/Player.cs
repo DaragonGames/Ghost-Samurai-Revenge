@@ -82,7 +82,7 @@ public class Player : MonoBehaviour
         Vector3 attackDirection = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
         attackDirection.z = 0;
         attackDirection.Normalize();
-        Vector3 spawnPosition = transform.position + attackDirection - new Vector3(0, 0.75f,0);
+        Vector3 spawnPosition = transform.position + attackDirection;
         GameObject projectile = Instantiate(prefab, spawnPosition, Quaternion.identity);
         
         // Rotate the Projectile

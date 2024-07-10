@@ -99,5 +99,5 @@ public class Enemy : MonoBehaviour
         invincible = false;
     }
 
-    public void SetRoomID(int id){ roomID = id;}
+    public virtual void SetRoomID(int id){ roomID = id;}
 }

@@ -88,6 +88,10 @@ PrefabInstance:
       propertyPath: movementSpeed
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 7001614770237743176, guid: 8155e7a275cedef438f3349c42a09d28, type: 3}
+      propertyPath: knockbackResistance
+      value: -3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

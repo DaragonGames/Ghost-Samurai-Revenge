@@ -6,6 +6,10 @@ TagManager:
   tags:
   - Enemy
   - Projectile
+  - Obstacle
+  - Spikes
+  - Storage
+  - DestroyableObstacle
   layers:
   - Default
   - TransparentFX

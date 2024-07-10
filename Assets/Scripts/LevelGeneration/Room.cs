@@ -1,6 +1,7 @@
 
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class Room : MonoBehaviour
@@ -47,7 +48,7 @@ public class Room : MonoBehaviour
     {
         if (isStart)
         {
-
+            isCleared = true;
         }
         if (isEnd)
         {
@@ -98,10 +99,36 @@ public class Room : MonoBehaviour
 
     public void fillRoom(Vector3 playerPosition)
     {
-        Vector3 position = transform.position;
-        GameObject prefab = spawnables.enemies[Random.Range(0,spawnables.enemies.Count)];
-        GameObject obj = Instantiate(prefab, position, Quaternion.identity, enemies);
-        obj.GetComponent<Enemy>().SetRoomID(ID);
+        float xdif = Mathf.Abs( transform.position.x - playerPosition.x);
+        float ydif = Mathf.Abs(transform.position.y - playerPosition.y);
+        GameObject prefab;
+
+        if (xdif > ydif)
+        {
+            prefab =  spawnables.roomLayoutsLeft[Random.Range(0,spawnables.roomLayoutsLeft.Count)];
+        }
+        else
+        {
+            prefab =  spawnables.roomLayoutsTop[Random.Range(0,spawnables.roomLayoutsTop.Count)];
+        }
+        GameObject roomLayout = Instantiate(prefab, transform.position, Quaternion.identity, transform);
+        
+
+        List<Transform> enemyList = new List<Transform>();
+        for (int i =0; i < roomLayout.transform.childCount; i++)
+        {            
+            Transform check = roomLayout.transform.GetChild(i);
+            if (check.tag == "Enemy")
+            {
+                enemyList.Add(check);
+                check.GetComponent<Enemy>().SetRoomID(ID);
+            }
+        }
+        foreach (Transform enemy in enemyList)
+        {
+            enemy.parent = enemies;
+        }
+
     }
 
 }
