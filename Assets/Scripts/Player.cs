@@ -60,10 +60,10 @@ public class Player : MonoBehaviour
         }
         if (Input.GetMouseButtonDown(0))
         {
-            // Set the Attack State
-            attacking = true;
+            // Set the Attack State            
             StartCoroutine(attackingFrames(stats.attackSpeed));
-            CreateProjectile(slicePrefab, "static");
+            CreateSlice();
+            attacking = true;
             
         }
         if (Input.GetMouseButtonDown(1))
@@ -103,8 +103,53 @@ public class Player : MonoBehaviour
             case "moving":
                 projectile.GetComponent<Projectile>().SetArrowValues(stats, attackDirection);
                 break;
+        }        
+    }
+
+    void CreateSlice()
+    {
+        // Create the Projectile
+        GameObject projectile = Instantiate(slicePrefab, transform.position, Quaternion.identity, transform); 
+        projectile.GetComponent<Projectile>().SetSliceValues(stats, stats.attackSpeed);
+
+        // Change Characters Facing Direction
+        Vector3 attackDirection = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+        if (Mathf.Abs(attackDirection.x) > Mathf.Abs(attackDirection.y) )
+        {
+            if (attackDirection.x > 0)
+            {
+                animator.SetInteger("Facing", 1);
+                projectile.transform.position += new Vector3(0.65f, -0.1f,0);
+            }
+            else
+            {
+                animator.SetInteger("Facing", 3);
+                projectile.transform.position += new Vector3(-0.65f, -0.1f,0);
+            }
         }
+        else
+        {
+            if (attackDirection.y > 0)
+            {
+                animator.SetInteger("Facing", 0);
+                projectile.transform.position += new Vector3(0, 0.8f,0);
+                projectile.transform.Rotate(new Vector3(0,0,90));
+            }
+            else
+            {
+                animator.SetInteger("Facing", 2);
+                projectile.transform.position +=new Vector3(0, -0.8f,0);
+                projectile.transform.Rotate(new Vector3(0,0,90));
+            }
+        }
+
+        GetComponent<Animator>().speed = 0.6f / stats.attackSpeed;
+
+
+
         
+
+        // Rotate?
     }
 
     void HandleMovement()
@@ -169,7 +214,8 @@ public class Player : MonoBehaviour
     private IEnumerator attackingFrames(float time)
     {
         yield return new WaitForSeconds(time); 
-        attacking = false;        
+        attacking = false;    
+        GetComponent<Animator>().speed = 1;    
     }
 
     private IEnumerator enterRoomDelay()

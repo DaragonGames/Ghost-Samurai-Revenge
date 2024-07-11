@@ -10,6 +10,7 @@ TagManager:
   - Spikes
   - Storage
   - DestroyableObstacle
+  - wall
   layers:
   - Default
   - TransparentFX

@@ -55,6 +55,17 @@ public class Projectile : MonoBehaviour
             col.transform.GetComponent<DestroyableObstacle>().GetAttacked();
             Pierce();   
         } 
+        if (col.gameObject.tag == "wall" || col.gameObject.tag == "Obstacle")
+        {
+            if (piercing < 20)
+            {
+                Destroy(gameObject);
+            }
+            else
+            {
+                Pierce();
+            }               
+        } 
     }
 
     private void Pierce() {

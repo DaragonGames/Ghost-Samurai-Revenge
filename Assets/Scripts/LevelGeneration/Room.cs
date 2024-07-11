@@ -6,8 +6,8 @@ using UnityEngine;
 
 public class Room : MonoBehaviour
 {
-    public GameObject doorLeft, doorRight, doorUp, doorDown;
-    public Transform enemies;
+    public GameObject doorLeft, doorRight, doorUp, doorDown, bamboo;
+    public Transform enemies, border;
     public Spawnables spawnables;
 
     private int ID;
@@ -53,7 +53,32 @@ public class Room : MonoBehaviour
         if (isEnd)
         {
             Instantiate(spawnables.torii, transform.position+Vector3.up*3.5f, Quaternion.identity, transform);
-        }   
+        }  
+        // Create Bamboo Walls
+        for (int i = 0;i < 3; i++)
+        {
+            Instantiate(bamboo,transform.position + new Vector3(7.5f,4-i,-1), Quaternion.identity, border);
+            Instantiate(bamboo,transform.position + new Vector3(7.5f,-4+i,-1), Quaternion.identity, border);
+            Instantiate(bamboo,transform.position + new Vector3(-7.5f,4-i,-1), Quaternion.identity, border);
+            Instantiate(bamboo,transform.position + new Vector3(-7.5f,-4+i,-1), Quaternion.identity, border);
+            Instantiate(bamboo,transform.position + new Vector3(7.5f,1-i,-1), Quaternion.identity, doorRight.transform);
+            Instantiate(bamboo,transform.position + new Vector3(-7.5f,1-i,-1), Quaternion.identity, doorLeft.transform);
+        }
+        for (int i = 0;i < 14; i++)
+        {
+            if (i== 6 || i== 7)
+            {
+                Instantiate(bamboo,transform.position + new Vector3(6.5f-i,4,-1), Quaternion.identity, doorUp.transform);
+                Instantiate(bamboo,transform.position + new Vector3(6.5f-i,-4,-1), Quaternion.identity, doorDown.transform);
+            }
+            else
+            {
+                Instantiate(bamboo,transform.position + new Vector3(6.5f-i,4,-1), Quaternion.identity, border);
+                Instantiate(bamboo,transform.position + new Vector3(6.5f-i,-4,-1), Quaternion.identity, border);
+            }            
+        }
+        
+
     }
 
     void Update()
@@ -81,7 +106,7 @@ public class Room : MonoBehaviour
     void OnTriggerEnter2D(Collider2D col) {
         if (col.gameObject.tag == "Player")
         {
-            if (!isStart && !isEntered)
+            if (!isStart && !isEntered && !isEnd)
             {
                 fillRoom(col.transform.position);
             }            
@@ -99,19 +124,27 @@ public class Room : MonoBehaviour
 
     public void fillRoom(Vector3 playerPosition)
     {
-        float xdif = Mathf.Abs( transform.position.x - playerPosition.x);
-        float ydif = Mathf.Abs(transform.position.y - playerPosition.y);
+        float xdif = transform.position.x - playerPosition.x;
+        float ydif = transform.position.y - playerPosition.y;
+        bool flipX = false, flipY = false;
         GameObject prefab;
 
-        if (xdif > ydif)
+        if (Mathf.Abs(xdif) > Mathf.Abs(ydif))
         {
             prefab =  spawnables.roomLayoutsLeft[Random.Range(0,spawnables.roomLayoutsLeft.Count)];
+            flipX = xdif>0;
         }
         else
         {
             prefab =  spawnables.roomLayoutsTop[Random.Range(0,spawnables.roomLayoutsTop.Count)];
+            flipY = ydif<0;
         }
         GameObject roomLayout = Instantiate(prefab, transform.position, Quaternion.identity, transform);
+        for (int i = 0;i<roomLayout.transform.childCount;i++)
+        {
+            Vector3 pos = roomLayout.transform.GetChild(i).localPosition;
+            roomLayout.transform.GetChild(i).localPosition = new Vector3(pos.x *(flipX?-1:1),pos.y * (flipY?-1:1),pos.z);
+        }
         
 
         List<Transform> enemyList = new List<Transform>();

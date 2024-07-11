@@ -26,7 +26,7 @@ public class PlayerStats
     public void SetStats()
     {
         GameData gameData = GameManager.Instance.gameData;
-        movementSpeed = 3 + gameData.MovementSpeedUpgradesCollected * 0.25f;
+        movementSpeed = 4 + gameData.MovementSpeedUpgradesCollected * 0.25f;
         attackSpeed = 0.6f - gameData.AttackSpeedUpgradesCollected * 0.05f;
         arrowDamage = 20 + gameData.DamageUpgradesCollected * 5;
         sliceDamage = 20 + gameData.DamageUpgradesCollected * 5;
