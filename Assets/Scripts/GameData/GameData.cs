@@ -4,6 +4,8 @@
 *   Save Data from other points here and read them at other points
 */
 
+using UnityEngine;
+
 public class GameData
 {
 
@@ -12,7 +14,9 @@ public class GameData
     public int AttackSpeedUpgradesCollected;
     public int HealthUpgradesCollected;
     public int DamageUpgradesCollected;
+    public int DefenseUpgradesCollected;
     public int LuckUpgradesCollected;
+    public int collectedSheets = 0;
 
 
     public float minDamage = 1;
@@ -22,7 +26,28 @@ public class GameData
         switch (id)
         {
             case 0:
-                MovementSpeedUpgradesCollected++;
+                collectedSheets++;
+                break;
+            case 1:
+                GameManager.Instance.player.GetComponent<Player>().GainHealth(20);
+                break;
+            case 2:
+                MovementSpeedUpgradesCollected= Mathf.Min(MovementSpeedUpgradesCollected+1, 10);
+                break;
+            case 3:
+                AttackSpeedUpgradesCollected= Mathf.Min(AttackSpeedUpgradesCollected+1, 10);
+                break;
+            case 4:
+                HealthUpgradesCollected= Mathf.Min(HealthUpgradesCollected+1, 10);
+                break;
+            case 5:
+                DamageUpgradesCollected= Mathf.Min(DamageUpgradesCollected+1, 10);
+                break;
+            case 6:
+                DefenseUpgradesCollected= Mathf.Min(DefenseUpgradesCollected+1, 10);
+                break;
+            case 7:
+                LuckUpgradesCollected= Mathf.Min(LuckUpgradesCollected+1, 10);
                 break;
         }
         GameManager.Instance.player.GetComponent<Player>().UpdateStats();

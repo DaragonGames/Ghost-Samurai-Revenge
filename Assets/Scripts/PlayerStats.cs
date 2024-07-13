@@ -31,6 +31,7 @@ public class PlayerStats
         arrowDamage = 20 + gameData.DamageUpgradesCollected * 5;
         sliceDamage = 20 + gameData.DamageUpgradesCollected * 5;
         maxHealth = 100 + gameData.HealthUpgradesCollected * 10;
+        defensePercentage = 0 + gameData.DefenseUpgradesCollected*0.05f;
         maxDamage = maxHealth;
     }
 

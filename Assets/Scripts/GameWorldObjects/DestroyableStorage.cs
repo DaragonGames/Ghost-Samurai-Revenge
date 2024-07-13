@@ -22,7 +22,7 @@ public class DestroyableStorage : MonoBehaviour
         {
             return;
         }
-        if (Random.value <= GameManager.Instance.gameData.LuckUpgradesCollected * 3f + 0.20f)
+        if (Random.value <= GameManager.GetLuck() * 0.025f + 0.10f)
         {
             Instantiate(itemPrefab, transform.position, Quaternion.identity);            
         }

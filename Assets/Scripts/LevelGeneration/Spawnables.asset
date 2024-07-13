@@ -51,7 +51,8 @@ MonoBehaviour:
   - {fileID: 7660873095434477787, guid: 3d49ba0a584a7744f9ad4e5f21214cdf, type: 3}
   - {fileID: 175900284069096224, guid: 71b8d245648e7924f997861e5e655f6e, type: 3}
   roomLayoutsTop:
-  - {fileID: 8120080158571706847, guid: bd500d0b5991c8b478fe76a8fe67f1df, type: 3}
-  - {fileID: 2785911716187532132, guid: 15e61a4c3a0f7ae4290cb04f84f44085, type: 3}
   - {fileID: 5397550851790985060, guid: e43bb72918e1a7047a1f2c87d83aeba3, type: 3}
   - {fileID: 437833219861219249, guid: acd058b3fe597e24fafbc6e9c366b373, type: 3}
+  - {fileID: 238074701587590485, guid: bf08c323051ddfb45a0a6fdb56c30106, type: 3}
+  - {fileID: 2785911716187532132, guid: 15e61a4c3a0f7ae4290cb04f84f44085, type: 3}
+  - {fileID: 8120080158571706847, guid: bd500d0b5991c8b478fe76a8fe67f1df, type: 3}

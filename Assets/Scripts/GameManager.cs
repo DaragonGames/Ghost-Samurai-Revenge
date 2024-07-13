@@ -11,7 +11,6 @@ public class GameManager : MonoBehaviour
     public GameState gameState;
     public GameObject player;
     public int currentRoomID = -1;
-    public int collectedSheets = 0;
     public GameData gameData;
 
     // Start is called before the first frame update
@@ -50,8 +49,8 @@ public class GameManager : MonoBehaviour
     public void SelectTestimony(int id)
     {
         TestimonyHandler.SelectTestimonies(id);
-        collectedSheets--;
-        if (collectedSheets > 0)
+        gameData.collectedSheets--;
+        if (gameData.collectedSheets > 0)
         {
             SceneManager.LoadScene("Reading");
         }    
@@ -59,6 +58,16 @@ public class GameManager : MonoBehaviour
         {
             EnterGrove();
         }    
+    }
+
+    public void CollectSheet() 
+    {
+        gameData.collectedSheets++;
+    }
+
+    public static int GetLuck()
+    {
+        return GameManager.Instance.gameData.LuckUpgradesCollected;
     }
 
     

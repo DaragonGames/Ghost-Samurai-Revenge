@@ -200,7 +200,7 @@ public class Player : MonoBehaviour
     {
         enteringRoom = true;
         destinatedDirection = center - transform.position;
-        destinatedDirection.z = transform.position.z;
+        destinatedDirection.z = 0;
         destinatedDirection.Normalize();
         StartCoroutine(enterRoomDelay());
     }
@@ -224,7 +224,15 @@ public class Player : MonoBehaviour
         enteringRoom = false;
     }
 
-    public float GetHealth() { return health; }
+    public float GetHealthValue() { return health; }
+    public void GainHealth(float value) { 
+        health += value; 
+        if (health > stats.maxHealth)
+        {
+            health = stats.maxHealth;
+        }
+    }
     public void UpdateStats() {stats.SetStats();}
+    public PlayerStats GetStats() {return stats;}
 
 }

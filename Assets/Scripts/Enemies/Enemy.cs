@@ -24,6 +24,7 @@ public class Enemy : MonoBehaviour
     protected int roomID = -1;
     private bool invincible = false;
     protected float actionCounter;
+    private bool isMinion = false;
 
     void Start()
     {
@@ -44,7 +45,9 @@ public class Enemy : MonoBehaviour
         // Kill Enemie when they have no Health
         if (health <= 0)
         {
-            if (Random.value <= GameManager.Instance.gameData.LuckUpgradesCollected * 3f + 0.20f)
+            float ran = Random.value;
+            Debug.Log(ran);
+            if (ran <= (GameManager.GetLuck() * 0.025f + 0.10f) && !isMinion)
             {
                 Instantiate(itemPrefab, transform.position, Quaternion.identity);
             }
@@ -100,4 +103,5 @@ public class Enemy : MonoBehaviour
     }
 
     public virtual void SetRoomID(int id){ roomID = id;}
+    public virtual void DeclareAsMinion(){ isMinion = true;}
 }

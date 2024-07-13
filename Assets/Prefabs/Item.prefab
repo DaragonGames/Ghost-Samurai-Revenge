@@ -133,3 +133,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: caf66027d77bef143a29afc0f1596f86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: 21300000, guid: ae8929e61f9cc864682a92ce8d0984b5, type: 3}
+  - {fileID: 21300000, guid: 68dfc90ce44d3a148a9f6af4141b0a77, type: 3}
+  - {fileID: 21300000, guid: f3c5dd345f7ee9e40a6abbd78793aedc, type: 3}
+  - {fileID: 21300000, guid: 4a9a8c0aabf40d04a94180bb5029dd3e, type: 3}
+  - {fileID: 21300000, guid: 2cc2ef4c2cb327d48bb9e39f3452c166, type: 3}
+  - {fileID: 21300000, guid: b1f5ce606426eec4caf277a9c0b637f5, type: 3}
+  - {fileID: 21300000, guid: 01da622f2b058954e8e7237eeefb0f8b, type: 3}
+  - {fileID: 21300000, guid: e134db64ab66afb479ee6d87d251864e, type: 3}

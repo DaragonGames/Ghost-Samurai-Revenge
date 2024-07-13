@@ -19,7 +19,7 @@ public class Tori : MonoBehaviour
     void OnCollisionStay2D(Collision2D collision2D) {
         if (collision2D.gameObject.tag == "Player")
         {
-            GameManager.Instance.collectedSheets++;
+            GameManager.Instance.CollectSheet();
             GameManager.Instance.LeaveGrove();
         }
     }
