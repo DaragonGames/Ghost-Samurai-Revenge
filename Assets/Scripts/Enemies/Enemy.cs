@@ -21,7 +21,7 @@ public class Enemy : MonoBehaviour
 
     // Code based Variables: do not change
     private Vector3 knockback = Vector3.zero;
-    protected int roomID = -1;
+    protected int roomID;
     private bool invincible = false;
     protected float actionCounter;
     private bool isMinion = false;
@@ -46,7 +46,6 @@ public class Enemy : MonoBehaviour
         if (health <= 0)
         {
             float ran = Random.value;
-            Debug.Log(ran);
             if (ran <= (GameManager.GetLuck() * 0.025f + 0.10f) && !isMinion)
             {
                 Instantiate(itemPrefab, transform.position, Quaternion.identity);

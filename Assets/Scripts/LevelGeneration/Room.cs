@@ -112,7 +112,11 @@ public class Room : MonoBehaviour
             }            
             GameManager.OnRoomEnterEvent(transform.position);            
             StartCoroutine(DelayRoomAction());
-        }        
+        }   
+        if (col.GetComponent<Ghost>() != null)
+        {
+            col.GetComponent<Ghost>().SetBossRoom(this);
+        }     
     }
 
     IEnumerator DelayRoomAction()

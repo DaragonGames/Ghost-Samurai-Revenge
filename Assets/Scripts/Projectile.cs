@@ -14,6 +14,8 @@ public class Projectile : MonoBehaviour
     public float critDamageMultiplier = 1;
     private string sourceTag;
     private Vector3 direction = new Vector3(0, 0,0);
+    private float roationSpeed = 0;
+    private float acceleration=0;
 
     // Start is called before the first frame update
     void Start()
@@ -25,6 +27,8 @@ public class Projectile : MonoBehaviour
     void Update()
     {
         transform.position += direction * Time.deltaTime * movementSpeed;
+        transform.Rotate(new Vector3(0,0,roationSpeed*360*Time.deltaTime));
+        movementSpeed += acceleration*Time.deltaTime;
     }
 
     void OnTriggerEnter2D(Collider2D col)
@@ -110,6 +114,20 @@ public class Projectile : MonoBehaviour
     public void SetValues(string source, Vector3 direction)
     {
         this.direction = direction;
+        sourceTag = source;
+    }
+    public void SetValues(string source, Vector3 direction, float roationSpeed)
+    {
+        this.direction = direction;
+        this.roationSpeed = roationSpeed;
+        sourceTag = source;
+    }
+
+    public void SetValues(string source, Vector3 direction, float roationSpeed, float acceleration)
+    {
+        this.acceleration = acceleration;
+        this.direction = direction;
+        this.roationSpeed = roationSpeed;
         sourceTag = source;
     }
 }
