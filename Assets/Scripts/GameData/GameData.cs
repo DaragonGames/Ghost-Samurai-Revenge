@@ -16,7 +16,7 @@ public class GameData
     public int DamageUpgradesCollected;
     public int DefenseUpgradesCollected;
     public int LuckUpgradesCollected;
-    public int collectedSheets = 0;
+    public int collectedSheets;
 
 
     public float minDamage = 1;
