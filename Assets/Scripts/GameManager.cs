@@ -36,6 +36,7 @@ public class GameManager : MonoBehaviour
 
     public void LeaveGrove()
     {
+        gameData.progression++;
         gameState = GameState.Reading;
         SceneManager.LoadScene("Reading");
     }

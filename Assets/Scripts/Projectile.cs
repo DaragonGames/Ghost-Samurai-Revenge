@@ -21,6 +21,10 @@ public class Projectile : MonoBehaviour
     void Start()
     {
         Destroy(gameObject, duration);
+        if (sourceTag == "Enemy")
+        {
+            contactDamage *= 1 + 0.15f*GameManager.Instance.gameData.progression;
+        }
     }
 
     // Update is called once per frame
@@ -83,7 +87,7 @@ public class Projectile : MonoBehaviour
         }
     }
 
-    public void SetArrowValues(PlayerStats stats, Vector3 direction)
+    public void SetShirukenValues(PlayerStats stats, Vector3 direction)
     {  
         this.direction = direction;
         sourceTag = "Player";
@@ -95,6 +99,7 @@ public class Projectile : MonoBehaviour
         piercingDamage = stats.piercingDamage;
         critChance = stats.critChance;
         critDamageMultiplier = stats.critDamageMultiplier;
+        roationSpeed = 4;
     }
 
     public void SetSliceValues(PlayerStats stats, float duration)

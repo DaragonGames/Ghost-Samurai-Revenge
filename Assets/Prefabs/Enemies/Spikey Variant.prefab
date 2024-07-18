@@ -52,6 +52,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spikey Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 5405724725572905662, guid: 8155e7a275cedef438f3349c42a09d28, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5405724725572905662, guid: 8155e7a275cedef438f3349c42a09d28, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5405724725572905662, guid: 8155e7a275cedef438f3349c42a09d28, type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7001614770237743176, guid: 8155e7a275cedef438f3349c42a09d28, type: 3}
       propertyPath: health
       value: 10

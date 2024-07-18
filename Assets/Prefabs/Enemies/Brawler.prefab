@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5405724725572905662}
   - component: {fileID: 8148040243117096292}
   - component: {fileID: 4508976017877979386}
+  - component: {fileID: 1661468582298618715}
   m_Layer: 0
   m_Name: Brawler
   m_TagString: Enemy
@@ -99,8 +100,8 @@ SpriteRenderer:
   m_SortingLayerID: 1830794183
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: caebb0d88487ff44785987a8860f0f15, type: 3}
-  m_Color: {r: 1, g: 0.514151, b: 0.514151, a: 1}
+  m_Sprite: {fileID: 479591322, guid: 901c7484e987a2541a23904d7efeb082, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -144,7 +145,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.45
 --- !u!50 &4508976017877979386
 Rigidbody2D:
   serializedVersion: 4
@@ -172,3 +173,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1661468582298618715
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4097373891918239772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c09ebc8a7cd4a77488828bea91a51e39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: 479591322, guid: 901c7484e987a2541a23904d7efeb082, type: 3}
+  - {fileID: 974589082, guid: 901c7484e987a2541a23904d7efeb082, type: 3}
+  - {fileID: 30869623, guid: 901c7484e987a2541a23904d7efeb082, type: 3}
+  - {fileID: 1337105533, guid: 901c7484e987a2541a23904d7efeb082, type: 3}
+  - {fileID: -107207966, guid: 901c7484e987a2541a23904d7efeb082, type: 3}
+  framesPerSecond: 5

@@ -29,6 +29,7 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         actionCounter = actionSpeed;
+        PowerUp();
     }
 
     // Update is called once per frame
@@ -103,4 +104,10 @@ public class Enemy : MonoBehaviour
 
     public virtual void SetRoomID(int id){ roomID = id;}
     public virtual void DeclareAsMinion(){ isMinion = true;}
+
+    public virtual void PowerUp() {
+        contactDamage *= 1 + 0.15f*GameManager.Instance.gameData.progression;
+        movementSpeed *= 1 + 0.1f*GameManager.Instance.gameData.progression;
+        health *= 1 + 0.2f*GameManager.Instance.gameData.progression;
+    }
 }

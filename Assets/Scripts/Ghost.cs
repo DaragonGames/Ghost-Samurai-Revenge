@@ -41,7 +41,6 @@ public class Ghost : Enemy
             transform.position += step * direction.normalized;
             if (direction.magnitude < step *2)
             {
-                Debug.Log("Go somewhere");
                 movingGoal.x = Random.Range(-5, 5);
                 movingGoal.y = Random.Range(-2.25f, 2.25f);
             }
@@ -84,7 +83,7 @@ public class Ghost : Enemy
 
     public void SwirlingBladeCirle() {
         GameObject projectile = Instantiate(orbitingBlade, transform.position, Quaternion.identity, transform);
-        projectile.GetComponentInChildren<Projectile>().SetValues("Enemy",Vector3.zero, 2f);
+        projectile.GetComponentInChildren<Projectile>().SetValues("Enemy",Vector3.zero, -2.25f+Random.value*0.5f);
         // Rotate the Projectile
         Vector3 attackDirection = GameManager.Instance.player.transform.position - transform.position;
         attackDirection.z = 0;
@@ -144,7 +143,7 @@ public class Ghost : Enemy
         attackDirection.Normalize();
 
         GameObject projectile = Instantiate(demonBlade, transform.position+attackDirection, Quaternion.identity);
-        projectile.GetComponentInChildren<Projectile>().SetValues("Enemy",attackDirection, 3f,4f);
+        projectile.GetComponentInChildren<Projectile>().SetValues("Enemy",attackDirection, -3f+Random.value*0.5f,4f);
         return;
     }
 
@@ -156,34 +155,40 @@ public class Ghost : Enemy
         {
             turrets[0] = Instantiate(turret, center+new Vector3(6.5f,2.5f,0f), Quaternion.identity);
             turrets[0].GetComponent<Enemy>().SetRoomID(GameManager.Instance.currentRoomID);
+            turrets[0].GetComponent<Enemy>().DeclareAsMinion();
         }
 
         if (turrets[1] == null)
         {
             turrets[1] = Instantiate(turret, center+new Vector3(-6.5f,2.5f,0f), Quaternion.identity);
             turrets[1].GetComponent<Enemy>().SetRoomID(GameManager.Instance.currentRoomID);
+            turrets[1].GetComponent<Enemy>().DeclareAsMinion();
         }
 
         if (turrets[2] == null)
         {
             turrets[2] = Instantiate(turret, center+new Vector3(6.5f,-2.5f,0f), Quaternion.identity);
             turrets[2].GetComponent<Enemy>().SetRoomID(GameManager.Instance.currentRoomID);
+            turrets[2].GetComponent<Enemy>().DeclareAsMinion();
         }
 
         if (turrets[3] == null)
         {
             turrets[3] = Instantiate(turret, center+new Vector3(-6.5f,-2.5f,0f), Quaternion.identity);
             turrets[3].GetComponent<Enemy>().SetRoomID(GameManager.Instance.currentRoomID);
+            turrets[3].GetComponent<Enemy>().DeclareAsMinion();
         }
 
     }
 
     private void ChargerAttack()
     {
-        Instantiate(charger, transform.position+new Vector3(1.5f,0,0), Quaternion.identity)
-        .GetComponent<Enemy>().SetRoomID(GameManager.Instance.currentRoomID);
+        GameObject obj = Instantiate(charger, transform.position+new Vector3(1.5f,0,0), Quaternion.identity);
+        obj.GetComponent<Enemy>().SetRoomID(GameManager.Instance.currentRoomID);
+        obj.GetComponent<Enemy>().DeclareAsMinion();
 
-        Instantiate(charger, transform.position+new Vector3(-1.5f,0,0), Quaternion.identity)
-        .GetComponent<Enemy>().SetRoomID(GameManager.Instance.currentRoomID);
+        obj = Instantiate(charger, transform.position+new Vector3(-1.5f,0,0), Quaternion.identity);
+        obj.GetComponent<Enemy>().SetRoomID(GameManager.Instance.currentRoomID);
+        obj.GetComponent<Enemy>().DeclareAsMinion();
     }
 }

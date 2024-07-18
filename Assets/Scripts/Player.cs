@@ -101,7 +101,7 @@ public class Player : MonoBehaviour
                 projectile.transform.parent = transform;
                 break;
             case "moving":
-                projectile.GetComponent<Projectile>().SetArrowValues(stats, attackDirection);
+                projectile.GetComponent<Projectile>().SetShirukenValues(stats, attackDirection);
                 break;
         }        
     }
