@@ -11,6 +11,7 @@ TagManager:
   - Storage
   - DestroyableObstacle
   - wall
+  - Room
   layers:
   - Default
   - TransparentFX

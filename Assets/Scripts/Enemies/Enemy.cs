@@ -83,7 +83,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    public void TakeDamage(float amount, float piercingDamage, Vector3 knockback, float knockbackStrength)
+    public virtual void TakeDamage(float amount, float piercingDamage, Vector3 knockback, float knockbackStrength)
     {
         if (invincible)
         {
@@ -93,12 +93,12 @@ public class Enemy : MonoBehaviour
         health -= Mathf.Max(damageFlat ,GameManager.Instance.gameData.minDamage);
         this.knockback =knockback * Mathf.Max(knockbackStrength - knockbackResistance, 0);
         invincible = true;
-        StartCoroutine(immunityFrames());
+        StartCoroutine(immunityFrames(0.15f));
     }
 
-    private IEnumerator immunityFrames()
+    protected virtual IEnumerator immunityFrames(float duration)
     {
-        yield return new WaitForSeconds(0.15f); 
+        yield return new WaitForSeconds(duration); 
         invincible = false;
     }
 

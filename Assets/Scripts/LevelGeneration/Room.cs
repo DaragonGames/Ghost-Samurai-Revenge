@@ -11,7 +11,7 @@ public class Room : MonoBehaviour
     public Spawnables spawnables;
 
     private int ID;
-    private bool leftOpen, rightOpen, upOpen, downOpen, isCleared, isStart, isEnd, isEntered;
+    private bool leftOpen, rightOpen, upOpen, downOpen, isCleared, isStart, isEnd, isEntered, isBossRoom;
 
     public void createOpening(int indicator)
     {
@@ -34,6 +34,9 @@ public class Room : MonoBehaviour
     }
 
     public void SetID(int id) { ID = id; }
+    public int GetID() { return ID; }
+    public bool GetIsEntered() {return isEntered;}
+    public void SetBossRoom() { isBossRoom = true;}
 
     public void SetAsStart() {
         isStart = true;
@@ -97,7 +100,7 @@ public class Room : MonoBehaviour
             doorUp.SetActive(!upOpen);
             doorDown.SetActive(!downOpen);
         }  
-        if (enemies.childCount == 0 && isEntered)
+        if (enemies.childCount == 0 && isEntered && !isBossRoom)
         {
             isCleared = true;
         }      
@@ -106,7 +109,7 @@ public class Room : MonoBehaviour
     void OnTriggerEnter2D(Collider2D col) {
         if (col.gameObject.tag == "Player")
         {
-            if (!isStart && !isEntered && !isEnd)
+            if (!isStart && !isEntered && !isEnd && !isBossRoom)
             {
                 fillRoom(col.transform.position);
             }            
@@ -115,7 +118,7 @@ public class Room : MonoBehaviour
         }   
         if (col.GetComponent<Ghost>() != null)
         {
-            col.GetComponent<Ghost>().SetBossRoom(this);
+            col.transform.parent = transform;
         }     
     }
 

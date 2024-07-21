@@ -9,6 +9,7 @@ using UnityEngine;
 public class GameData
 {
     public int progression = 0;
+    public float ghostWrath = 0;
 
     public int MovementSpeedUpgradesCollected;
     public int AttackSpeedUpgradesCollected;

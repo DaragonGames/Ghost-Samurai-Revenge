@@ -209,4 +209,29 @@ public class LevelGenerator : MonoBehaviour
             CreateExtraRoom();
         }
     }
+
+    public float[] RoomSize() {
+        float x = start * (roomWidth-overlapp) * -1 + roomWidth/2f; 
+        float xm = (width-1) * (roomWidth-overlapp) + x;
+        float y = roomHeight/-2;
+        float ym = (height-1) * (roomHeight-overlapp) +y; 
+        return new float[] {x,y,xm,ym};
+    }
+
+    public Room RecreateAsBossRoom(Room oldRoom)
+    {
+        Vector3 position = new Vector3(oldRoom.transform.position.x , oldRoom.transform.position.y,0);
+        GameObject obj = Instantiate(roomPrefab, position, Quaternion.identity,transform);
+        Room newRoom= obj.GetComponent<Room>();
+        rooms[oldRoom.GetID()] = newRoom;
+        newRoom.SetID(oldRoom.GetID());
+        newRoom.createOpening(1);
+        newRoom.createOpening(-1);
+        newRoom.createOpening(2);
+        newRoom.createOpening(-2);
+        newRoom.SetBossRoom();
+        Destroy(oldRoom.gameObject);
+        return newRoom;
+    }
+
 }

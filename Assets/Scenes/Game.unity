@@ -2019,7 +2019,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1160240701
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2976,13 +2976,14 @@ GameObject:
   - component: {fileID: 1469772612}
   - component: {fileID: 1469772611}
   - component: {fileID: 1469772615}
+  - component: {fileID: 1469772616}
   m_Layer: 0
   m_Name: Ghost
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!50 &1469772611
 Rigidbody2D:
   serializedVersion: 4
@@ -3039,7 +3040,7 @@ CapsuleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -0.05}
@@ -3106,7 +3107,7 @@ Transform:
   m_GameObject: {fileID: 1469772610}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2, y: 1.5, z: 0}
+  m_LocalPosition: {x: -45, y: 25, z: 0}
   m_LocalScale: {x: 1.3, y: 1.3, z: 1.3}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -3127,7 +3128,7 @@ MonoBehaviour:
   contactDamage: 10
   piercingContactDamage: 0
   movementSpeed: 1
-  health: 500
+  health: 10000
   knockbackResistance: 0
   healthGeneration: 0
   defensePercentage: 0.5
@@ -3135,12 +3136,23 @@ MonoBehaviour:
   actionSpeed: 2
   spawnAble: {fileID: 0}
   itemPrefab: {fileID: 0}
+--- !u!114 &1469772616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1469772610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64ce32a1d11c59f468e1bad2bfdc432c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   orbitingBlade: {fileID: 5915706374649518649, guid: f03a539297857e04fb011c8c07805d41, type: 3}
   demonBlade: {fileID: 5278447728813278604, guid: 80ecbbc9c3d80c943974ce0ad1f2d12e, type: 3}
   leaf: {fileID: 4553558618811624311, guid: 71fb5430ca0c97d4792068f4d2af5b3a, type: 3}
   turret: {fileID: 939169809293922308, guid: 26fc2315b973b2f4eb70f06f716fdf23, type: 3}
   charger: {fileID: 5326132410285193330, guid: eddb4985fa1332844a414d1961e88be6, type: 3}
-  movingGoal: {x: 0, y: 0, z: 0}
 --- !u!1001 &1527331887
 PrefabInstance:
   m_ObjectHideFlags: 0
