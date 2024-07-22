@@ -2019,7 +2019,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1160240701
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3136,6 +3136,7 @@ MonoBehaviour:
   actionSpeed: 2
   spawnAble: {fileID: 0}
   itemPrefab: {fileID: 0}
+  GhostUI: {fileID: 1160240700}
 --- !u!114 &1469772616
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3678,7 +3679,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1618201593, guid: 682668dee48ebef4a917c7fcb6702dcd, type: 3}
+  m_Sprite: {fileID: -286399067, guid: 17b65f17486780f499f54ea1c20ec139, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

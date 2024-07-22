@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class Ghost : Enemy
 {
+    public GameObject GhostUI;
+
     private Vector3 movingGoal;
     private GhostAttacks attacks;
     private enum states {wandering, fleeing, retaliation, waiting, attacking, postAttack};
@@ -45,6 +47,7 @@ public class Ghost : Enemy
             case states.waiting:
                 if (roomID == GameManager.Instance.currentRoomID)
                 {
+                    GhostUI.SetActive(true);
                     state = states.postAttack;
                     postAttackCounter = 2f;
                 }
