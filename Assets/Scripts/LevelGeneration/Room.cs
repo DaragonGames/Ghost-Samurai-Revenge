@@ -55,7 +55,7 @@ public class Room : MonoBehaviour
         }
         if (isEnd)
         {
-            Instantiate(spawnables.torii, transform.position+Vector3.up*3.5f, Quaternion.identity, transform);
+            Instantiate(spawnables.torii, transform.position+Vector3.up*3.25f, Quaternion.identity, transform);
         }  
         // Create Bamboo Walls
         for (int i = 0;i < 3; i++)
