@@ -18,6 +18,12 @@ public class Ghost : Enemy
         movingGoal = transform.position + Vector3.right*90;
         attacks = GetComponent<GhostAttacks>();
         anger = GameManager.Instance.gameData.ghostWrath;
+        if (anger == 0)
+        {
+            gameObject.SetActive(false);
+        }
+        Debug.Log("Ghost" +anger);
+        Debug.Log("Progression" +GameManager.Instance.gameData.progression);
     }
 
     void Update()

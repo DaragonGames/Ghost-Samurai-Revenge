@@ -18,6 +18,6 @@ public class Title : MonoBehaviour
 
     public void StartGame()
     {
-        GameManager.Instance.LeaveGrove();
+        GameManager.Instance.EnterGrove();//LeaveGrove(); // 
     }
 }

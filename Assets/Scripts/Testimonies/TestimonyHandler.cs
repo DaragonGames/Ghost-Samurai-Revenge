@@ -51,6 +51,38 @@ public static class TestimonyHandler
         shownTestimonies = new List<int>();
         selectedTestimonies.Add(id);
         seenTestimonies.Remove(id);
-        Debug.Log("Avaible: " + avaibleTestimonies.Count + " Seen: " + seenTestimonies.Count + " Selected: "+ selectedTestimonies.Count); 
+        
+        switch (id)
+        {
+            case 0:
+                GameManager.Instance.gameData.DefenseUpgradesCollected++;
+                break;
+            case 1:
+                GameManager.Instance.gameData.DamageUpgradesCollected++;
+                break;
+            case 2:
+                GameManager.Instance.gameData.MovementSpeedUpgradesCollected++;
+                break;
+            case 3:
+                GameManager.Instance.gameData.LuckUpgradesCollected++;
+                break;
+            case 4:
+                GameManager.Instance.gameData.HealthUpgradesCollected++;
+                break;
+            case 5:
+                GameManager.Instance.gameData.AttackSpeedUpgradesCollected++;
+                break;
+            case 6:
+                GameManager.Instance.gameData.ghostWrath+=15;
+                break;
+            case 7:
+                GameManager.Instance.gameData.ghostWrath-=15f;
+                break;
+            case 8:
+                GameManager.Instance.gameData.ghostWrath=100;
+                GameManager.Instance.gameData.LuckUpgradesCollected-=5;
+                break;
+        }
     }
+
 }
