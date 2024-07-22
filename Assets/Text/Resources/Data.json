@@ -2,54 +2,81 @@
     "list": [
         {
             "id": 0,
-            "testifier": "The Testimony of a Woodcutter",
-            "testimony": "The fallen bamboo-blades around it were stained with bloody blossoms. No, the blood was no longer running.",
-            "description": "Does nothing you fool!",
+            "testifier": "The Testimony of a Traveling Buddhist",
+            "testimony": "Since I am a Buddhist priest; I took little notice about her details.",
+            "description": "Gain Defense Upgrade",
             "effectId": 0
         },
         {
             "id": 1,
-            "testifier": "The Testimony of an old Women",
-            "testimony": "He was of a gende disposition, so I am sure he did nothing to provoke the anger of others. ",
-            "description": "Does nothing you fool!",
+            "testifier": "The Testimony of a Policeman",
+            "testimony": "He was wearing a dark blue silk kimono and a large plain sword.",
+            "description": "Gain Damage Upgrade",
             "effectId": 0
         },
         {
             "id": 2,
-            "testifier": "The Testimony of an traveling Buddhist",
-            "testimony": "And I remember that he carried some twenty odd arrows in his- quiver.",
-            "description": "Does nothing you fool!",
-            "effectId": 0
-        }
-        ,
-        {
-            "id": 3,
-            "testifier": "The Testimony of a Policeman",
-            "testimony": "You say that this bow and these arrows look like the ones owned by the dead man?",
-            "description": "Does nothing you fool!",
-            "effectId": 0
-        }
-        ,
-        {
-            "id": 4,
-            "testifier": "The Testimony of a Masago the wife",
-            "testimony": "A streak of sinking sunlight streamed through the clump of cedars and bamboos, and shone on his pale face.",
-            "description": "Does nothing you fool!",
-            "effectId": 0
-        }
-        ,
-        {
-            "id": 5,
-            "testifier": "The Testimony of a medium",
-            "testimony": "Someone ... that someone drew the small sword sofdyout of my breast in its invisible hand.",
-            "description": "Does nothing you fool!",
+            "testifier": "The Testimony of Tajomaru the bandit",
+            "testimony": "I told them there was an old mound in the mountain over there, and that I had dug it open and found many mirrors and swords",
+            "description": "Gain Speed Upgrade",
             "effectId": 0
         },
         {
+            "id": 3,
+            "testifier": "The Testimony of Tajomaru the bandit",
+            "testimony": "Just then a puff of wind blew, and raised her hanging scarf, so that I caught a glimpse of her face.",
+            "description": "Gain Luck Upgrade",
+            "effectId": 0
+        },
+        {
+            "id": 4,
+            "testifier": "The Testimony of a Woodcutter",
+            "testimony": "This morning, as usual, I went to cut my daily quota of cedars, when I found the body in a grove in a hollow in the mountains.",
+            "description": "Gain Health Upgrade",
+            "effectId": 0
+        },
+        {
+            "id": 5,
+            "testifier": "The Testimony of Masago the wife",
+            "testimony": "But fortunately my small sword was lying at my feet.",
+            "description": "Gain Attack Speed Upgrade",
+            "effectId": 0
+        },
+
+
+
+
+
+
+
+
+
+        {
             "id": 6,
-            "testifier": "The Testimony of Tajomaru the Bandit",
-            "testimony": "When he came in front of the grove, I told them that the treasures were buried in it, and I asked them to come and see.",
-            "description": "Does nothing you fool!",
+            "testifier": "The Testimony of a medium",
+            "testimony": "Even now these words threaten to blow me headlong into the bottomless abyss of darkness.",
+            "description": "Angers Ghost",
+            "effectId": 0
+        },        
+        {
+            "id": 7,
+            "testifier": "The Testimony of a medium",
+            "testimony": "For these words alone I would like to pardon his crime.",
+            "description": "Calms Ghost",
+            "effectId": 0
+        },
+        {
+            "id": 8,
+            "testifier": "The Testimony of a old women",
+            "testimony": "He was of a gende disposition, so I am sure he did nothing to provoke the anger of others.",
+            "description": "Calms Ghost",
+            "effectId": 0
+        },
+        {
+            "id": 9,
+            "testifier": "The Testimony of a old women",
+            "testimony": "What bad luck it is that things should have come to such a sad end!",
+            "description": "Calms Ghost",
             "effectId": 0
         }
     ]

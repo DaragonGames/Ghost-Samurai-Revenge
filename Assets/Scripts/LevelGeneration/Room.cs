@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class Room : MonoBehaviour
 {
-    public GameObject doorLeft, doorRight, doorUp, doorDown, bamboo;
+    public GameObject doorLeft, doorRight, doorUp, doorDown, bambooTop, bambooSide;
     public Transform enemies, border;
     public Spawnables spawnables;
 
@@ -60,24 +60,24 @@ public class Room : MonoBehaviour
         // Create Bamboo Walls
         for (int i = 0;i < 3; i++)
         {
-            Instantiate(bamboo,transform.position + new Vector3(7.5f,4-i,-1), Quaternion.identity, border);
-            Instantiate(bamboo,transform.position + new Vector3(7.5f,-4+i,-1), Quaternion.identity, border);
-            Instantiate(bamboo,transform.position + new Vector3(-7.5f,4-i,-1), Quaternion.identity, border);
-            Instantiate(bamboo,transform.position + new Vector3(-7.5f,-4+i,-1), Quaternion.identity, border);
-            Instantiate(bamboo,transform.position + new Vector3(7.5f,1-i,-1), Quaternion.identity, doorRight.transform);
-            Instantiate(bamboo,transform.position + new Vector3(-7.5f,1-i,-1), Quaternion.identity, doorLeft.transform);
+            Instantiate(bambooSide,transform.position + new Vector3(7.5f,4-i,-1), Quaternion.identity, border);
+            Instantiate(bambooSide,transform.position + new Vector3(7.5f,-4+i,-1), Quaternion.identity, border);
+            Instantiate(bambooSide,transform.position + new Vector3(7.5f,1-i,-1), Quaternion.identity, doorRight.transform);
+            Instantiate(bambooSide,transform.position + new Vector3(-7.5f,4-i,-1), Quaternion.identity, border);
+            Instantiate(bambooSide,transform.position + new Vector3(-7.5f,-4+i,-1), Quaternion.identity, border);            
+            Instantiate(bambooSide,transform.position + new Vector3(-7.5f,1-i,-1), Quaternion.identity, doorLeft.transform);
         }
-        for (int i = 0;i < 14; i++)
+        for (int i = 0;i < 14; i+=2)
         {
-            if (i== 6 || i== 7)
+            if (i== 6)
             {
-                Instantiate(bamboo,transform.position + new Vector3(6.5f-i,4,-1), Quaternion.identity, doorUp.transform);
-                Instantiate(bamboo,transform.position + new Vector3(6.5f-i,-4,-1), Quaternion.identity, doorDown.transform);
+                Instantiate(bambooTop,transform.position + new Vector3(6f-i,4,-1), Quaternion.identity, doorUp.transform);
+                Instantiate(bambooTop,transform.position + new Vector3(6f-i,-4,-1), Quaternion.identity, doorDown.transform);
             }
             else
             {
-                Instantiate(bamboo,transform.position + new Vector3(6.5f-i,4,-1), Quaternion.identity, border);
-                Instantiate(bamboo,transform.position + new Vector3(6.5f-i,-4,-1), Quaternion.identity, border);
+                Instantiate(bambooTop,transform.position + new Vector3(6f-i,4,-1), Quaternion.identity, border);
+                Instantiate(bambooTop,transform.position + new Vector3(6f-i,-4,-1), Quaternion.identity, border);
             }            
         }
         

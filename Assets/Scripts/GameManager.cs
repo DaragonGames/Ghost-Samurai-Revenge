@@ -37,6 +37,7 @@ public class GameManager : MonoBehaviour
     public void LeaveGrove()
     {
         gameData.progression++;
+        gameData.ghostWrath +=10;
         gameState = GameState.Reading;
         SceneManager.LoadScene("Reading");
     }
@@ -44,7 +45,7 @@ public class GameManager : MonoBehaviour
     public void EnterGrove()
     {
         gameState = GameState.InGame;
-        SceneManager.LoadScene("Game");
+        SceneManager.LoadScene("Game");        
     }
 
     public void SelectTestimony(int id)

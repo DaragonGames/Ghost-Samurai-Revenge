@@ -1251,7 +1251,6 @@ MonoBehaviour:
   gameState: 0
   player: {fileID: 0}
   currentRoomID: -1
-  collectedSheets: 0
 --- !u!4 &1491602607
 Transform:
   m_ObjectHideFlags: 0

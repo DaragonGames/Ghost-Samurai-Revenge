@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
     private bool immuneToDamage, attacking, enteringRoom;
     private Vector3 destinatedDirection;
     private Animator animator;
+    private int facing = 0;
 
 
 
@@ -71,39 +72,20 @@ public class Player : MonoBehaviour
             // Set the Attack State
             attacking = true;
             StartCoroutine(attackingFrames(stats.attackSpeed));
-            CreateProjectile(arrowPrefab, "moving");
+            CreateProjectile();
             
         }
     }
 
-    void CreateProjectile(GameObject prefab, string type) 
+    void CreateProjectile() 
     {
         // Create the Projectile
         Vector3 attackDirection = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
         attackDirection.z = 0;
         attackDirection.Normalize();
         Vector3 spawnPosition = transform.position + attackDirection;
-        GameObject projectile = Instantiate(prefab, spawnPosition, Quaternion.identity);
-        
-        // Rotate the Projectile
-        float angle = Vector3.Angle(attackDirection, Vector3.left);
-        if (attackDirection.y >0)
-        {
-            angle = angle * -1;
-        }
-        projectile.transform.Rotate(new Vector3(0,0,angle));
-
-        // Set its Values
-        switch (type)
-        {
-            case "static":
-                projectile.GetComponent<Projectile>().SetSliceValues(stats, stats.attackSpeed);
-                projectile.transform.parent = transform;
-                break;
-            case "moving":
-                projectile.GetComponent<Projectile>().SetShirukenValues(stats, attackDirection);
-                break;
-        }        
+        GameObject projectile = Instantiate(arrowPrefab, spawnPosition, Quaternion.identity);        
+        projectile.GetComponent<Projectile>().SetShirukenValues(stats, attackDirection);       
     }
 
     void CreateSlice()
@@ -112,44 +94,55 @@ public class Player : MonoBehaviour
         GameObject projectile = Instantiate(slicePrefab, transform.position, Quaternion.identity, transform); 
         projectile.GetComponent<Projectile>().SetSliceValues(stats, stats.attackSpeed);
 
-        // Change Characters Facing Direction
-        Vector3 attackDirection = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
-        if (Mathf.Abs(attackDirection.x) > Mathf.Abs(attackDirection.y) )
+        // Change Position & Rotation based on Facing Direction
+        switch (facing)
         {
-            if (attackDirection.x > 0)
-            {
-                animator.SetInteger("Facing", 1);
+            case 0:
+                projectile.transform.position += new Vector3(0, 0.8f,0);
+                projectile.transform.Rotate(new Vector3(0,0,90));
+                break;
+            case 1:
                 projectile.transform.position += new Vector3(0.65f, -0.1f,0);
+                break;
+            case 2:
+                projectile.transform.position +=new Vector3(0, -0.8f,0);
+                projectile.transform.Rotate(new Vector3(0,0,90));
+                break;
+            case 3:
+                projectile.transform.position += new Vector3(-0.65f, -0.1f,0);
+                break;
+        }
+        GetComponent<Animator>().speed = 0.6f / stats.attackSpeed;
+    }
+
+
+    void FaceTowardsInput()
+    {
+        // Change Characters Facing Direction
+        Vector3 mouseDirection = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+        if (Mathf.Abs(mouseDirection.x) > Mathf.Abs(mouseDirection.y) )
+        {
+            if (mouseDirection.x > 0)
+            {
+                facing = 1;
             }
             else
             {
-                animator.SetInteger("Facing", 3);
-                projectile.transform.position += new Vector3(-0.65f, -0.1f,0);
+                facing = 3;
             }
         }
         else
         {
-            if (attackDirection.y > 0)
+            if (mouseDirection.y > 0)
             {
-                animator.SetInteger("Facing", 0);
-                projectile.transform.position += new Vector3(0, 0.8f,0);
-                projectile.transform.Rotate(new Vector3(0,0,90));
+                facing = 0;
             }
             else
             {
-                animator.SetInteger("Facing", 2);
-                projectile.transform.position +=new Vector3(0, -0.8f,0);
-                projectile.transform.Rotate(new Vector3(0,0,90));
+                facing = 2;
             }
         }
-
-        GetComponent<Animator>().speed = 0.6f / stats.attackSpeed;
-
-
-
-        
-
-
+        animator.SetInteger("Facing", facing);
     }
 
     void HandleMovement()
@@ -161,23 +154,24 @@ public class Player : MonoBehaviour
         if (Input.GetKey("w"))
         {
             movement += Vector3.up;
-            animator.SetInteger("Facing", 0);
+            facing = 0;
         }
         if (Input.GetKey("s"))
         {
             movement += Vector3.down;  
-            animator.SetInteger("Facing", 2);  
+            facing = 2;
         } 
         if (Input.GetKey("a"))
         {
             movement += Vector3.left;
-            animator.SetInteger("Facing", 3);       
+            facing = 3;    
         }
         if (Input.GetKey("d"))
         {
             movement += Vector3.right;
-            animator.SetInteger("Facing", 1);  
-        } 
+            facing = 1;
+        }
+        animator.SetInteger("Facing", facing);   
         animator.SetBool("Moving", movement.magnitude > 0);
 
         transform.position += movement.normalized * Time.deltaTime * stats.movementSpeed;  
