@@ -6,6 +6,9 @@ public class Player : MonoBehaviour
 {
     public GameObject slicePrefab;
     public GameObject arrowPrefab;
+    public GameObject swordSoundPrefab;
+    public GameObject shurikenSoundPrefab;
+    public GameObject hitSoundPrefab;
 
     private float health;
     private PlayerStats stats;
@@ -87,6 +90,7 @@ public class Player : MonoBehaviour
 
     void CreateProjectile() 
     {
+        Instantiate(shurikenSoundPrefab, transform.position, Quaternion.identity); 
         // Create the Projectile
         Vector3 attackDirection = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
         attackDirection.z = 0;
@@ -98,6 +102,7 @@ public class Player : MonoBehaviour
 
     void CreateSlice()
     {
+        Instantiate(swordSoundPrefab, transform.position, Quaternion.identity); 
         // Create the Projectile
         GameObject projectile = Instantiate(slicePrefab, transform.position, Quaternion.identity, transform); 
         projectile.GetComponent<Projectile>().SetSliceValues(stats, stats.attackSpeed);
@@ -196,6 +201,7 @@ public class Player : MonoBehaviour
         health -= Mathf.Max(Mathf.Min(damageFlat, stats.maxDamage),GameManager.Instance.gameData.minDamage);
         immuneToDamage = true;
         StartCoroutine(immunityFrames(stats.invisibleFramesDuration));
+        Instantiate(hitSoundPrefab, transform.position, Quaternion.identity);
     }
 
     public void EnterRoom(Vector3 center)

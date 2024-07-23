@@ -5,6 +5,7 @@ using UnityEngine;
 public class DestroyableObstacle : MonoBehaviour
 {
     private int toughness;
+    public GameObject soundPrefab;
 
     // Start is called before the first frame update
     void Start()
@@ -14,6 +15,7 @@ public class DestroyableObstacle : MonoBehaviour
 
     public void GetAttacked()
     {
+        Instantiate(soundPrefab, transform.position, Quaternion.identity); 
         toughness--;
         if (toughness > 0)
         {

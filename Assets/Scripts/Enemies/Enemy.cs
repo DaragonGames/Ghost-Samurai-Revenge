@@ -18,6 +18,7 @@ public class Enemy : MonoBehaviour
     // Prefabs
     public GameObject spawnAble;
     public GameObject itemPrefab;
+    public GameObject hitSoundPrefab;
 
     // Code based Variables: do not change
     private Vector3 knockback = Vector3.zero;
@@ -94,6 +95,7 @@ public class Enemy : MonoBehaviour
         this.knockback =knockback * Mathf.Max(knockbackStrength - knockbackResistance, 0);
         invincible = true;
         StartCoroutine(immunityFrames(0.15f));
+        Instantiate(hitSoundPrefab, transform.position, Quaternion.identity);
     }
 
     protected virtual IEnumerator immunityFrames(float duration)

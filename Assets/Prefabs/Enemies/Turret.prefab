@@ -57,6 +57,8 @@ MonoBehaviour:
   actionSpeed: 2
   spawnAble: {fileID: 4308189967123230318, guid: d5c352845d66b504f95dd2aad130e032, type: 3}
   itemPrefab: {fileID: 5174449708874311532, guid: 9021f49da5d11ac4cbe525162a50f29e, type: 3}
+  hitSoundPrefab: {fileID: 4201426831179979751, guid: 3fc31534ed02f0046b6a3e24aba47b32, type: 3}
+  shootSoundPrefab: {fileID: 8637452205097828324, guid: 6ea351dc1d445374699be44d6caf8e23, type: 3}
 --- !u!212 &1761206079867067428
 SpriteRenderer:
   m_ObjectHideFlags: 0

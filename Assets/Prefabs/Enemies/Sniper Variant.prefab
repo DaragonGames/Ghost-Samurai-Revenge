@@ -76,6 +76,10 @@ PrefabInstance:
       propertyPath: movementSpeed
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 441799151862260637, guid: f9d645f49e1fb4f47a26ca78a29099ea, type: 3}
+      propertyPath: hitSoundPrefab
+      value: 
+      objectReference: {fileID: 4201426831179979751, guid: 3fc31534ed02f0046b6a3e24aba47b32, type: 3}
     - target: {fileID: 1604065295980702849, guid: f9d645f49e1fb4f47a26ca78a29099ea, type: 3}
       propertyPath: m_Name
       value: Sniper Variant

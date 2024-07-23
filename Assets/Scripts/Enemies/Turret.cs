@@ -5,9 +5,13 @@ using UnityEngine;
 
 public class Turret : Enemy
 {
+    public GameObject shootSoundPrefab;
+
     public override void MoveCharacter() { return; }
 
     public override void CharacterAction() {
+        Instantiate(shootSoundPrefab, transform.position, Quaternion.identity);
+        
         // Create the Projectile
         Vector3 attackDirection = GameManager.Instance.player.transform.position - transform.position;
         attackDirection.z = 0;

@@ -5944,6 +5944,7 @@ MonoBehaviour:
   actionSpeed: 2
   spawnAble: {fileID: 0}
   itemPrefab: {fileID: 0}
+  hitSoundPrefab: {fileID: 0}
   GhostUI: {fileID: 1160240700}
 --- !u!114 &1469772616
 MonoBehaviour:
@@ -6758,6 +6759,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slicePrefab: {fileID: 4240868106546498254, guid: a36901e9cc35d8a4fa70c74c2c849ffa, type: 3}
   arrowPrefab: {fileID: 6142362461846762948, guid: bc2b61bf28364684fa5e3967bfe32446, type: 3}
+  swordSoundPrefab: {fileID: 7975734833613702193, guid: 54a8bb85486af204c92d8a90b457ede8, type: 3}
+  shurikenSoundPrefab: {fileID: 2218295140639014530, guid: 096fba839ba766e4cbb2eb513d6dcc92, type: 3}
+  hitSoundPrefab: {fileID: 158761390616501580, guid: b04510583930f7048a1a0163fb89eb8a, type: 3}
 --- !u!95 &1648283359
 Animator:
   serializedVersion: 5

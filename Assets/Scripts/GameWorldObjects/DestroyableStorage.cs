@@ -5,6 +5,7 @@ using UnityEngine;
 public class DestroyableStorage : MonoBehaviour
 {
     public GameObject itemPrefab;
+    public GameObject soundPrefab;
     private int toughness;
 
     // Start is called before the first frame update
@@ -15,6 +16,7 @@ public class DestroyableStorage : MonoBehaviour
 
     public void GetAttacked()
     {
+        Instantiate(soundPrefab, transform.position, Quaternion.identity); 
         toughness--;
         if (toughness > 0)
         {

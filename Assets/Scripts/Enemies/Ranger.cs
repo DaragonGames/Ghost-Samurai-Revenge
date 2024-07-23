@@ -7,6 +7,7 @@ public class Ranger : Enemy
 {
     public float attackRange = 12f;
     public float fleeRange = 2.5f;
+    public GameObject shootSoundPrefab;
 
     public override void MoveCharacter() { 
         Vector3 playerPosition = GameManager.Instance.player.transform.position;
@@ -22,6 +23,8 @@ public class Ranger : Enemy
     }
 
     public override void CharacterAction() {
+        Instantiate(shootSoundPrefab, transform.position, Quaternion.identity);
+        
         // Create the Projectile
         Vector3 attackDirection = GameManager.Instance.player.transform.position - transform.position;
         attackDirection.z = 0;

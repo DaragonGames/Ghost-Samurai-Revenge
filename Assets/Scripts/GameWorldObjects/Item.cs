@@ -4,6 +4,7 @@ public class Item : MonoBehaviour
 {
     private int id;
     public Sprite[] sprites;
+    public GameObject soundPrefab;
 
     void Start()
     {
@@ -25,6 +26,7 @@ public class Item : MonoBehaviour
         {            
             GameManager.Instance.gameData.collectItem(id);
             GameManager.OnCollectItemEvent(id);
+            Instantiate(soundPrefab,transform.position,Quaternion.identity);
             Destroy(gameObject);
         }
     }
