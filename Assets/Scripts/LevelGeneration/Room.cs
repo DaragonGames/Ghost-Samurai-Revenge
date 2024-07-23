@@ -87,7 +87,7 @@ public class Room : MonoBehaviour
 
     void Update()
     {
-        if (isBossRoom)
+        if (isBossRoom && ID == GameManager.Instance.currentRoomID)
         {
             doorLeft.SetActive(true);
             doorRight.SetActive(true);

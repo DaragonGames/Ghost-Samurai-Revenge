@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -43,12 +43,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 20
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -72,7 +72,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -121,7 +121,847 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: ghost_spitting_attack_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 30.75
+        height: 30
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae8b8655af83c1245a54d3d24b6545bd
+      internalID: -1432417331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ghost_spitting_attack_1
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 0
+        width: 30.75
+        height: 30
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c189d33e67c23b4cb7838f9c988509b
+      internalID: 271237033
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ghost_spitting_attack_2
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 0
+        width: 30.75
+        height: 30
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d630ac464f98194886c7ef778e60087
+      internalID: 810059985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ghost_spitting_attack_3
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 0
+        width: 30.75
+        height: 30
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c36594de223b9b142b90c1648dd5079e
+      internalID: -132804020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ghost_spitting_attack_4
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 0
+        width: 30.75
+        height: 30
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07fe601c537e82f4199777d69490d387
+      internalID: 1972874201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ghost_spitting_attack_5
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 0
+        width: 30.75
+        height: 30
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eccdf28daaf1eee4d82555dd54b45e92
+      internalID: 686990312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ghost_spitting_attack_6
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 0
+        width: 30.75
+        height: 30
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45073164d74d10d41bf02f17d51201b4
+      internalID: 1859001497
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ghost_spitting_attack_7
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 0
+        width: 30.75
+        height: 30
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e60b745124a73af43b9f79b26e818cad
+      internalID: -760328851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ghost_spitting_attack_8
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 0
+        width: 30.75
+        height: 30
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7ad75f4dd42848429c35150c78cbeef
+      internalID: -1029587713
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ghost_spitting_attack_9
+      rect:
+        serializedVersion: 2
+        x: 270
+        y: 0
+        width: 30.75
+        height: 30
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62423147a3d812d468760d375f7e6f67
+      internalID: -247453265
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ghost_spitting_attack_10
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 0
+        width: 30.75
+        height: 30
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb2c0257069b44847b7a25df4ae393fe
+      internalID: 1848589547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ghost_spitting_attack_11
+      rect:
+        serializedVersion: 2
+        x: 330
+        y: 0
+        width: 30.75
+        height: 30
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0ef7ece3f5a3e541b2862f63e185205
+      internalID: 358216703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ghost_spitting_attack_12
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 0
+        width: 30.75
+        height: 30
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e5ad9bd613dbe440b9c07fdc195c992
+      internalID: 580313785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ghost_spitting_attack_13
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 0
+        width: 30.75
+        height: 30
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b9b7256fc100654fb136d96b40bcb42
+      internalID: 706179066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ghost_spitting_attack_14
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 0
+        width: 30.75
+        height: 30
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00f8ca2316a754b49947ec665dbaffa1
+      internalID: -1700391247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ghost_spitting_attack_15
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 0
+        width: 30.75
+        height: 30
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e05d0f05f4f22b43be3b60457b0a1b3
+      internalID: 883271219
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ghost_spitting_attack_16
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 0
+        width: 30.75
+        height: 30
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43c9be630b215de42a4c9274f52d416f
+      internalID: 746171441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ghost_spitting_attack_17
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 0
+        width: 30.75
+        height: 30
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 705ec95dacfb59847ab138f125a5b1b4
+      internalID: 984129248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ghost_spitting_attack_18
+      rect:
+        serializedVersion: 2
+        x: 540
+        y: 0
+        width: 30.75
+        height: 30
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dacebac7d864e6447ba13e22f08d72b0
+      internalID: -1229929752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ghost_spitting_attack_19
+      rect:
+        serializedVersion: 2
+        x: 570
+        y: 0
+        width: 30.75
+        height: 30
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4c1f8f10800e2143b8e08e2744882f4
+      internalID: -1888042569
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ghost_spitting_attack_20
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 0
+        width: 30.75
+        height: 30
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a33a996c4f59bc24c94635014536c4df
+      internalID: -1244403458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ghost_spitting_attack_21
+      rect:
+        serializedVersion: 2
+        x: 630
+        y: 0
+        width: 30.75
+        height: 30
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: adf3355ae58819a419604712325bf99b
+      internalID: -1036772790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ghost_spitting_attack_22
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 0
+        width: 30.75
+        height: 30
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9ad6fa2005db984c9e01f59deda8e5f
+      internalID: -2008833534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ghost_spitting_attack_23
+      rect:
+        serializedVersion: 2
+        x: 690
+        y: 0
+        width: 30.75
+        height: 30
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e5549097816d6a49a29357f1078c942
+      internalID: 592328544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ghost_spitting_attack_24
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 0
+        width: 30.75
+        height: 30
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b452273b7ac7bd748a105c2d33e1b4a6
+      internalID: -251694125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ghost_spitting_attack_25
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 0
+        width: 30.75
+        height: 30
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41bcbfdd3a3bd9342960e36d73949f50
+      internalID: 1204253410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ghost_spitting_attack_26
+      rect:
+        serializedVersion: 2
+        x: 780
+        y: 0
+        width: 30.75
+        height: 30
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6eab3e200abdaab4b8a9324c6028f26e
+      internalID: -762826593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ghost_spitting_attack_27
+      rect:
+        serializedVersion: 2
+        x: 810
+        y: 0
+        width: 30.75
+        height: 30
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57163c7aa75ba4f40b636cf8c7f2f8da
+      internalID: 1186432335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ghost_spitting_attack_28
+      rect:
+        serializedVersion: 2
+        x: 840
+        y: 0
+        width: 30.75
+        height: 30
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1ca843740361504db93bfbf8ffa102e
+      internalID: -1804745918
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ghost_spitting_attack_29
+      rect:
+        serializedVersion: 2
+        x: 870
+        y: 0
+        width: 30.75
+        height: 30
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54c8504293842fb488c7be6e2e35bf67
+      internalID: 835227378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ghost_spitting_attack_30
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 0
+        width: 30.75
+        height: 30
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d07c9945ce3979e40a40ef0cd08ad76e
+      internalID: 1227304992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ghost_spitting_attack_31
+      rect:
+        serializedVersion: 2
+        x: 930
+        y: 0
+        width: 30.75
+        height: 30
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f402281ece8e5cc478293f5eeae2eea0
+      internalID: -1044300550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ghost_spitting_attack_32
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 0
+        width: 30.75
+        height: 30
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b256d7b3b0c38fe4cb23529f04a148ca
+      internalID: 1187738760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ghost_spitting_attack_33
+      rect:
+        serializedVersion: 2
+        x: 990
+        y: 0
+        width: 30.75
+        height: 30
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 453e61ae237496746896a6a6e4b50cc0
+      internalID: -1061625770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ghost_spitting_attack_34
+      rect:
+        serializedVersion: 2
+        x: 1020
+        y: 0
+        width: 30.75
+        height: 30
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9df7a2f5fbd970d4cbad5e4a0894acac
+      internalID: 272314486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ghost_spitting_attack_35
+      rect:
+        serializedVersion: 2
+        x: 1050
+        y: 0
+        width: 30.75
+        height: 30
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96e463b9f7b4cbe4cadaee57dc6b3d7e
+      internalID: 714783355
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ghost_spitting_attack_36
+      rect:
+        serializedVersion: 2
+        x: 1080
+        y: 0
+        width: 30.75
+        height: 30
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81e6611c77ffeb34fa6de8edf9a894fb
+      internalID: -1914333533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ghost_spitting_attack_37
+      rect:
+        serializedVersion: 2
+        x: 1110
+        y: 0
+        width: 30.75
+        height: 30
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e1d23d8c3d9b3b4caee9a03268633a7
+      internalID: 1617983209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ghost_spitting_attack_38
+      rect:
+        serializedVersion: 2
+        x: 1140
+        y: 0
+        width: 30.75
+        height: 30
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45be38bb2bd918e4ea24af1e8af32c56
+      internalID: 1269399096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ghost_spitting_attack_39
+      rect:
+        serializedVersion: 2
+        x: 1170
+        y: 0
+        width: 30.75
+        height: 30
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13aefe5364e83b64ca035dde89ea4967
+      internalID: -1725770193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -132,7 +972,47 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      ghost_spitting_attack_0: -1432417331
+      ghost_spitting_attack_1: 271237033
+      ghost_spitting_attack_10: 1848589547
+      ghost_spitting_attack_11: 358216703
+      ghost_spitting_attack_12: 580313785
+      ghost_spitting_attack_13: 706179066
+      ghost_spitting_attack_14: -1700391247
+      ghost_spitting_attack_15: 883271219
+      ghost_spitting_attack_16: 746171441
+      ghost_spitting_attack_17: 984129248
+      ghost_spitting_attack_18: -1229929752
+      ghost_spitting_attack_19: -1888042569
+      ghost_spitting_attack_2: 810059985
+      ghost_spitting_attack_20: -1244403458
+      ghost_spitting_attack_21: -1036772790
+      ghost_spitting_attack_22: -2008833534
+      ghost_spitting_attack_23: 592328544
+      ghost_spitting_attack_24: -251694125
+      ghost_spitting_attack_25: 1204253410
+      ghost_spitting_attack_26: -762826593
+      ghost_spitting_attack_27: 1186432335
+      ghost_spitting_attack_28: -1804745918
+      ghost_spitting_attack_29: 835227378
+      ghost_spitting_attack_3: -132804020
+      ghost_spitting_attack_30: 1227304992
+      ghost_spitting_attack_31: -1044300550
+      ghost_spitting_attack_32: 1187738760
+      ghost_spitting_attack_33: -1061625770
+      ghost_spitting_attack_34: 272314486
+      ghost_spitting_attack_35: 714783355
+      ghost_spitting_attack_36: -1914333533
+      ghost_spitting_attack_37: 1617983209
+      ghost_spitting_attack_38: 1269399096
+      ghost_spitting_attack_39: -1725770193
+      ghost_spitting_attack_4: 1972874201
+      ghost_spitting_attack_5: 686990312
+      ghost_spitting_attack_6: 1859001497
+      ghost_spitting_attack_7: -760328851
+      ghost_spitting_attack_8: -1029587713
+      ghost_spitting_attack_9: -247453265
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
