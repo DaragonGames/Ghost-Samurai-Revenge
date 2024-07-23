@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
     private Vector3 destinatedDirection;
     private Animator animator;
     private int facing = 0;
+    private float ammunition = 0;
 
 
 
@@ -22,6 +23,7 @@ public class Player : MonoBehaviour
     {
         stats = new PlayerStats();
         health = stats.maxHealth;
+        ammunition = stats.maxAmmunition;
         GameManager.Instance.player = gameObject;
         GameManager.EnterNewRoom += EnterRoom; 
         animator = GetComponent<Animator>();
@@ -51,6 +53,11 @@ public class Player : MonoBehaviour
             HandleAttacks();
         }    
         animator.SetBool("Attacking", attacking);    
+        ammunition += Time.deltaTime * stats.AmmunitionReloadRate;
+        if (ammunition > stats.maxAmmunition)
+        {
+            ammunition = stats.maxAmmunition;
+        }
     }
 
     void HandleAttacks()
@@ -70,10 +77,11 @@ public class Player : MonoBehaviour
         if (Input.GetMouseButtonDown(1))
         {
             // Set the Attack State
-            attacking = true;
-            StartCoroutine(attackingFrames(stats.attackSpeed));
-            CreateProjectile();
-            
+            if (ammunition >= 1)
+            {
+                ammunition-=1;
+                CreateProjectile();
+            }            
         }
     }
 
@@ -219,6 +227,8 @@ public class Player : MonoBehaviour
     }
 
     public float GetHealthPercentage() { return health/stats.maxHealth; }
+
+    public float GetAmmunition() { return ammunition;}
     public void GainHealth(float value) { 
         health += value; 
         if (health > stats.maxHealth)
