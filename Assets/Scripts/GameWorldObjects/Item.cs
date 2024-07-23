@@ -23,6 +23,7 @@ public class Item : MonoBehaviour
     {
         if (col.gameObject.tag == "Player")
         {
+            GameManager.OnCollectItemEvent(id);
             GameManager.Instance.gameData.collectItem(id);
             Destroy(gameObject);
         }

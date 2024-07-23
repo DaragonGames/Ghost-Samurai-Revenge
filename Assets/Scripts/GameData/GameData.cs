@@ -40,6 +40,7 @@ public class GameData
                 break;
             case 4:
                 HealthUpgradesCollected= Mathf.Min(HealthUpgradesCollected+1, 10);
+                GameManager.Instance.player.GetComponent<Player>().GainHealth(10);
                 break;
             case 5:
                 DamageUpgradesCollected= Mathf.Min(DamageUpgradesCollected+1, 10);

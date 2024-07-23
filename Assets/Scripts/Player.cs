@@ -218,7 +218,7 @@ public class Player : MonoBehaviour
         enteringRoom = false;
     }
 
-    public float GetHealthValue() { return health; }
+    public float GetHealthPercentage() { return health/stats.maxHealth; }
     public void GainHealth(float value) { 
         health += value; 
         if (health > stats.maxHealth)

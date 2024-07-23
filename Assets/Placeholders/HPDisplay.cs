@@ -12,7 +12,7 @@ public class HPDisplay : MonoBehaviour
         Player player = GameManager.Instance.player.GetComponent<Player>();
         PlayerStats stats = player.GetStats();
         TMP_Text[] all = GetComponentsInChildren<TMP_Text>();
-        all[0].text = "HP: " + player.GetHealthValue() + "/" + stats.maxHealth;
+        all[0].text = "HP: " + player.GetHealthPercentage() + "/" + stats.maxHealth;
         all[1].text = "Damage: "  + stats.sliceDamage;
         all[2].text = "Speed: "  + stats.movementSpeed;
         all[3].text = "AttackSpeed: "  + stats.attackSpeed;

@@ -34,6 +34,12 @@ public class GameManager : MonoBehaviour
         EnterNewRoom?.Invoke( position);
     }
 
+    public static event Action<int> CollectItem;
+    public static void OnCollectItemEvent(int id)
+    {
+        CollectItem?.Invoke(id);
+    }
+
     public void LeaveGrove()
     {
         gameData.progression++;
