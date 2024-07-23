@@ -22,9 +22,9 @@ public class Item : MonoBehaviour
     void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.tag == "Player")
-        {
-            GameManager.OnCollectItemEvent(id);
+        {            
             GameManager.Instance.gameData.collectItem(id);
+            GameManager.OnCollectItemEvent(id);
             Destroy(gameObject);
         }
     }
