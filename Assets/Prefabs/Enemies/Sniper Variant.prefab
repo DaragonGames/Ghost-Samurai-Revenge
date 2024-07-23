@@ -69,6 +69,10 @@ PrefabInstance:
       value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 441799151862260637, guid: f9d645f49e1fb4f47a26ca78a29099ea, type: 3}
+      propertyPath: smokePrefab
+      value: 
+      objectReference: {fileID: 2473401214114011642, guid: ea66e59f1234ba547831d1940efd9741, type: 3}
+    - target: {fileID: 441799151862260637, guid: f9d645f49e1fb4f47a26ca78a29099ea, type: 3}
       propertyPath: contactDamage
       value: 5
       objectReference: {fileID: 0}

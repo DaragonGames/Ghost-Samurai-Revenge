@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 4c193a7799c4daf4192b7016b51ecfb0
+guid: 1cc6935f4eace8045bd71e5203a31a70
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,13 +123,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: shooter_large_0
+      name: enemy_died_smoke_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 30
-        height: 30
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -137,20 +137,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 24d6e0fa51f4b48429729c69873e3c20
-      internalID: -1894625243
+      spriteID: e81105a206173b54b8ac1e92ecb1618e
+      internalID: -1693802849
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: shooter_large_1
+      name: enemy_died_smoke_1
       rect:
         serializedVersion: 2
-        x: 30
+        x: 32
         y: 0
-        width: 30
-        height: 30
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -158,8 +158,71 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 63fbb190012e2814b8ced55e11001162
-      internalID: 732920104
+      spriteID: 8ddd59a0e51c85848a4bef778d69fae7
+      internalID: -1937136426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy_died_smoke_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86c3165f553a25247b32c7f536ebca5f
+      internalID: -553354347
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy_died_smoke_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b3c7a4e2c679cd4286c38d6198d4847
+      internalID: -1401549900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy_died_smoke_4
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad12bb6c1e4c748478d8a913c2036b2f
+      internalID: 843783740
       vertices: []
       indices: 
       edges: []
@@ -175,8 +238,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      shooter_large_0: -1894625243
-      shooter_large_1: 732920104
+      enemy_died_smoke_0: -1693802849
+      enemy_died_smoke_1: -1937136426
+      enemy_died_smoke_2: -553354347
+      enemy_died_smoke_3: -1401549900
+      enemy_died_smoke_4: 843783740
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

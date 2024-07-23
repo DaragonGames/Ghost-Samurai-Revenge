@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 2284511475385051992}
   - component: {fileID: 8552276843376646363}
   - component: {fileID: 1761206079867067428}
-  - component: {fileID: 2794764578233724625}
+  - component: {fileID: 937450088850412520}
+  - component: {fileID: 4713692400017414851}
   m_Layer: 0
   m_Name: Turret
   m_TagString: Enemy
@@ -58,6 +59,7 @@ MonoBehaviour:
   spawnAble: {fileID: 4308189967123230318, guid: d5c352845d66b504f95dd2aad130e032, type: 3}
   itemPrefab: {fileID: 5174449708874311532, guid: 9021f49da5d11ac4cbe525162a50f29e, type: 3}
   hitSoundPrefab: {fileID: 4201426831179979751, guid: 3fc31534ed02f0046b6a3e24aba47b32, type: 3}
+  smokePrefab: {fileID: 2473401214114011642, guid: ea66e59f1234ba547831d1940efd9741, type: 3}
   shootSoundPrefab: {fileID: 8637452205097828324, guid: 6ea351dc1d445374699be44d6caf8e23, type: 3}
 --- !u!212 &1761206079867067428
 SpriteRenderer:
@@ -100,8 +102,8 @@ SpriteRenderer:
   m_SortingLayerID: 1830794183
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: caebb0d88487ff44785987a8860f0f15, type: 3}
-  m_Color: {r: 0.2830189, g: 0.2790139, b: 0.2790139, a: 1}
+  m_Sprite: {fileID: -1894625243, guid: 4c193a7799c4daf4192b7016b51ecfb0, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -111,8 +113,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!58 &2794764578233724625
-CircleCollider2D:
+--- !u!114 &937450088850412520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 939169809293922308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c09ebc8a7cd4a77488828bea91a51e39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: -1894625243, guid: 4c193a7799c4daf4192b7016b51ecfb0, type: 3}
+  - {fileID: 732920104, guid: 4c193a7799c4daf4192b7016b51ecfb0, type: 3}
+  framesPerSecond: 2
+--- !u!61 &4713692400017414851
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -143,6 +161,16 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.025, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.5, y: 1.5}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Size: {x: 0.95, y: 1.5}
+  m_EdgeRadius: 0

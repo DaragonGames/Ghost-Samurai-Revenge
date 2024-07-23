@@ -4,6 +4,7 @@ using UnityEngine;
 public class Ghost : Enemy
 {
     public GameObject GhostUI;
+    public GameObject destructionBladesPrefab;
 
     private Vector3 movingGoal;
     private GhostAttacks attacks;
@@ -11,21 +12,27 @@ public class Ghost : Enemy
     private states state = states.wandering; 
     private float attackCounter;
     private float postAttackCounter;
-    private bool searching = false;
     private float anger;
 
     void Start()
     {
-        roomID = GameManager.Instance.currentRoomID ; // Test if really needed
-        movingGoal = transform.position + Vector3.right*90;
+        // Does this work
+        Transform t = transform.parent.GetComponentInChildren<Room>().transform;
+        transform.parent = t;
+
+        movingGoal = transform.position;
         attacks = GetComponent<GhostAttacks>();
+                //GameManager.Instance.gameData.ghostWrath = 40;
         anger = GameManager.Instance.gameData.ghostWrath;
+
         if (anger == 0)
         {
             gameObject.SetActive(false);
         }
-        Debug.Log("Ghost" +anger);
-        Debug.Log("Progression" +GameManager.Instance.gameData.progression);
+        if (anger >= 40)
+        {
+            PrepareBossRoom();
+        }
     }
 
     void Update()
@@ -38,11 +45,11 @@ public class Ghost : Enemy
                 attackCounter -= Time.deltaTime;
                 if (attackCounter < 0) 
                 {
-                    Flee();
+                    state = states.wandering;
                 }
                 break;
             case states.fleeing:
-                Move();
+                Flee();
                 break;
             case states.waiting:
                 if (roomID == GameManager.Instance.currentRoomID)
@@ -84,14 +91,22 @@ public class Ghost : Enemy
                 case states.wandering:
                     SetMovingGoalInMap();
                     break;
-                case states.fleeing:
-                    DoneFleeing();
-                    break;
+
                 case states.postAttack:
                     SetMovingGoalInRoom();
                     break;
             }
         }
+    }
+
+    private void Flee()
+    {                 
+        Vector3 fleeingDirection = transform.position - GameManager.Instance.player.transform.position;
+        transform.position += 5 * fleeingDirection.normalized * Time.deltaTime;  
+        if (fleeingDirection.magnitude > 18)
+        {
+            gameObject.SetActive(false);
+        }                   
     }
 
     private void SetMovingGoalInRoom()
@@ -107,16 +122,6 @@ public class Ghost : Enemy
         movingGoal.y = Random.Range(map[1], map[3]);
     }
 
-    private void Flee()
-    {
-        Debug.Log("Fleeing");
-        Vector3 playerPosition = GameManager.Instance.player.transform.position;
-        Vector3 oppositeDirection = (transform.position - playerPosition).normalized;
-        movingGoal.x = oppositeDirection.x*18 + transform.position.x;
-        movingGoal.y = oppositeDirection.y*18 + transform.position.y;
-        state = states.fleeing;
-    }
-
     public override void TakeDamage(float amount, float piercingDamage, Vector3 knockback, float knockbackStrength) 
     {
         base.TakeDamage(amount, piercingDamage, knockback, knockbackStrength);
@@ -128,123 +133,81 @@ public class Ghost : Enemy
 
     private void ReactToDamage() 
     {
-        float ran = Random.value;
-        if (ran < anger/2)
-        {
-            // Attack
-            state = states.retaliation;
-            attackCounter = attacks.ThrowingBladeAttack().x +0.1f;
-            anger += 5;
-            return;
-        }
-        if (ran < anger)
-        {
-            // Attack
-            state = states.retaliation;
-            attackCounter = attacks.SpittingLeavesAttack().x +0.1f;
-            anger += 5;
-            return;
-        }
-        if (ran < anger*2)
-        {
-            
-            Flee();
-        }
-        anger += 1;
-        // Option 3 is do nothing
-    }
-
-    private void DoneFleeing() 
-    {       
-        // Continue Fleeing when Being Chased
-        Vector3 playerPosition = GameManager.Instance.player.transform.position;
-        float distance = (transform.position - playerPosition).magnitude;
-        if (distance < 15)
-        {
-            Flee();
-            anger += 1;
-            return;
-        }
-        anger += 3;
-
-        float wrath = GameManager.Instance.gameData.ghostWrath + Random.value *25f;;
-
-        // If not angry search for Room or wander around
-        if (anger < 0.5f)
-        {
-            if (wrath > 50 )
+        // Can either flee, attack or do nothing
+        float ran = Random.value*75 + anger;
+        if (ran > 100)
+        {   
+            // Flee or Boss Room
+            GameManager.Instance.gameData.ghostWrath += 10;
+            float wrath = GameManager.Instance.gameData.ghostWrath;
+            if (wrath >= 40)
             {
-                // Search for a possible boss room
-                searching = true;
-            }
-            state = states.wandering;
-            SetMovingGoalInMap();
-        }
-        else
-        {
-            // If angry disappear or search / enforce bossroom
-            if (wrath < 50)
-            {
-                GameManager.Instance.gameData.ghostWrath += anger*0.1f; 
-                gameObject.SetActive(false);                              
-            }
-            else if (wrath > 100)
-            {
-                GameManager.Instance.gameData.ghostWrath += anger*0.05f;
-                EnforceBossRoom();                
+                CreateBossRoom();
             }
             else
             {
-                searching = true;
-                state = states.wandering;
-                SetMovingGoalInMap();
+                state = states.fleeing;
             }
-        }        
+            return;
+        }
+        if (ran > 60)
+        {
+            // Attack
+            state = states.retaliation;            
+            if (Random.value > 0.5f)
+            {
+                attackCounter = attacks.ThrowingBladeAttack().x +0.1f;
+            }
+            else
+            {
+                attackCounter = attacks.SpittingLeavesAttack().x +0.1f;
+            }
+        }
+        anger += 7.5f;
     }
 
-    private void EnforceBossRoom()
+    private void CreateBossRoom()
     {
+        if (roomID != GameManager.Instance.currentRoomID)
+        {
+            return;
+        }
+
+        // Move towards the center
+        Vector3 center = transform.parent.position;
+        movingGoal = center;
+
+        // Prepare Room
+        Instantiate(destructionBladesPrefab, center + Vector3.up*4, Quaternion.identity); 
+        transform.parent.GetComponent<Room>().SetBossRoom();    
+
+        // Prepare for the next Combat
+        state = states.postAttack;
+        postAttackCounter = 5;
+        health = 500;
+        StartCoroutine(immunityFrames(2.5f));
+        GhostUI.SetActive(true);
+
+    }
+
+    private void PrepareBossRoom()
+    {
+        // Get a random room
         Transform level = transform.parent.parent;
-        List<Transform> options = new List<Transform>();
-        for (int i = 0; i < level.childCount; i++)
-        {
-            options.Add(level.GetChild(i));
-        }
-        while (options.Count > 0)
-        {
-            Transform selected = options[Random.Range(0, options.Count)];
-            Room room = selected.GetComponent<Room>();
-            if (room.GetIsEntered())
-            {
-                options.Remove(selected);
-            }
-            else
-            {
-                CreateBossRoom(room);
-                return;
-            }
-        }
-        Room currentRoom = transform.parent.GetComponent<Room>();
-        if (currentRoom.GetID() != GameManager.Instance.currentRoomID)
-        {
-            // Clear Room
-            transform.parent = transform.parent.parent;
-            Room newRoom = GetComponentInParent<LevelGenerator>().RecreateAsBossRoom(currentRoom);
-            CreateBossRoom(newRoom);
-            
-        }   
-        else
-        {
-            // Deactivate Ghost if there is no possible Room
-            gameObject.SetActive(false);
-        }  
-    }
+        Transform roomT = level.GetChild(Random.Range(0, level.childCount));
+        Room room = roomT.GetComponent<Room>();
 
-    public void CreateBossRoom(Room room)
-    {
+        // try again if it is the start room
+        if (room.GetIsStart())
+        {
+            PrepareBossRoom();
+            return;
+        }
+
+        // Adjust the Ghost stats for upcoming battle
         room.SetBossRoom();
         transform.parent = room.transform;
-        transform.localPosition = Vector3.zero;
+        transform.localPosition = Vector3.zero;        
         SetRoomID(room.GetID());
         SetMovingGoalInRoom();
         health = 500;
@@ -255,10 +218,8 @@ public class Ghost : Enemy
         if (col.gameObject.tag == "Room")
         {
             Room room = col.GetComponent<Room>();
-            if (!room.GetIsEntered() && searching)
-            {
-                CreateBossRoom(room);
-            }
+            SetRoomID(room.GetID());
+            transform.parent = col.transform;
         }     
     }
 

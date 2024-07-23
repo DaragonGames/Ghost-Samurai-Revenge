@@ -59,6 +59,7 @@ MonoBehaviour:
   actionSpeed: 10
   spawnAble: {fileID: 3360523122502007849}
   itemPrefab: {fileID: 5174449708874311532, guid: 9021f49da5d11ac4cbe525162a50f29e, type: 3}
+  hitSoundPrefab: {fileID: 0}
 --- !u!114 &2301046328004643204
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -82,6 +83,7 @@ MonoBehaviour:
   actionSpeed: 10
   spawnAble: {fileID: 0}
   itemPrefab: {fileID: 5174449708874311532, guid: 9021f49da5d11ac4cbe525162a50f29e, type: 3}
+  hitSoundPrefab: {fileID: 0}
 --- !u!212 &314306775971322981
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -195,4 +197,4 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4

@@ -19,6 +19,7 @@ public class Enemy : MonoBehaviour
     public GameObject spawnAble;
     public GameObject itemPrefab;
     public GameObject hitSoundPrefab;
+    public GameObject smokePrefab;
 
     // Code based Variables: do not change
     private Vector3 knockback = Vector3.zero;
@@ -26,6 +27,7 @@ public class Enemy : MonoBehaviour
     private bool invincible = false;
     protected float actionCounter;
     private bool isMinion = false;
+    private float redflash = 0;
 
     void Start()
     {
@@ -52,6 +54,7 @@ public class Enemy : MonoBehaviour
             {
                 Instantiate(itemPrefab, transform.position, Quaternion.identity);
             }
+            Destroy(Instantiate(smokePrefab, transform.position, Quaternion.identity),0.4f);            
             CharacterFinalAction();
             Destroy(gameObject);
         }
@@ -69,7 +72,12 @@ public class Enemy : MonoBehaviour
             CharacterAction();
             actionCounter = actionSpeed;
         }
-        CharacterBonusAction();        
+        CharacterBonusAction();    
+        if (redflash > 0)
+        {
+            GetComponent<SpriteRenderer>().color = new Color(1, 1-redflash, 1-redflash);
+            redflash -= Time.deltaTime* 1.2f;
+        }    
     }
 
     public virtual void MoveCharacter() {}
@@ -92,14 +100,15 @@ public class Enemy : MonoBehaviour
         }
         float damageFlat = amount * (1-defensePercentage) + piercingDamage - trueDefense;
         health -= Mathf.Max(damageFlat ,GameManager.Instance.gameData.minDamage);
-        this.knockback =knockback * Mathf.Max(knockbackStrength - knockbackResistance, 0);
-        invincible = true;
+        this.knockback =knockback * Mathf.Max(knockbackStrength - knockbackResistance, 0);        
         StartCoroutine(immunityFrames(0.15f));
         Instantiate(hitSoundPrefab, transform.position, Quaternion.identity);
+        redflash = 0.8f;
     }
 
     protected virtual IEnumerator immunityFrames(float duration)
     {
+        invincible = true;
         yield return new WaitForSeconds(duration); 
         invincible = false;
     }

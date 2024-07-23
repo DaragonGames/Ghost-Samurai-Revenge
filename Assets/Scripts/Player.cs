@@ -17,6 +17,7 @@ public class Player : MonoBehaviour
     private Animator animator;
     private int facing = 0;
     private float ammunition = 0;
+    private float redflash = 0;
 
 
 
@@ -60,6 +61,11 @@ public class Player : MonoBehaviour
         if (ammunition > stats.maxAmmunition)
         {
             ammunition = stats.maxAmmunition;
+        }
+        if (redflash > 0)
+        {
+            GetComponent<SpriteRenderer>().color = new Color(1, 1-redflash, 1-redflash);
+            redflash -= Time.deltaTime* 1.2f;
         }
     }
 
@@ -202,6 +208,7 @@ public class Player : MonoBehaviour
         immuneToDamage = true;
         StartCoroutine(immunityFrames(stats.invisibleFramesDuration));
         Instantiate(hitSoundPrefab, transform.position, Quaternion.identity);
+        redflash = 0.8f;
     }
 
     public void EnterRoom(Vector3 center)

@@ -35,6 +35,7 @@ public class Room : MonoBehaviour
 
     public void SetID(int id) { ID = id; }
     public int GetID() { return ID; }
+    public bool GetIsStart() { return isStart; }
     public bool GetIsEntered() {return isEntered;}
     public void SetBossRoom() { isBossRoom = true;}
 
@@ -53,7 +54,7 @@ public class Room : MonoBehaviour
         {
             isCleared = true;
         }
-        if (isEnd)
+        if (isEnd && GameManager.Instance.gameData.progression < 4)
         {
             Instantiate(spawnables.torii, transform.position+Vector3.up*3.25f, Quaternion.identity, transform);
         }  
@@ -86,6 +87,14 @@ public class Room : MonoBehaviour
 
     void Update()
     {
+        if (isBossRoom)
+        {
+            doorLeft.SetActive(true);
+            doorRight.SetActive(true);
+            doorUp.SetActive(true);
+            doorDown.SetActive(true);
+            return;
+        }
         if (isEntered && !isCleared)
         {
             doorLeft.SetActive(true);
@@ -100,7 +109,7 @@ public class Room : MonoBehaviour
             doorUp.SetActive(!upOpen);
             doorDown.SetActive(!downOpen);
         }  
-        if (enemies.childCount == 0 && isEntered && !isBossRoom)
+        if (enemies.childCount == 0 && isEntered)
         {
             isCleared = true;
         }      
@@ -115,11 +124,7 @@ public class Room : MonoBehaviour
             }            
             GameManager.OnRoomEnterEvent(transform.position);            
             StartCoroutine(DelayRoomAction());
-        }   
-        if (col.GetComponent<Ghost>() != null)
-        {
-            col.transform.parent = transform;
-        }     
+        }      
     }
 
     IEnumerator DelayRoomAction()

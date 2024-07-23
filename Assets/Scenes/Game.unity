@@ -2928,7 +2928,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1469772614}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &812552711
@@ -5791,7 +5792,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!50 &1469772611
 Rigidbody2D:
   serializedVersion: 4
@@ -5914,12 +5915,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1469772610}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -30, y: 30, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 30, z: 0}
   m_LocalScale: {x: 1.3, y: 1.3, z: 1.3}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 812552710}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1469772615
 MonoBehaviour:
@@ -5935,17 +5936,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   contactDamage: 10
   piercingContactDamage: 0
-  movementSpeed: 1
+  movementSpeed: 1.5
   health: 10000
   knockbackResistance: 0
   healthGeneration: 0
   defensePercentage: 0.5
   trueDefense: 0
   actionSpeed: 2
-  spawnAble: {fileID: 0}
-  itemPrefab: {fileID: 0}
-  hitSoundPrefab: {fileID: 0}
+  spawnAble: {fileID: 3225521451959237659, guid: 9c82fdb2864d22047b2ec85e39a51f54, type: 3}
+  itemPrefab: {fileID: 5174449708874311532, guid: 9021f49da5d11ac4cbe525162a50f29e, type: 3}
+  hitSoundPrefab: {fileID: 4201426831179979751, guid: 3fc31534ed02f0046b6a3e24aba47b32, type: 3}
+  smokePrefab: {fileID: 2473401214114011642, guid: ea66e59f1234ba547831d1940efd9741, type: 3}
   GhostUI: {fileID: 1160240700}
+  destructionBladesPrefab: {fileID: 4862784856443059678, guid: a0dfc7b061f5bca4686d660b7067fd8b, type: 3}
 --- !u!114 &1469772616
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8528,7 +8531,6 @@ SceneRoots:
   - {fileID: 812552710}
   - {fileID: 1648283355}
   - {fileID: 1871993588}
-  - {fileID: 1469772614}
   - {fileID: 1160240705}
   - {fileID: 813791062}
   - {fileID: 615367157}
