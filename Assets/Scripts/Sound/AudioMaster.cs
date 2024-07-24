@@ -13,6 +13,16 @@ public class AudioMaster : MonoBehaviour
     private bool boss;
     private int hpSoundPlaying = 0;
 
+    void Start()
+    {
+        bossSound.PlayScheduled(AudioSettings.dspTime + 1);
+        levelSound.PlayScheduled(AudioSettings.dspTime + 1);
+        ghostSound.PlayScheduled(AudioSettings.dspTime + 1);
+        hpSound[1].PlayScheduled(AudioSettings.dspTime + 1);
+        hpSound[1].PlayScheduled(AudioSettings.dspTime + 1);
+        hpSound[1].PlayScheduled(AudioSettings.dspTime + 1);
+    }
+
     void Update()
     {        
         if (GameManager.Instance.gameState == GameManager.GameState.Boss)

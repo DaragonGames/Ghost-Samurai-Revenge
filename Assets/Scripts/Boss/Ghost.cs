@@ -24,7 +24,7 @@ public class Ghost : Enemy
 
         movingGoal = transform.position;
         attacks = GetComponent<GhostAttacks>();
-        GameManager.Instance.gameData.ghostWrath += 40; //For Debugging
+        //GameManager.Instance.gameData.ghostWrath += 40; //For Debugging
         anger = GameManager.Instance.gameData.ghostWrath;
         if (anger == 0)
         {
@@ -211,7 +211,7 @@ public class Ghost : Enemy
         // Prepare for the next Combat
         state = states.postAttack;
         postAttackCounter = 5;
-        health = 50;
+        health = 500;
         StartCoroutine(immunityFrames(2.5f));
         GhostUI.transform.parent.gameObject.SetActive(true);
 
@@ -237,7 +237,7 @@ public class Ghost : Enemy
         transform.localPosition = Vector3.zero;        
         SetRoomID(room.GetID());
         SetMovingGoalInRoom();
-        health = 50;
+        health = 500;
         state = states.waiting;
     }
 
@@ -253,7 +253,8 @@ public class Ghost : Enemy
     IEnumerator Die()
     {
         GameManager.Instance.gameState = GameManager.GameState.GameOver;
-        GhostUI.transform.parent.gameObject.SetActive(true);
+        //Destroy(GetComponent<SpriteRenderer>());
+        GhostUI.transform.parent.gameObject.SetActive(false);
         for (int i = 0; i < 50; i++)
         {
             SetMovingGoalInRoom();
