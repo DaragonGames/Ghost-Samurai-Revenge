@@ -730,7 +730,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &143845935
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1861,7 +1861,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 381, y: 40}
+  m_SizeDelta: {x: 500, y: 40}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &481420605
 MonoBehaviour:
@@ -4678,7 +4678,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1353990348
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4696,8 +4696,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -275, y: -70}
-  m_SizeDelta: {x: 525, y: 105}
+  m_AnchoredPosition: {x: -360, y: -70}
+  m_SizeDelta: {x: 690, y: 105}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1353990349
 MonoBehaviour:
@@ -5324,8 +5324,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 609472217
-  m_SortingLayer: 2
+  m_SortingLayerID: 1197527697
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: -313623603, guid: 0242eb3efbab00441a3a0fa81f1952e5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -5923,8 +5923,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -167.5, y: 0.5}
-  m_SizeDelta: {x: 382, y: 16}
+  m_AnchoredPosition: {x: -220, y: 0.5}
+  m_SizeDelta: {x: 500, y: 16}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &1604630400
 MonoBehaviour:
@@ -6177,8 +6177,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1830794183
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: -1358426058, guid: e74bae330c124ef44a8b9d7bd40a72ab, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

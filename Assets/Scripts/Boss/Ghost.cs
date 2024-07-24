@@ -24,7 +24,7 @@ public class Ghost : Enemy
 
         movingGoal = transform.position;
         attacks = GetComponent<GhostAttacks>();
-        //GameManager.Instance.gameData.ghostWrath += 40; //For Debugging
+        GameManager.Instance.gameData.ghostWrath += 40; //For Debugging
         anger = GameManager.Instance.gameData.ghostWrath;
         if (anger == 0)
         {
@@ -52,7 +52,7 @@ public class Ghost : Enemy
         if (state == states.attacking || state == states.postAttack) 
         {
             float hpPercentage = health / 500f;
-            GhostUI.GetComponent<RectTransform>().sizeDelta = new Vector2 (hpPercentage*382, 16);
+            GhostUI.GetComponent<RectTransform>().sizeDelta = new Vector2 (hpPercentage*500, 16);
         }
 
         switch (state) {
@@ -211,7 +211,7 @@ public class Ghost : Enemy
         // Prepare for the next Combat
         state = states.postAttack;
         postAttackCounter = 5;
-        health = 500;
+        health = 50;
         StartCoroutine(immunityFrames(2.5f));
         GhostUI.transform.parent.gameObject.SetActive(true);
 
@@ -237,7 +237,7 @@ public class Ghost : Enemy
         transform.localPosition = Vector3.zero;        
         SetRoomID(room.GetID());
         SetMovingGoalInRoom();
-        health = 500;
+        health = 50;
         state = states.waiting;
     }
 
@@ -254,11 +254,11 @@ public class Ghost : Enemy
     {
         GameManager.Instance.gameState = GameManager.GameState.GameOver;
         GhostUI.transform.parent.gameObject.SetActive(true);
-        for (int i = 0; i < 20; i++)
+        for (int i = 0; i < 50; i++)
         {
-            SetMovingGoalInMap();
+            SetMovingGoalInRoom();
             Destroy(Instantiate(smokePrefab, movingGoal, Quaternion.identity),0.4f);
-            yield return new WaitForSeconds(Random.value*0.2f);
+            yield return new WaitForSeconds(Random.value*0.1f);
         }        
 
         victoryScreen.SetActive(true);
