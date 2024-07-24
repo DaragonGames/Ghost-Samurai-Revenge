@@ -2,79 +2,79 @@
     "list": [
         {
             "id": 0,
-            "testifier": "The Testimony of a Traveling Buddhist",
+            "testifier": "Testimony of a Traveling Monk",
             "testimony": "Since I am a Buddhist priest; I took little notice about her details.",
-            "description": "Gain Defense Upgrade",
+            "description": "Defense upgrade",
             "effectId": 0
         },
         {
             "id": 1,
-            "testifier": "The Testimony of a Policeman",
+            "testifier": "Testimony of a Policeman",
             "testimony": "He was wearing a dark blue silk kimono and a large plain sword.",
-            "description": "Gain Damage Upgrade",
+            "description": "Damage upgrade",
             "effectId": 1
         },
         {
             "id": 2,
-            "testifier": "The Testimony of Tajomaru the bandit",
+            "testifier": "Testimony of Tajomaru the bandit",
             "testimony": "I told them there was an old mound in the mountain over there, and that I had dug it open and found many mirrors and swords",
-            "description": "Gain Speed Upgrade",
+            "description": "Running speed upgrade",
             "effectId": 2
         },
         {
             "id": 3,
             "testifier": "The Testimony of Tajomaru the bandit",
             "testimony": "Just then a puff of wind blew, and raised her hanging scarf, so that I caught a glimpse of her face.",
-            "description": "Gain Luck Upgrade",
+            "description": "Luck upgrade",
             "effectId": 3
         },
         {
             "id": 4,
-            "testifier": "The Testimony of a Woodcutter",
+            "testifier": "Testimony of a Woodcutter",
             "testimony": "This morning, as usual, I went to cut my daily quota of cedars, when I found the body in a grove in a hollow in the mountains.",
-            "description": "Gain Health Upgrade",
+            "description": "Health upgrade",
             "effectId": 4
         },
         {
             "id": 5,
-            "testifier": "The Testimony of Masago the wife",
+            "testifier": "Testimony of Masago the Wife",
             "testimony": "But fortunately my small sword was lying at my feet.",
-            "description": "Gain Attack Speed Upgrade",
+            "description": "Attack speed upgrade",
             "effectId": 5
         },
         {
             "id": 6,
-            "testifier": "The Testimony of a medium",
+            "testifier": "Testimony of a Medium",
             "testimony": "Even now these words threaten to blow me headlong into the bottomless abyss of darkness.",
-            "description": "Angers Ghost",
+            "description": "Angers the ghost",
             "effectId": 6
         },        
         {
             "id": 7,
-            "testifier": "The Testimony of a medium",
+            "testifier": "Testimony of a Medium",
             "testimony": "For these words alone I would like to pardon his crime.",
-            "description": "Calms Ghost",
+            "description": "Calms the ghost",
             "effectId": 7
         },
         {
             "id": 8,
-            "testifier": "The Testimony of a old women",
+            "testifier": "Testimony of an Old Woman",
             "testimony": "He was of a gende disposition, so I am sure he did nothing to provoke the anger of others.",
-            "description": "Calms Ghost",
+            "description": "Calms the ghost",
             "effectId": 7
         },
         {
             "id": 9,
-            "testifier": "The Testimony of a old women",
+            "testifier": "Testimony of an Old Woman",
             "testimony": "What bad luck it is that things should have come to such a sad end!",
-            "description": "Angers Ghost and bad Luck",
+            "description": "Angers ghost and brings bad luck",
             "effectId": 0
         },
         {
             "id": 10,
-            "testifier": "The Testimony of a Traveling Buddhist",
+            "testifier": "Testimony of a Traveling Monk",
             "testimony": "My words are inadequate to express my sympathy for him.",
-            "description": "Calms Ghost",
+            "description": "Calms the ghost",
             "effectId": 7
         }
     ]
