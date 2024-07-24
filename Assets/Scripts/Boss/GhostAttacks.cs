@@ -56,14 +56,17 @@ public class GhostAttacks : MonoBehaviour
     }
 
     private Vector2 SummonMinions() {
+        GetComponent<Animator>().SetBool("minionSummon", true);
         SummonEnemy(charger, transform.position+new Vector3(1.5f,0,0));
         SummonEnemy(charger, transform.position+new Vector3(-1.5f,0,0));
-        return new Vector2(0,2.5f);
+        StartCoroutine(MinionAnimationDelay());
+        return new Vector2(1,2f);
     }
 
     private Vector2 SummonTowers() {
 
         Vector3 center = transform.parent.position;
+        GetComponent<Animator>().SetBool("minionSummon", true);
 
         for (int i = 0; i<4; i++)
         {
@@ -74,13 +77,20 @@ public class GhostAttacks : MonoBehaviour
                 turrets[i] = SummonEnemy(turret,center+new Vector3(x,y));
             }
         }     
+        StartCoroutine(MinionAnimationDelay());
+        return new Vector2(1,4f);
+    }
 
-        return new Vector2(0,5f);
+    IEnumerator MinionAnimationDelay() {
+        yield return new WaitForSeconds(0.1f);
+        GetComponent<Animator>().SetBool("minionSummon", false);
     }
 
     IEnumerator DoBladeCircleAttack() {
+        GetComponent<Animator>().SetBool("swordSummon", true);
         // prepare Attack
         yield return new WaitForSeconds(1f);
+        GetComponent<Animator>().SetBool("swordSummon", false);
 
         // Actual Attack
         GameObject projectile = Instantiate(orbitingBlade, transform.position, Quaternion.identity, transform);
@@ -99,6 +109,7 @@ public class GhostAttacks : MonoBehaviour
 
     IEnumerator DoThrowingBladeAttack()
     {
+        GetComponent<Animator>().SetBool("swordSummon", true);
         // prepare Attack
         yield return new WaitForSeconds(1f);
 
@@ -108,13 +119,16 @@ public class GhostAttacks : MonoBehaviour
         CreateBlade();
         yield return new WaitForSeconds(1f);
         CreateBlade();
+        GetComponent<Animator>().SetBool("swordSummon", false);
     }
 
     IEnumerator PrepareSpittingLeavesAttack()
     {
+        GetComponent<Animator>().SetBool("spitting", true);
         yield return new WaitForSeconds(1f);
         Vector3 target = GameManager.Instance.player.transform.position - transform.position;
         StartCoroutine(DoSpittingLeavesAttack(2f,target));
+        GetComponent<Animator>().SetBool("spitting", false);
     }
 
     IEnumerator DoSpittingLeavesAttack(float timeLeft, Vector3 target) 
