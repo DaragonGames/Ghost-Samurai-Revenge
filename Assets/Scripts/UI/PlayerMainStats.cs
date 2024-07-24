@@ -12,7 +12,7 @@ public class PlayerMainStats : MonoBehaviour
     {
         Player player = GameManager.Instance.player.GetComponent<Player>();
         float hpPercentage = player.GetHealthPercentage();
-        healthMask.sizeDelta = new Vector2 (hpPercentage*200, 40);
-        amuntionMask.sizeDelta = new Vector2 (100, 80*player.GetAmmunition());        
+        healthMask.sizeDelta = new Vector2 (hpPercentage*200, 16);
+        amuntionMask.sizeDelta = new Vector2 (60*player.GetAmmunition(), 64);        
     }
 }
