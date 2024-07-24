@@ -22,6 +22,7 @@ public class Ghost : Enemy
 
         movingGoal = transform.position;
         attacks = GetComponent<GhostAttacks>();
+        GameManager.Instance.gameData.ghostWrath += 30;
         anger = GameManager.Instance.gameData.ghostWrath;
         if (anger == 0)
         {
@@ -55,6 +56,7 @@ public class Ghost : Enemy
                     GhostUI.SetActive(true);
                     state = states.postAttack;
                     postAttackCounter = 2f;
+                    GameManager.Instance.gameState = GameManager.GameState.Boss;
                 }
                 break;
             case states.attacking:
@@ -132,7 +134,7 @@ public class Ghost : Enemy
     private void ReactToDamage() 
     {
         // Can either flee, attack or do nothing
-        float ran = Random.value*75 + anger;
+        float ran = Random.value*50 + anger;
         if (ran > 100)
         {   
             // Flee or Boss Room
@@ -170,6 +172,7 @@ public class Ghost : Enemy
         {
             return;
         }
+        GameManager.Instance.gameState = GameManager.GameState.Boss;
 
         // Move towards the center
         Vector3 center = transform.parent.position;

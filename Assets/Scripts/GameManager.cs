@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
-    public enum GameState {Title, Reading, InGame, GameOver };
+    public enum GameState {Title, Reading, InGame, Boss, GameOver };
     public GameState gameState;
     public GameObject player;
     public int currentRoomID = -1;
