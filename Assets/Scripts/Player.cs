@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     public GameObject swordSoundPrefab;
     public GameObject shurikenSoundPrefab;
     public GameObject hitSoundPrefab;
+    public GameObject loseScreen;
 
     private float health;
     private PlayerStats stats;
@@ -41,9 +42,17 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (health < 0)
+        if (GameManager.Instance.gameState == GameManager.GameState.GameOver)
+        {
+            return;
+        }
+        if (health <= 0)
         {
             GameManager.Instance.gameState = GameManager.GameState.GameOver;
+            animator.SetBool("death", true); 
+            animator.SetBool("Attacking", false);  
+            animator.SetBool("Moving", false);  
+            loseScreen.SetActive(true);
             return;
         }
 

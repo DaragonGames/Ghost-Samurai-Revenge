@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -5,6 +6,7 @@ public class Ghost : Enemy
 {
     public GameObject GhostUI;
     public GameObject destructionBladesPrefab;
+    public GameObject victoryScreen;
 
     private Vector3 movingGoal;
     private GhostAttacks attacks;
@@ -36,6 +38,23 @@ public class Ghost : Enemy
 
     void Update()
     {
+        if (GameManager.Instance.gameState == GameManager.GameState.GameOver)
+        {
+            return;
+        }
+        if (GameManager.Instance.gameState == GameManager.GameState.GameOver && health <= 0)
+        {
+            StartCoroutine(Die());
+            return;
+        }   
+
+        // Handle Ghost UI
+        if (state == states.attacking || state == states.postAttack) 
+        {
+            float hpPercentage = health / 500f;
+            GhostUI.GetComponent<RectTransform>().sizeDelta = new Vector2 (hpPercentage*382, 16);
+        }
+
         switch (state) {
             case states.wandering:
                 Move();
@@ -53,7 +72,7 @@ public class Ghost : Enemy
             case states.waiting:
                 if (roomID == GameManager.Instance.currentRoomID)
                 {
-                    GhostUI.SetActive(true);
+                    GhostUI.transform.parent.gameObject.SetActive(true);
                     state = states.postAttack;
                     postAttackCounter = 2f;
                     GameManager.Instance.gameState = GameManager.GameState.Boss;
@@ -194,7 +213,7 @@ public class Ghost : Enemy
         postAttackCounter = 5;
         health = 500;
         StartCoroutine(immunityFrames(2.5f));
-        GhostUI.SetActive(true);
+        GhostUI.transform.parent.gameObject.SetActive(true);
 
     }
 
@@ -229,6 +248,16 @@ public class Ghost : Enemy
             SetRoomID(room.GetID());
             transform.parent = col.transform;
         }     
+    }
+
+    IEnumerator Die()
+    {
+        GameManager.Instance.gameState = GameManager.GameState.GameOver;
+        yield return new WaitForSeconds(1f);
+
+        victoryScreen.SetActive(true);
+        Destroy(gameObject);
+        
     }
 
 }

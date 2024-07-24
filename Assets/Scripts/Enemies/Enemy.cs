@@ -37,7 +37,12 @@ public class Enemy : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {       
+    {   
+        if (GameManager.Instance.gameState == GameManager.GameState.GameOver)
+        {
+            return;
+        }    
+        
         // Handle Knockback
         transform.position += knockback * Time.deltaTime;
         knockback -= knockback.normalized * Time.deltaTime;  
