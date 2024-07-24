@@ -78,5 +78,15 @@ public class GameManager : MonoBehaviour
         return GameManager.Instance.gameData.LuckUpgradesCollected;
     }
 
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            gameState = GameState.Title;
+            SceneManager.LoadScene("Title");    
+            gameData = new GameData();
+        }
+    }
+
     
 }

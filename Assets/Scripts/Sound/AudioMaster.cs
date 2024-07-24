@@ -15,12 +15,12 @@ public class AudioMaster : MonoBehaviour
 
     void Start()
     {
-        bossSound.PlayScheduled(AudioSettings.dspTime + 1);
-        levelSound.PlayScheduled(AudioSettings.dspTime + 1);
-        ghostSound.PlayScheduled(AudioSettings.dspTime + 1);
-        hpSound[1].PlayScheduled(AudioSettings.dspTime + 1);
-        hpSound[1].PlayScheduled(AudioSettings.dspTime + 1);
-        hpSound[1].PlayScheduled(AudioSettings.dspTime + 1);
+        bossSound.PlayScheduled(AudioSettings.dspTime + 2);
+        levelSound.PlayScheduled(AudioSettings.dspTime + 2);
+        ghostSound.PlayScheduled(AudioSettings.dspTime + 2);
+        hpSound[0].PlayScheduled(AudioSettings.dspTime + 2);
+        hpSound[1].PlayScheduled(AudioSettings.dspTime + 2);
+        hpSound[2].PlayScheduled(AudioSettings.dspTime + 2);
     }
 
     void Update()
