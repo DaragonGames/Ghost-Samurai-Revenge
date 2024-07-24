@@ -73,14 +73,14 @@ public static class TestimonyHandler
                 GameManager.Instance.gameData.AttackSpeedUpgradesCollected++;
                 break;
             case 6:
-                GameManager.Instance.gameData.ghostWrath+=15;
+                GameManager.Instance.gameData.ghostWrath+=10;
                 break;
             case 7:
-                GameManager.Instance.gameData.ghostWrath-=15f;
+                GameManager.Instance.gameData.ghostWrath-=10f;
                 break;
             case 8:
-                GameManager.Instance.gameData.ghostWrath=100;
-                GameManager.Instance.gameData.LuckUpgradesCollected-=5;
+                GameManager.Instance.gameData.ghostWrath=50;
+                GameManager.Instance.gameData.LuckUpgradesCollected-=3;
                 break;
         }
     }

@@ -54,7 +54,7 @@ public class Room : MonoBehaviour
         {
             isCleared = true;
         }
-        if (isEnd && GameManager.Instance.gameData.progression < 4)
+        if (isEnd && GameManager.Instance.gameData.ghostWrath < 40)
         {
             Instantiate(spawnables.torii, transform.position+Vector3.up*3.25f, Quaternion.identity, transform);
         }  

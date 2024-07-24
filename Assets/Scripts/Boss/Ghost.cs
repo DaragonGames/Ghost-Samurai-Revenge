@@ -24,7 +24,7 @@ public class Ghost : Enemy
 
         movingGoal = transform.position;
         attacks = GetComponent<GhostAttacks>();
-        GameManager.Instance.gameData.ghostWrath += 30;
+        //GameManager.Instance.gameData.ghostWrath += 30; For Debugging
         anger = GameManager.Instance.gameData.ghostWrath;
         if (anger == 0)
         {
