@@ -44,7 +44,8 @@ public class Projectile : MonoBehaviour
         }
         if (col.gameObject.tag == "Projectile" && isSlice)
         {     
-            Destroy(col.gameObject);  
+            col.GetComponent<Projectile>().Pierce();
+            //Destroy(col.gameObject);  
             return; 
         }
         Vector3 knockbackDirection = (col.transform.position - transform.position).normalized;
