@@ -16,6 +16,7 @@ public class Projectile : MonoBehaviour
     private Vector3 direction = new Vector3(0, 0,0);
     private float roationSpeed = 0;
     private float acceleration=0;
+    private bool isSlice = false;
 
     // Start is called before the first frame update
     void Start()
@@ -40,6 +41,11 @@ public class Projectile : MonoBehaviour
         if (col.gameObject.tag == sourceTag)
         {
             return;
+        }
+        if (col.gameObject.tag == "Projectile" && isSlice)
+        {     
+            Destroy(col.gameObject);  
+            return; 
         }
         Vector3 knockbackDirection = (col.transform.position - transform.position).normalized;
         if (col.gameObject.tag == "Player" && sourceTag == "Enemy")
@@ -114,6 +120,7 @@ public class Projectile : MonoBehaviour
         piercingDamage = stats.piercingDamage;
         critChance = stats.critChance;
         critDamageMultiplier = stats.critDamageMultiplier;
+        isSlice = true;
     }
 
     public void SetValues(string source, Vector3 direction)

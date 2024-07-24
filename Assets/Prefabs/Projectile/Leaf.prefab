@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duration: 2
-  piercing: 0
+  piercing: 1000
   movementSpeed: 4
   contactDamage: 10
   knockbackStrength: 0
