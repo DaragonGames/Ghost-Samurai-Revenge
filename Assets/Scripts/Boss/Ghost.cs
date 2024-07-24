@@ -78,6 +78,11 @@ public class Ghost : Enemy
                 }
                 break;
         }
+        if (redflash > 0)
+        {
+            GetComponent<SpriteRenderer>().color = new Color(1, 1-redflash, 1-redflash);
+            redflash -= Time.deltaTime* 1.2f;
+        }    
     }
 
     private void Move() {
@@ -97,16 +102,18 @@ public class Ghost : Enemy
                     break;
             }
         }
+        GetComponent<SpriteRenderer>().flipX = direction.x < 0;
     }
 
     private void Flee()
-    {                 
+    {         
         Vector3 fleeingDirection = transform.position - GameManager.Instance.player.transform.position;
         transform.position += 5 * fleeingDirection.normalized * Time.deltaTime;  
         if (fleeingDirection.magnitude > 18)
         {
             gameObject.SetActive(false);
-        }                   
+        } 
+        GetComponent<SpriteRenderer>().flipX = fleeingDirection.x < 0;                 
     }
 
     private void SetMovingGoalInRoom()

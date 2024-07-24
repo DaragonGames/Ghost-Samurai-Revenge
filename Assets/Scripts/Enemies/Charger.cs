@@ -13,6 +13,14 @@ public class Charger : Enemy
 
     public override void MoveCharacter() 
     { 
+        if (targetDirection.x > 0) 
+        {
+            GetComponent<SpriteRenderer>().flipX = false;
+        }
+        if (targetDirection.x < 0) 
+        {
+            GetComponent<SpriteRenderer>().flipX = true;
+        }
         if (charging) 
         {
             transform.position += targetDirection * movementSpeed * Time.deltaTime;

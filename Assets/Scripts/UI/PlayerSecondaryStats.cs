@@ -1,8 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-
 public class PlayerSecondaryStats : MonoBehaviour
 {
     public TMP_Text[] statTexts;
@@ -38,6 +35,14 @@ public class PlayerSecondaryStats : MonoBehaviour
             output += "|";
         }
         return output;
+    }
+
+    void Update()
+    {
+        if (GameManager.Instance.gameState == GameManager.GameState.GameOver)
+        {
+            gameObject.SetActive(false);
+        }
     }
 
 }

@@ -27,7 +27,7 @@ public class Enemy : MonoBehaviour
     private bool invincible = false;
     protected float actionCounter;
     private bool isMinion = false;
-    private float redflash = 0;
+    protected float redflash = 0;
 
     void Start()
     {
