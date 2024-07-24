@@ -24,7 +24,7 @@ public class Ghost : Enemy
 
         movingGoal = transform.position;
         attacks = GetComponent<GhostAttacks>();
-        //GameManager.Instance.gameData.ghostWrath += 30; For Debugging
+        //GameManager.Instance.gameData.ghostWrath += 40; //For Debugging
         anger = GameManager.Instance.gameData.ghostWrath;
         if (anger == 0)
         {
@@ -42,7 +42,7 @@ public class Ghost : Enemy
         {
             return;
         }
-        if (GameManager.Instance.gameState == GameManager.GameState.GameOver && health <= 0)
+        if (health <= 0)
         {
             StartCoroutine(Die());
             return;
@@ -253,7 +253,13 @@ public class Ghost : Enemy
     IEnumerator Die()
     {
         GameManager.Instance.gameState = GameManager.GameState.GameOver;
-        yield return new WaitForSeconds(1f);
+        GhostUI.transform.parent.gameObject.SetActive(true);
+        for (int i = 0; i < 20; i++)
+        {
+            SetMovingGoalInMap();
+            Destroy(Instantiate(smokePrefab, movingGoal, Quaternion.identity),0.4f);
+            yield return new WaitForSeconds(Random.value*0.2f);
+        }        
 
         victoryScreen.SetActive(true);
         Destroy(gameObject);

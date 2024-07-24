@@ -58,10 +58,10 @@ public class Room : MonoBehaviour
         {
             if (GameManager.Instance.gameData.ghostWrath < 40)
             {
-                upOpen = false;
+                Instantiate(spawnables.torii, transform.position+Vector3.up*3.25f, Quaternion.identity, transform);                
             }
             {
-                Instantiate(spawnables.torii, transform.position+Vector3.up*3.25f, Quaternion.identity, transform);
+                upOpen = false;
             }            
         }  
         // Create Bamboo Walls

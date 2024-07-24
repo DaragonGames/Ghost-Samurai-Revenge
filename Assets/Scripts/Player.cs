@@ -36,7 +36,7 @@ public class Player : MonoBehaviour
 
     void OnDestroy()
     {
-        GameManager.EnterNewRoom -= EnterRoom; 
+        GameManager.EnterNewRoom -= EnterRoom;        
     }
 
     // Update is called once per frame
@@ -44,6 +44,8 @@ public class Player : MonoBehaviour
     {
         if (GameManager.Instance.gameState == GameManager.GameState.GameOver)
         {
+            animator.SetBool("Attacking", false);  
+            animator.SetBool("Moving", false);  
             return;
         }
         if (health <= 0)
