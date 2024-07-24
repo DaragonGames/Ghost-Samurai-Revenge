@@ -89,13 +89,29 @@ PrefabInstance:
       value: Sniper Variant
       objectReference: {fileID: 0}
     - target: {fileID: 5182424042017890267, guid: f9d645f49e1fb4f47a26ca78a29099ea, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1205634603, guid: 3d37bdd55599c3f449a54c782f496587, type: 3}
+    - target: {fileID: 5182424042017890267, guid: f9d645f49e1fb4f47a26ca78a29099ea, type: 3}
       propertyPath: m_Color.b
-      value: 0.102187306
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5182424042017890267, guid: f9d645f49e1fb4f47a26ca78a29099ea, type: 3}
       propertyPath: m_Color.g
-      value: 0.6415094
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5182424042017890267, guid: f9d645f49e1fb4f47a26ca78a29099ea, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6725183539419180975, guid: f9d645f49e1fb4f47a26ca78a29099ea, type: 3}
+      propertyPath: sprites.Array.data[0]
+      value: 
+      objectReference: {fileID: -1205634603, guid: 3d37bdd55599c3f449a54c782f496587, type: 3}
+    - target: {fileID: 6725183539419180975, guid: f9d645f49e1fb4f47a26ca78a29099ea, type: 3}
+      propertyPath: sprites.Array.data[1]
+      value: 
+      objectReference: {fileID: -1213806756, guid: 3d37bdd55599c3f449a54c782f496587, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

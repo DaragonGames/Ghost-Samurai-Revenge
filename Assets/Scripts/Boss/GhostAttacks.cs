@@ -126,7 +126,7 @@ public class GhostAttacks : MonoBehaviour
     {
         GetComponent<Animator>().SetBool("spitting", true);
         yield return new WaitForSeconds(1f);
-        Vector3 target = GameManager.Instance.player.transform.position - transform.position;
+        Vector3 target = GameManager.Instance.player.transform.position;
         StartCoroutine(DoSpittingLeavesAttack(2f,target));
         GetComponent<Animator>().SetBool("spitting", false);
     }

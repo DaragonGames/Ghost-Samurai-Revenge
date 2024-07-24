@@ -48,21 +48,81 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1661468582298618715, guid: 8155e7a275cedef438f3349c42a09d28, type: 3}
+      propertyPath: framesPerSecond
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 1661468582298618715, guid: 8155e7a275cedef438f3349c42a09d28, type: 3}
+      propertyPath: sprites.Array.size
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 1661468582298618715, guid: 8155e7a275cedef438f3349c42a09d28, type: 3}
+      propertyPath: sprites.Array.data[0]
+      value: 
+      objectReference: {fileID: 467569879, guid: 3eea1c96560beec4aa9eaa7a8190bb9a, type: 3}
+    - target: {fileID: 1661468582298618715, guid: 8155e7a275cedef438f3349c42a09d28, type: 3}
+      propertyPath: sprites.Array.data[1]
+      value: 
+      objectReference: {fileID: -2123024544, guid: 3eea1c96560beec4aa9eaa7a8190bb9a, type: 3}
+    - target: {fileID: 1661468582298618715, guid: 8155e7a275cedef438f3349c42a09d28, type: 3}
+      propertyPath: sprites.Array.data[2]
+      value: 
+      objectReference: {fileID: -1884056678, guid: 3eea1c96560beec4aa9eaa7a8190bb9a, type: 3}
+    - target: {fileID: 1661468582298618715, guid: 8155e7a275cedef438f3349c42a09d28, type: 3}
+      propertyPath: sprites.Array.data[3]
+      value: 
+      objectReference: {fileID: 932185240, guid: 3eea1c96560beec4aa9eaa7a8190bb9a, type: 3}
+    - target: {fileID: 1661468582298618715, guid: 8155e7a275cedef438f3349c42a09d28, type: 3}
+      propertyPath: sprites.Array.data[4]
+      value: 
+      objectReference: {fileID: -1910514433, guid: 3eea1c96560beec4aa9eaa7a8190bb9a, type: 3}
+    - target: {fileID: 1661468582298618715, guid: 8155e7a275cedef438f3349c42a09d28, type: 3}
+      propertyPath: sprites.Array.data[5]
+      value: 
+      objectReference: {fileID: 1591596233, guid: 3eea1c96560beec4aa9eaa7a8190bb9a, type: 3}
+    - target: {fileID: 1661468582298618715, guid: 8155e7a275cedef438f3349c42a09d28, type: 3}
+      propertyPath: sprites.Array.data[6]
+      value: 
+      objectReference: {fileID: 1861047434, guid: 3eea1c96560beec4aa9eaa7a8190bb9a, type: 3}
+    - target: {fileID: 1661468582298618715, guid: 8155e7a275cedef438f3349c42a09d28, type: 3}
+      propertyPath: sprites.Array.data[7]
+      value: 
+      objectReference: {fileID: -510724760, guid: 3eea1c96560beec4aa9eaa7a8190bb9a, type: 3}
+    - target: {fileID: 1661468582298618715, guid: 8155e7a275cedef438f3349c42a09d28, type: 3}
+      propertyPath: sprites.Array.data[8]
+      value: 
+      objectReference: {fileID: 1295842784, guid: 3eea1c96560beec4aa9eaa7a8190bb9a, type: 3}
+    - target: {fileID: 1661468582298618715, guid: 8155e7a275cedef438f3349c42a09d28, type: 3}
+      propertyPath: sprites.Array.data[9]
+      value: 
+      objectReference: {fileID: 1931976381, guid: 3eea1c96560beec4aa9eaa7a8190bb9a, type: 3}
+    - target: {fileID: 1661468582298618715, guid: 8155e7a275cedef438f3349c42a09d28, type: 3}
+      propertyPath: sprites.Array.data[10]
+      value: 
+      objectReference: {fileID: 216894567, guid: 3eea1c96560beec4aa9eaa7a8190bb9a, type: 3}
+    - target: {fileID: 1661468582298618715, guid: 8155e7a275cedef438f3349c42a09d28, type: 3}
+      propertyPath: sprites.Array.data[11]
+      value: 
+      objectReference: {fileID: -186405894, guid: 3eea1c96560beec4aa9eaa7a8190bb9a, type: 3}
     - target: {fileID: 4097373891918239772, guid: 8155e7a275cedef438f3349c42a09d28, type: 3}
       propertyPath: m_Name
       value: Spikey Variant
       objectReference: {fileID: 0}
     - target: {fileID: 5405724725572905662, guid: 8155e7a275cedef438f3349c42a09d28, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 467569879, guid: 3eea1c96560beec4aa9eaa7a8190bb9a, type: 3}
+    - target: {fileID: 5405724725572905662, guid: 8155e7a275cedef438f3349c42a09d28, type: 3}
       propertyPath: m_Color.b
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5405724725572905662, guid: 8155e7a275cedef438f3349c42a09d28, type: 3}
       propertyPath: m_Color.g
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5405724725572905662, guid: 8155e7a275cedef438f3349c42a09d28, type: 3}
       propertyPath: m_Color.r
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7001614770237743176, guid: 8155e7a275cedef438f3349c42a09d28, type: 3}
       propertyPath: health

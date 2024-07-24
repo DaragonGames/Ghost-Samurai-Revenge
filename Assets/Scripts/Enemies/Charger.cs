@@ -16,12 +16,12 @@ public class Charger : Enemy
         if (charging) 
         {
             transform.position += targetDirection * movementSpeed * Time.deltaTime;
-        }        
+        } 
+        GetComponent<Animator>().SetBool("charging", charging);       
     }
 
     public override void CharacterAction() 
-    { 
-        charging = true;
+    {         
         StartCoroutine(chargingDuration());
         Vector3 playerPosition = GameManager.Instance.player.transform.position;
         targetDirection = (playerPosition - transform.position).normalized;
@@ -29,6 +29,7 @@ public class Charger : Enemy
 
     private IEnumerator chargingDuration()
     {
+        charging = true;
         yield return new WaitForSeconds(actionSpeed/2); 
         charging = false;      
     }
