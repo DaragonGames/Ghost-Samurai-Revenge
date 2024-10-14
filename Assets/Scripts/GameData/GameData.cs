@@ -30,7 +30,7 @@ public class GameData
                 collectedSheets++;
                 break;
             case 1:
-                GameManager.Instance.player.GetComponent<Player>().GainHealth(20);
+                GameManager.Instance.player.GetComponent<Damageable>().GainHealth(20);
                 break;
             case 2:
                 MovementSpeedUpgradesCollected= Mathf.Min(MovementSpeedUpgradesCollected+1, 10);
@@ -40,7 +40,7 @@ public class GameData
                 break;
             case 4:
                 HealthUpgradesCollected= Mathf.Min(HealthUpgradesCollected+1, 10);
-                GameManager.Instance.player.GetComponent<Player>().GainHealth(10);
+                GameManager.Instance.player.GetComponent<Damageable>().IncreaseMaxHealth(10);
                 break;
             case 5:
                 DamageUpgradesCollected= Mathf.Min(DamageUpgradesCollected+1, 10);

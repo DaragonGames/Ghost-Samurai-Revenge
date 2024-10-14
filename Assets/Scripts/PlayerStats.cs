@@ -11,7 +11,7 @@ public class PlayerStats
     public int arrowPiercing = 0;
     public int arrowFlightDuration = 3;
     public float trueDefense = 0;
-    public float defensePercentage = 0;
+    public float defense = 0;
     public float maxDamage;
     public float piercingDamage = 0;
     public float critChance = 0;
@@ -28,12 +28,12 @@ public class PlayerStats
     public void SetStats()
     {
         GameData gameData = GameManager.Instance.gameData;
-        movementSpeed = 4 + gameData.MovementSpeedUpgradesCollected * 0.25f;
-        attackSpeed = 0.6f - gameData.AttackSpeedUpgradesCollected * 0.05f;
-        arrowDamage = 20 + gameData.DamageUpgradesCollected * 5;
-        sliceDamage = 20 + gameData.DamageUpgradesCollected * 5;
-        maxHealth = 100 + gameData.HealthUpgradesCollected * 10;
-        defensePercentage = 0 + gameData.DefenseUpgradesCollected*0.05f;
+        movementSpeed = 6 + gameData.MovementSpeedUpgradesCollected * 0.5f;
+        attackSpeed = 0.375f - gameData.AttackSpeedUpgradesCollected * 0.1f;
+        arrowDamage = 20 + gameData.DamageUpgradesCollected * 10;
+        sliceDamage = 20 + gameData.DamageUpgradesCollected * 10;
+        maxHealth = 100 + gameData.HealthUpgradesCollected * 20;
+        defense = 0 + gameData.DefenseUpgradesCollected*5;
         maxDamage = maxHealth;
     }
 

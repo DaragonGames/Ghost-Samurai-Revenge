@@ -11,27 +11,42 @@ public class Player : MonoBehaviour
     public GameObject hitSoundPrefab;
     public GameObject loseScreen;
 
-    private float health;
     private PlayerStats stats;
-    private bool immuneToDamage, attacking, enteringRoom;
     private Vector3 destinatedDirection;
-    private Animator animator;
+    
     private int facing = 0;
     private float ammunition = 0;
-    private float redflash = 0;
 
-
-
+    // NEW STUFF or clean
+    private enum States {start, idl, moving, attacking, entering, gameOver};
+    private States state = States.start;
+    private InputManager inputManager;
+    private Animator animator;
+    private CharacterMovement characterMovement;
+    private Damageable damageable;
 
     // Start is called before the first frame update
     void Start()
     {
         stats = new PlayerStats();
-        health = stats.maxHealth;
         ammunition = stats.maxAmmunition;
         GameManager.Instance.player = gameObject;
-        GameManager.EnterNewRoom += EnterRoom; 
+            
+
+        // New Stuff or based
         animator = GetComponent<Animator>();
+        inputManager = GetComponent<InputManager>();
+        characterMovement = GetComponent<CharacterMovement>();
+        damageable = GetComponent<Damageable>();
+        inputManager.primaryEvent += PrimaryAttack;
+        inputManager.secondaryEvent += SecondaryAttack;
+        GameManager.EnterNewRoom += EnterRoom;    
+
+        // Temp
+        damageable.SetValues(stats.maxHealth, stats.defense);
+        damageable.DeathEvent += Die;
+
+        
     }
 
     void OnDestroy()
@@ -42,79 +57,177 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Old
+
         if (GameManager.Instance.gameState == GameManager.GameState.GameOver)
         {
-            animator.SetBool("Attacking", false);  
-            animator.SetBool("Moving", false);  
-            return;
-        }
-        if (health <= 0)
-        {
-            GameManager.Instance.gameState = GameManager.GameState.GameOver;
-            animator.SetBool("death", true); 
-            animator.SetBool("Attacking", false);  
-            animator.SetBool("Moving", false);  
-            loseScreen.SetActive(true);
+            state = States.gameOver; 
+            SetAnimation();
             return;
         }
 
-        if (enteringRoom)
+        // Clean or WIP
+
+        Vector3 movement = Vector3.zero;
+        float speed = 0;
+
+        switch (state)
         {
-            transform.position += destinatedDirection*Time.deltaTime;
+            case States.idl:
+                movement = HandleMovement();
+                speed = stats.movementSpeed;
+                break;
+            case States.moving:
+                movement = HandleMovement();
+                speed = stats.movementSpeed;
+                break;
+            case States.attacking:
+                break;
+            case States.entering:
+                movement = destinatedDirection;
+                speed = 1;
+                break;
+            case States.gameOver:
+                SetAnimation(); 
+                break;
         }
-        else
-        {
-            HandleMovement();
-            HandleAttacks();
-        }    
-        animator.SetBool("Attacking", attacking);    
+  
+        SetAnimation(); 
+        characterMovement.Movement(movement,speed); 
+
         ammunition += Time.deltaTime * stats.AmmunitionReloadRate;
         if (ammunition > stats.maxAmmunition)
         {
             ammunition = stats.maxAmmunition;
-        }
-        if (redflash > 0)
-        {
-            GetComponent<SpriteRenderer>().color = new Color(1, 1-redflash, 1-redflash);
-            redflash -= Time.deltaTime* 1.2f;
-        }
+        }     
+        
     }
 
-    void HandleAttacks()
+    Vector3 HandleMovement()
     {
-        if (attacking)
+        Vector3 movement = inputManager.movement;
+        
+ 
+        if (movement.magnitude > 0)
         {
-            return;
+            state = States.moving;
+            FacingFromVector(movement);
         }
-        if (Input.GetMouseButtonDown(0))
+        else
         {
-            // Set the Attack State            
-            StartCoroutine(attackingFrames(stats.attackSpeed));
-            CreateSlice();
-            attacking = true;
-            
+            FacingFromVector(inputManager.aiming);
+            state = States.idl;
         }
-        if (Input.GetMouseButtonDown(1))
-        {
-            // Set the Attack State
-            if (ammunition >= 1)
-            {
-                ammunition-=1;
-                CreateProjectile();
-            }            
-        }
+
+        return movement;  
+
     }
 
-    void CreateProjectile() 
+
+
+    // NEW STUFF
+
+    void SetAnimation() 
+    {
+        switch (state)
+        {
+            case States.idl:
+                animator.SetBool("Attacking", false);  
+                animator.SetBool("Moving", false);  
+                break;
+            case States.moving:
+                animator.SetBool("Attacking", false);  
+                animator.SetBool("Moving", true);  
+                break;
+            case States.attacking:
+                animator.SetBool("Attacking", true);  
+                animator.SetBool("Moving", false);  
+                break;
+            case States.entering:
+                animator.SetBool("Attacking", false);  
+                animator.SetBool("Moving", true);  
+                break;
+            case States.gameOver:
+                animator.SetBool("Attacking", false);  
+                animator.SetBool("Moving", false);  
+                break;
+        } 
+    }
+
+    void PrimaryAttack(Vector3 attack)
+    {
+        if (state == States.moving || state == States.idl)
+        {
+            StartCoroutine(attackingFrames(stats.attackSpeed));
+            state = States.attacking;
+            FacingFromVector(attack);
+            CreateSlice();
+        }       
+    }
+
+    void SecondaryAttack(Vector3 attack)
+    {
+        if (state == States.moving || state == States.idl) 
+        {
+            FacingFromVector(attack);
+            ammunition-=1;
+            CreateProjectile(attack); 
+        }        
+    }
+  
+    void FacingFromVector(Vector3 direction)
+    {
+        if (Mathf.Abs(direction.x) > Mathf.Abs(direction.y) )
+        {
+            if (direction.x > 0)
+            {
+                facing = 1;
+            }
+            else
+            {
+                facing = 3;
+            }
+        }
+        else
+        {
+            if (direction.y > 0)
+            {
+                facing = 0;
+            }
+            else
+            {
+                facing = 2;
+            }
+        }
+        animator.SetInteger("Facing", facing);
+    }
+
+
+
+    void Die()
+    {
+        GameManager.Instance.gameState = GameManager.GameState.GameOver;
+        animator.SetBool("death", true); 
+        state = States.gameOver; 
+        SetAnimation() ;
+        loseScreen.SetActive(true);
+        characterMovement.Movement(Vector3.zero,0); 
+    }
+
+
+
+
+
+
+
+    // OLD STUFF
+
+    void CreateProjectile(Vector3 attackDirection) 
     {
         Instantiate(shurikenSoundPrefab, transform.position, Quaternion.identity); 
-        // Create the Projectile
-        Vector3 attackDirection = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
-        attackDirection.z = 0;
-        attackDirection.Normalize();
-        Vector3 spawnPosition = transform.position + attackDirection;
+        Vector3 spawnPosition = transform.position + attackDirection.normalized;
         GameObject projectile = Instantiate(arrowPrefab, spawnPosition, Quaternion.identity);        
-        projectile.GetComponent<Projectile>().SetShirukenValues(stats, attackDirection);       
+        projectile.GetComponent<Projectile>().SetShirukenValues(stats, attackDirection.normalized);       
     }
 
     void CreateSlice()
@@ -143,123 +256,60 @@ public class Player : MonoBehaviour
                 break;
         }
         GetComponent<Animator>().speed = 0.6f / stats.attackSpeed;
-    }
-
-
-    void FaceTowardsInput()
-    {
-        // Change Characters Facing Direction
-        Vector3 mouseDirection = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
-        if (Mathf.Abs(mouseDirection.x) > Mathf.Abs(mouseDirection.y) )
-        {
-            if (mouseDirection.x > 0)
-            {
-                facing = 1;
-            }
-            else
-            {
-                facing = 3;
-            }
-        }
-        else
-        {
-            if (mouseDirection.y > 0)
-            {
-                facing = 0;
-            }
-            else
-            {
-                facing = 2;
-            }
-        }
-        animator.SetInteger("Facing", facing);
-    }
-
-    void HandleMovement()
-    {
-        if (attacking) {return;}  
-
-        Vector3 movement = Vector3.zero;
-
-        if (Input.GetKey("w"))
-        {
-            movement += Vector3.up;
-            facing = 0;
-        }
-        if (Input.GetKey("s"))
-        {
-            movement += Vector3.down;  
-            facing = 2;
-        } 
-        if (Input.GetKey("a"))
-        {
-            movement += Vector3.left;
-            facing = 3;    
-        }
-        if (Input.GetKey("d"))
-        {
-            movement += Vector3.right;
-            facing = 1;
-        }
-        animator.SetInteger("Facing", facing);   
-        animator.SetBool("Moving", movement.magnitude > 0);
-
-        transform.position += movement.normalized * Time.deltaTime * stats.movementSpeed;  
-
-    }
+    }   
 
     public void TakeDamage(float amount, float piercingDamage)
     {
-        if (immuneToDamage)
-        {
-            return;
-        }
-        float damageFlat = amount * (1-stats.defensePercentage) + piercingDamage - stats.trueDefense;
-        health -= Mathf.Max(Mathf.Min(damageFlat, stats.maxDamage),GameManager.Instance.gameData.minDamage);
-        immuneToDamage = true;
-        StartCoroutine(immunityFrames(stats.invisibleFramesDuration));
+        damageable.TakeDamage(amount,piercingDamage);
         Instantiate(hitSoundPrefab, transform.position, Quaternion.identity);
-        redflash = 0.8f;
+        StartCoroutine(redFlash());
+    }
+
+    private IEnumerator redFlash()
+    {
+        for (int i = 0; i<16; i++ ) 
+        {
+            float redflash = 0.8f - 0.05f * i;
+            GetComponent<SpriteRenderer>().color = new Color(1, 1-redflash, 1-redflash);
+            yield return new WaitForSeconds(0.05f); 
+        }
+        GetComponent<SpriteRenderer>().color = new Color(1,1,1);
     }
 
     public void EnterRoom(Vector3 center)
     {
-        enteringRoom = true;
         destinatedDirection = center - transform.position;
         destinatedDirection.z = 0;
         destinatedDirection.Normalize();
         StartCoroutine(enterRoomDelay());
     }
 
-    private IEnumerator immunityFrames(float time)
-    {
-        yield return new WaitForSeconds(time); 
-        immuneToDamage = false;
-    }
-
     private IEnumerator attackingFrames(float time)
     {
         yield return new WaitForSeconds(time); 
-        attacking = false;    
+        if (state == States.attacking)
+        {
+            state = States.idl; 
+        }        
         GetComponent<Animator>().speed = 1;    
     }
 
     private IEnumerator enterRoomDelay()
     {
-        yield return new WaitForSeconds(1); 
-        enteringRoom = false;
+        if (state != States.start)
+        {   
+            state = States.entering;
+        }
+        yield return new WaitForSeconds(1);
+        if (state == States.entering || state == States.start)
+        {
+            state = States.idl; 
+        }  
     }
 
-    public float GetHealthPercentage() { return health/stats.maxHealth; }
+    public float GetHealthPercentage() { return damageable.GetHealthPercentage(); }
 
     public float GetAmmunition() { return ammunition;}
-    public void GainHealth(float value) { 
-        health += value; 
-        if (health > stats.maxHealth)
-        {
-            health = stats.maxHealth;
-        }
-    }
     public void UpdateStats() {stats.SetStats();}
     public PlayerStats GetStats() {return stats;}
 
