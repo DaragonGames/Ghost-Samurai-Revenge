@@ -62,7 +62,7 @@ PrefabInstance:
       objectReference: {fileID: 5757757581385322907, guid: e9313e659a8d2c145a5cf6925efd947e, type: 3}
     - target: {fileID: 441799151862260637, guid: f9d645f49e1fb4f47a26ca78a29099ea, type: 3}
       propertyPath: actionSpeed
-      value: 6
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 441799151862260637, guid: f9d645f49e1fb4f47a26ca78a29099ea, type: 3}
       propertyPath: attackRange

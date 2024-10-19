@@ -256,7 +256,18 @@ public class Player : MonoBehaviour
                 break;
         }
         GetComponent<Animator>().speed = 0.6f / stats.attackSpeed;
-    }   
+    } 
+
+    private IEnumerator attackingFrames(float time)
+    {
+        yield return new WaitForSeconds(time); 
+        if (state == States.attacking)
+        {
+            state = States.idl; 
+        }        
+        GetComponent<Animator>().speed = 1;    
+    }
+
 
     public void TakeDamage(float amount, float piercingDamage)
     {
@@ -284,15 +295,7 @@ public class Player : MonoBehaviour
         StartCoroutine(enterRoomDelay());
     }
 
-    private IEnumerator attackingFrames(float time)
-    {
-        yield return new WaitForSeconds(time); 
-        if (state == States.attacking)
-        {
-            state = States.idl; 
-        }        
-        GetComponent<Animator>().speed = 1;    
-    }
+
 
     private IEnumerator enterRoomDelay()
     {

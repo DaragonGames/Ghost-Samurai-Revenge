@@ -13,6 +13,8 @@ public class GameManager : MonoBehaviour
     public int currentRoomID = -1;
     public GameData gameData;
 
+    public int stunframes = 0;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -85,6 +87,14 @@ public class GameManager : MonoBehaviour
             gameState = GameState.Title;
             SceneManager.LoadScene("Title");    
             gameData = new GameData();
+        }
+        if (stunframes > 0)
+        {
+            stunframes--;
+        }
+        else
+        {
+            Time.timeScale = 1;
         }
     }
 

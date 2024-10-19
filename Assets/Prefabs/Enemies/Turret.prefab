@@ -55,7 +55,7 @@ MonoBehaviour:
   healthGeneration: 0
   defensePercentage: 0
   trueDefense: 0
-  actionSpeed: 2
+  actionSpeed: 1.5
   spawnAble: {fileID: 4308189967123230318, guid: d5c352845d66b504f95dd2aad130e032, type: 3}
   itemPrefab: {fileID: 5174449708874311532, guid: 9021f49da5d11ac4cbe525162a50f29e, type: 3}
   hitSoundPrefab: {fileID: 4201426831179979751, guid: 3fc31534ed02f0046b6a3e24aba47b32, type: 3}

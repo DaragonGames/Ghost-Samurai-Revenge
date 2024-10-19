@@ -103,17 +103,47 @@ public class Enemy : MonoBehaviour
         {
             return;
         }
+
+        invincible = true;
         float damageFlat = amount * (1-defensePercentage) + piercingDamage - trueDefense;
         health -= Mathf.Max(damageFlat ,GameManager.Instance.gameData.minDamage);
-        this.knockback =knockback * Mathf.Max(knockbackStrength - knockbackResistance, 0);        
+        this.knockback =knockback * Mathf.Max(knockbackStrength - knockbackResistance, 0);
         StartCoroutine(immunityFrames(0.15f));
+
+
         Instantiate(hitSoundPrefab, transform.position, Quaternion.identity);
+
+
         redflash = 0.8f;
+
+        
+        GameManager.Instance.stunframes = 60;
+        Time.timeScale = 0f;
+        //StartCoroutine(HitStun());
+        
     }
+
+    public virtual IEnumerator HitStun()
+    {
+        Time.timeScale = 0f;
+        yield return new WaitForSeconds(0.05f);
+        Time.timeScale = 1;
+    }
+
+    public static IEnumerator WaitForRealTime(float delay){
+		
+        while(true){
+			float pauseEndTime = Time.realtimeSinceStartup + delay;
+			while (Time.realtimeSinceStartup < pauseEndTime){
+				yield return 0;
+			}
+			break;
+		}
+	}
 
     protected virtual IEnumerator immunityFrames(float duration)
     {
-        invincible = true;
+        
         yield return new WaitForSeconds(duration); 
         invincible = false;
     }

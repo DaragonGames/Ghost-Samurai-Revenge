@@ -50,7 +50,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   contactDamage: 10
   piercingContactDamage: 0
-  movementSpeed: 4
+  movementSpeed: 5
   health: 10
   knockbackResistance: 0
   healthGeneration: 0
