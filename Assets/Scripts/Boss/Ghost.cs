@@ -126,7 +126,7 @@ public class Ghost : Enemy
 
     private void Flee()
     {         
-        Vector3 fleeingDirection = transform.position - GameManager.Instance.player.transform.position;
+        Vector3 fleeingDirection = transform.position - Player.GetPosition();
         transform.position += 5 * fleeingDirection.normalized * Time.deltaTime;  
         if (fleeingDirection.magnitude > 18)
         {

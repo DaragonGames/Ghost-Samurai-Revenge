@@ -97,7 +97,7 @@ public class GhostAttacks : MonoBehaviour
         projectile.GetComponentInChildren<Projectile>().SetValues("Enemy",Vector3.zero, -2.25f+Random.value*0.5f);
         
         // Rotate the Projectile
-        Vector3 attackDirection = GameManager.Instance.player.transform.position - transform.position;
+        Vector3 attackDirection = Player.GetPosition() - transform.position;
         attackDirection.z = 0;
         float angle = Vector3.Angle(attackDirection, Vector3.right);
         if (attackDirection.y <0)
@@ -126,7 +126,7 @@ public class GhostAttacks : MonoBehaviour
     {
         GetComponent<Animator>().SetBool("spitting", true);
         yield return new WaitForSeconds(1f);
-        Vector3 target = GameManager.Instance.player.transform.position;
+        Vector3 target = Player.GetPosition();
         StartCoroutine(DoSpittingLeavesAttack(2f,target));
         GetComponent<Animator>().SetBool("spitting", false);
     }
@@ -149,7 +149,7 @@ public class GhostAttacks : MonoBehaviour
 
     private void CreateBlade()
     {
-        Vector3 attackDirection = GameManager.Instance.player.transform.position - transform.position;
+        Vector3 attackDirection = Player.GetPosition() - transform.position;
         attackDirection.z = 0;
         attackDirection.Normalize();
 

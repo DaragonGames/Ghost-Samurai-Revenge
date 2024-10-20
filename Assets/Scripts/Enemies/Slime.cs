@@ -11,8 +11,7 @@ public class Slime : Enemy
     }
 
     public override void MoveCharacter() { 
-        Vector3 playerPosition = GameManager.Instance.player.transform.position;
-        Vector3 direction = (playerPosition - transform.position).normalized;
+        Vector3 direction = (Player.GetPosition() - transform.position).normalized;
         transform.position += direction * movementSpeed * Time.deltaTime;
     }
 

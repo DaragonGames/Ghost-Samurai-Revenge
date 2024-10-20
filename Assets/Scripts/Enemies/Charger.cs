@@ -31,7 +31,7 @@ public class Charger : Enemy
     public override void CharacterAction() 
     {         
         StartCoroutine(chargingDuration());
-        Vector3 playerPosition = GameManager.Instance.player.transform.position;
+        Vector3 playerPosition = Player.GetPosition();
         targetDirection = (playerPosition - transform.position).normalized;
     }
 

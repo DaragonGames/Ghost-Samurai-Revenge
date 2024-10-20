@@ -27,13 +27,13 @@ public class PlayerStats
     }
 
     private float defaultSpeed = 6;
-    private float defaultAttackSpeed = .375f;
+    private float defaultAttackSpeed = 1;
     private float defaultArrowDamage = 20;
     private float defaultSliceDamage = 20;
     private float defaultHealth = 100;
     private float defaultDefense = 0;
     private float upgradeSpeed = 0.5f;
-    private float upgradeAttackSpeed = .05f;
+    private float upgradeAttackSpeed = .1f;
     private float upgradeArrowDamage = 10;
     private float upgradeSliceDamage = 10;
     private float upgradeHealth = 20;

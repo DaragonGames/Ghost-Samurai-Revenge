@@ -3272,7 +3272,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 6
-  attackSpeed: 0.375
+  attackSpeed: 1
   arrowDamage: 20
   sliceDamage: 20
   maxHealth: 100
@@ -6549,6 +6549,8 @@ MonoBehaviour:
   shurikenSoundPrefab: {fileID: 2218295140639014530, guid: 096fba839ba766e4cbb2eb513d6dcc92, type: 3}
   hitSoundPrefab: {fileID: 158761390616501580, guid: b04510583930f7048a1a0163fb89eb8a, type: 3}
   loseScreen: {fileID: 1619957828}
+  primaryAttack: {fileID: 11400000, guid: 87743ffcb73a8cb44aa544875f2cab82, type: 2}
+  secondaryAttack: {fileID: 11400000, guid: e2d2745ce7cc7a14ea27e365ce42fbba, type: 2}
 --- !u!95 &1648283359
 Animator:
   serializedVersion: 5

@@ -13,7 +13,7 @@ public class Turret : Enemy
         Instantiate(shootSoundPrefab, transform.position, Quaternion.identity);
         
         // Create the Projectile
-        Vector3 attackDirection = GameManager.Instance.player.transform.position - transform.position;
+        Vector3 attackDirection = Player.GetPosition() - transform.position;
         attackDirection.z = 0;
         attackDirection.Normalize();
         Vector3 spawnPosition = transform.position + attackDirection*0.7f;

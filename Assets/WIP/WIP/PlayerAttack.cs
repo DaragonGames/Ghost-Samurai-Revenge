@@ -2,24 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerAttack : MonoBehaviour
+[CreateAssetMenu(fileName = "Spawnables", menuName = "ScriptableObjects/Attacks", order = 2)]
+public class PlayerAttack : ScriptableObject
 {
+    public Vector3 attackTime;
+    public float attackCost;
     public GameObject projectilePrefab;
     public GameObject soundPrefab;
+    public bool isSclice;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    void CreateSlice(PlayerStats stats, float facing)
+    void CreateSlice(Transform transform, PlayerStats stats, Vector3 attackDirection)
     {
         Instantiate(soundPrefab, transform.position, Quaternion.identity); 
         // Create the Projectile
@@ -27,6 +19,7 @@ public class PlayerAttack : MonoBehaviour
         projectile.GetComponent<Projectile>().SetSliceValues(stats, stats.attackSpeed);
 
         // Change Position & Rotation based on Facing Direction
+        float facing = Player.FacingFromVector(attackDirection);
         switch (facing)
         {
             case 0:
@@ -44,10 +37,9 @@ public class PlayerAttack : MonoBehaviour
                 projectile.transform.position += new Vector3(-0.65f, -0.1f,0);
                 break;
         }
-        GetComponent<Animator>().speed = 0.6f / stats.attackSpeed;
     } 
 
-    void CreateProjectile(PlayerStats stats, Vector3 attackDirection) 
+    void CreateProjectile(Transform transform, PlayerStats stats, Vector3 attackDirection) 
     {
         Instantiate(soundPrefab, transform.position, Quaternion.identity); 
         Vector3 spawnPosition = transform.position + attackDirection.normalized;
@@ -55,11 +47,15 @@ public class PlayerAttack : MonoBehaviour
         projectile.GetComponent<Projectile>().SetShirukenValues(stats, attackDirection.normalized);       
     }
 
-    public void Attack(PlayerStats stats, Vector3 attackDirection, float facing, bool isSclice)
+    public void Attack(Player player, Vector3 attackDirection)
     {
         if (isSclice)
         {
-            
+            CreateSlice(player.transform, player.GetStats(), attackDirection);
+        }
+        else
+        {
+            CreateProjectile(player.transform, player.GetStats(),attackDirection);
         }
     }
 }

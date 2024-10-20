@@ -1,20 +1,12 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public GameObject slicePrefab;
-    public GameObject arrowPrefab;
-    public GameObject swordSoundPrefab;
-    public GameObject shurikenSoundPrefab;
     public GameObject hitSoundPrefab;
     public GameObject loseScreen;
 
-    private PlayerStats stats;
-    private Vector3 destinatedDirection;
-    
-    private int facing = 0;
+    private PlayerStats stats;    
     private float ammunition = 0;
 
     // NEW STUFF or clean
@@ -25,12 +17,16 @@ public class Player : MonoBehaviour
     private CharacterMovement characterMovement;
     private Damageable damageable;
 
+    public PlayerAttack primaryAttack;
+    public PlayerAttack secondaryAttack;
+    public static Player Instance;
+    private float attackEnergy = 1;
+
     // Start is called before the first frame update
     void Start()
     {
         stats = new PlayerStats();
-        ammunition = stats.maxAmmunition;
-        GameManager.Instance.player = gameObject;
+        Instance = this;
             
 
         // New Stuff or based
@@ -66,68 +62,35 @@ public class Player : MonoBehaviour
             return;
         }
 
-        // Clean or WIP
-
-        Vector3 movement = Vector3.zero;
-        float speed = 0;
-
-        switch (state)
-        {
-            case States.idl:
-                movement = HandleMovement();
-                speed = stats.movementSpeed;
-                break;
-            case States.moving:
-                movement = HandleMovement();
-                speed = stats.movementSpeed;
-                break;
-            case States.attacking:
-                break;
-            case States.entering:
-                movement = destinatedDirection;
-                speed = 1;
-                break;
-            case States.gameOver:
-                SetAnimation(); 
-                break;
-        }
-  
-        SetAnimation(); 
-        characterMovement.Movement(movement,speed); 
-
         ammunition += Time.deltaTime * stats.AmmunitionReloadRate;
         if (ammunition > stats.maxAmmunition)
         {
             ammunition = stats.maxAmmunition;
-        }     
-        
-    }
+        } 
 
-    Vector3 HandleMovement()
-    {
-        Vector3 movement = inputManager.movement;
-        
- 
-        if (movement.magnitude > 0)
+        // Clean
+
+        if (state == States.moving || state == States.idl)
         {
-            state = States.moving;
-            FacingFromVector(movement);
-        }
-        else
-        {
-            FacingFromVector(inputManager.aiming);
-            state = States.idl;
+            HandleMovement();
         }
 
-        return movement;  
+        if (state == States.gameOver || state == States.attacking)
+        {
+            characterMovement.Movement(Vector3.zero,0); 
+        }
+
+        SetAnimation();
 
     }
 
 
 
-    // NEW STUFF
 
-    void SetAnimation() 
+
+    // NEW STUFF or GOOD
+
+    private void SetAnimation() 
     {
         switch (state)
         {
@@ -154,55 +117,144 @@ public class Player : MonoBehaviour
         } 
     }
 
-    void PrimaryAttack(Vector3 attack)
+    private void HandleMovement()
     {
-        if (state == States.moving || state == States.idl)
+        Vector3 movement = inputManager.movement;        
+ 
+        if (movement.magnitude > 0)
         {
-            StartCoroutine(attackingFrames(stats.attackSpeed));
-            state = States.attacking;
-            FacingFromVector(attack);
-            CreateSlice();
-        }       
-    }
-
-    void SecondaryAttack(Vector3 attack)
-    {
-        if (state == States.moving || state == States.idl) 
-        {
-            FacingFromVector(attack);
-            ammunition-=1;
-            CreateProjectile(attack); 
-        }        
-    }
-  
-    void FacingFromVector(Vector3 direction)
-    {
-        if (Mathf.Abs(direction.x) > Mathf.Abs(direction.y) )
-        {
-            if (direction.x > 0)
-            {
-                facing = 1;
-            }
-            else
-            {
-                facing = 3;
-            }
+            state = States.moving; 
+            animator.SetInteger("Facing", FacingFromVector(movement));
         }
         else
         {
-            if (direction.y > 0)
+            state = States.idl;  
+            animator.SetInteger("Facing", FacingFromVector(inputManager.aiming));        
+        }
+        characterMovement.Movement(movement,stats.movementSpeed); 
+        
+    }
+
+    // Combat related stuff
+
+    private void PrimaryAttack(Vector3 direction)
+    {
+        Attack(primaryAttack, direction);
+    }
+
+    private void SecondaryAttack(Vector3 direction)
+    {
+        Attack(secondaryAttack, direction);       
+    }
+
+    private void Attack(PlayerAttack attack, Vector3 direction)
+    {
+        if (state == States.moving || state == States.idl)
+        {
+            // Only attack when there is enough energy for it
+            if (attackEnergy < attack.attackCost)
             {
-                facing = 0;
+                return;
             }
             else
             {
-                facing = 2;
+                attackEnergy -= attack.attackCost;
             }
+
+            // Make Character Face towards the Attack            
+            animator.SetInteger("Facing", FacingFromVector(direction));
+
+            // Start the internal Process of the Attack
+            StartCoroutine(AttackSequence(primaryAttack, direction));
+        }        
+    }
+
+    private IEnumerator AttackSequence(PlayerAttack attack, Vector3 direction)
+    {
+        // Phase 1: Pre Attack - Set Values before Attack
+        Vector3 time = attack.attackTime * stats.attackSpeed;
+        state = States.attacking;
+        GetComponent<Animator>().speed = stats.attackSpeed; 
+        yield return new WaitForSeconds(time.x);
+
+        // Phase 2: Attack
+        attack.Attack(this, direction);
+        yield return new WaitForSeconds(time.y);
+
+        // Phase 3: Post Attack - Still in the Attack State, but no longer a threat
+        yield return new WaitForSeconds(time.z);
+
+        // Phase 4: End Attack - Reset Values
+        if (state == States.attacking)
+        {
+            state = States.idl; 
+        }        
+        GetComponent<Animator>().speed = 1;    
+    }
+
+    // Handeling the Short peacefull Moment of entering a new room
+
+    private void EnterRoom(Vector3 center)
+    {
+        Vector3 destinatedDirection = center - transform.position;
+        destinatedDirection.z = 0;
+        destinatedDirection.Normalize();
+        if (state != States.start)
+        {   
+            StartCoroutine(enterRoomDelay(destinatedDirection));            
         }
-        animator.SetInteger("Facing", facing);
+        else
+        {
+            state = States.idl;
+        }        
+    }
+    
+    private IEnumerator enterRoomDelay(Vector3 direction)
+    {  
+        characterMovement.Movement(direction,1); 
+        state = States.entering;        
+        yield return new WaitForSeconds(1);
+        if (state == States.entering)
+        {
+            state = States.idl; 
+        }  
+    }
+
+    // Helper Functions
+
+    public static int FacingFromVector(Vector3 direction)
+    {
+        if (Mathf.Abs(direction.x) > Mathf.Abs(direction.y) )
+        {
+            return (direction.x > 0) ? 1 : 3;
+        }
+        else
+        {
+            return (direction.y > 0) ? 0 : 2;
+        }       
     }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // OLD STUFF or Improve this
 
     void Die()
     {
@@ -213,61 +265,6 @@ public class Player : MonoBehaviour
         loseScreen.SetActive(true);
         characterMovement.Movement(Vector3.zero,0); 
     }
-
-
-
-
-
-
-
-    // OLD STUFF
-
-    void CreateProjectile(Vector3 attackDirection) 
-    {
-        Instantiate(shurikenSoundPrefab, transform.position, Quaternion.identity); 
-        Vector3 spawnPosition = transform.position + attackDirection.normalized;
-        GameObject projectile = Instantiate(arrowPrefab, spawnPosition, Quaternion.identity);        
-        projectile.GetComponent<Projectile>().SetShirukenValues(stats, attackDirection.normalized);       
-    }
-
-    void CreateSlice()
-    {
-        Instantiate(swordSoundPrefab, transform.position, Quaternion.identity); 
-        // Create the Projectile
-        GameObject projectile = Instantiate(slicePrefab, transform.position, Quaternion.identity, transform); 
-        projectile.GetComponent<Projectile>().SetSliceValues(stats, stats.attackSpeed);
-
-        // Change Position & Rotation based on Facing Direction
-        switch (facing)
-        {
-            case 0:
-                projectile.transform.position += new Vector3(0, 0.8f,0);
-                projectile.transform.Rotate(new Vector3(0,0,90));
-                break;
-            case 1:
-                projectile.transform.position += new Vector3(0.65f, -0.1f,0);
-                break;
-            case 2:
-                projectile.transform.position +=new Vector3(0, -0.8f,0);
-                projectile.transform.Rotate(new Vector3(0,0,90));
-                break;
-            case 3:
-                projectile.transform.position += new Vector3(-0.65f, -0.1f,0);
-                break;
-        }
-        GetComponent<Animator>().speed = 0.6f / stats.attackSpeed;
-    } 
-
-    private IEnumerator attackingFrames(float time)
-    {
-        yield return new WaitForSeconds(time); 
-        if (state == States.attacking)
-        {
-            state = States.idl; 
-        }        
-        GetComponent<Animator>().speed = 1;    
-    }
-
 
     public void TakeDamage(float amount, float piercingDamage)
     {
@@ -287,33 +284,15 @@ public class Player : MonoBehaviour
         GetComponent<SpriteRenderer>().color = new Color(1,1,1);
     }
 
-    public void EnterRoom(Vector3 center)
-    {
-        destinatedDirection = center - transform.position;
-        destinatedDirection.z = 0;
-        destinatedDirection.Normalize();
-        StartCoroutine(enterRoomDelay());
-    }
-
-
-
-    private IEnumerator enterRoomDelay()
-    {
-        if (state != States.start)
-        {   
-            state = States.entering;
-        }
-        yield return new WaitForSeconds(1);
-        if (state == States.entering || state == States.start)
-        {
-            state = States.idl; 
-        }  
-    }
-
     public float GetHealthPercentage() { return damageable.GetHealthPercentage(); }
 
     public float GetAmmunition() { return ammunition;}
     public void UpdateStats() {stats.SetStats();}
     public PlayerStats GetStats() {return stats;}
+
+    public static Vector3 GetPosition()
+    {
+        return Instance.transform.position;
+    }
 
 }

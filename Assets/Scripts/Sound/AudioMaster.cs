@@ -30,7 +30,7 @@ public class AudioMaster : MonoBehaviour
             EnterBossFight();
             boss = true;
         }
-        float hpPercentage = GameManager.Instance.player.GetComponent<Player>().GetHealthPercentage();
+        float hpPercentage = Player.Instance.GetHealthPercentage();
         if (hpPercentage > 0.6f && hpSoundPlaying != 0)
         {
             StartCoroutine(FadeInOrOut(hpSound[0], 1, MusicVolume*0.7f));

@@ -110,7 +110,7 @@ public class Ghost_Old : Enemy
     private void Flee()
     {
         Debug.Log("Fleeing");
-        Vector3 playerPosition = GameManager.Instance.player.transform.position;
+        Vector3 playerPosition = Player.GetPosition();
         Vector3 oppositeDirection = (transform.position - playerPosition).normalized;
         movingGoal.x = oppositeDirection.x*18 + transform.position.x;
         movingGoal.y = oppositeDirection.y*18 + transform.position.y;
@@ -157,7 +157,7 @@ public class Ghost_Old : Enemy
     private void DoneFleeing() 
     {       
         // Continue Fleeing when Being Chased
-        Vector3 playerPosition = GameManager.Instance.player.transform.position;
+        Vector3 playerPosition = Player.GetPosition();
         float distance = (transform.position - playerPosition).magnitude;
         if (distance < 15)
         {

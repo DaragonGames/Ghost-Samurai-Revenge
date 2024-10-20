@@ -10,7 +10,7 @@ public class PlayerMainStats : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Player player = GameManager.Instance.player.GetComponent<Player>();
+        Player player = Player.Instance;
         float hpPercentage = player.GetHealthPercentage();
         healthMask.sizeDelta = new Vector2 (hpPercentage*200, 16);
         amuntionMask.sizeDelta = new Vector2 (60*player.GetAmmunition(), 64); 
