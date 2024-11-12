@@ -41,6 +41,13 @@ public class GameManager : MonoBehaviour
         CollectItem?.Invoke(id);
     }
 
+    public static event Action<bool> GameOver;
+    public static void OnGameOverEvent(bool victory)
+    {
+        Instance.gameState = GameState.GameOver;
+        GameOver?.Invoke(victory);
+    }
+
     public void LeaveGrove()
     {
         gameData.progression++;

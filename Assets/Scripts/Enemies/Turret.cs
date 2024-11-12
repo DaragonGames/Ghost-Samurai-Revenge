@@ -1,15 +1,23 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Turret : Enemy
 {
+    public GameObject spawnAble;
     public GameObject shootSoundPrefab;
+    private float counter = 0;
+    private float actionTime = 3f;
 
-    public override void MoveCharacter() { return; }
+    protected override void OnUpdate()
+    {
+        counter -= Time.deltaTime;
+        if (counter <= 0)
+        {
+            counter = actionTime;
+            Shoot();
+        }
+    }
 
-    public override void CharacterAction() {
+    private void Shoot() {
         Instantiate(shootSoundPrefab, transform.position, Quaternion.identity);
         
         // Create the Projectile
@@ -30,4 +38,6 @@ public class Turret : Enemy
         // Set Values
         projectile.GetComponent<Projectile>().SetValues("Enemy",attackDirection);
     }
+
+
 }

@@ -96,12 +96,7 @@ public class Ghost : Enemy
                     postAttackCounter = times.y;
                 }
                 break;
-        }
-        if (redflash > 0)
-        {
-            GetComponent<SpriteRenderer>().color = new Color(1, 1-redflash, 1-redflash);
-            redflash -= Time.deltaTime* 1.2f;
-        }    
+        } 
     }
 
     private void Move() {
@@ -212,7 +207,6 @@ public class Ghost : Enemy
         state = states.postAttack;
         postAttackCounter = 5;
         health = 500;
-        StartCoroutine(immunityFrames(2.5f));
         GhostUI.transform.parent.gameObject.SetActive(true);
 
     }

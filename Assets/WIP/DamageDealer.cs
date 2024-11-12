@@ -11,8 +11,11 @@ public class DamageDealer : MonoBehaviour
 
     void OnCollisionStay2D(Collision2D collision)
     {
-        DealDamage(collision.gameObject);
-        DealKnockback(collision.gameObject);
+        if (collision.gameObject.tag != gameObject.tag)
+        {
+            DealDamage(collision.gameObject);
+            DealKnockback(collision.gameObject);
+        }
     }
 
     void OnTriggerEnter2D(Collider2D collider)

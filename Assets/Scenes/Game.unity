@@ -5662,14 +5662,9 @@ MonoBehaviour:
   piercingContactDamage: 0
   movementSpeed: 1.5
   health: 10000
-  knockbackResistance: 0
-  healthGeneration: 0
-  defensePercentage: 0.5
-  trueDefense: 0
-  actionSpeed: 2
-  spawnAble: {fileID: 3225521451959237659, guid: 9c82fdb2864d22047b2ec85e39a51f54, type: 3}
+  defense: 0
+  knockbackPower: 0
   itemPrefab: {fileID: 5174449708874311532, guid: 9021f49da5d11ac4cbe525162a50f29e, type: 3}
-  hitSoundPrefab: {fileID: 4201426831179979751, guid: 3fc31534ed02f0046b6a3e24aba47b32, type: 3}
   smokePrefab: {fileID: 2473401214114011642, guid: ea66e59f1234ba547831d1940efd9741, type: 3}
   GhostUI: {fileID: 1604630398}
   destructionBladesPrefab: {fileID: 4862784856443059678, guid: a0dfc7b061f5bca4686d660b7067fd8b, type: 3}
@@ -6421,14 +6416,14 @@ GameObject:
   m_Component:
   - component: {fileID: 1648283355}
   - component: {fileID: 1648283354}
-  - component: {fileID: 1648283359}
   - component: {fileID: 1648283360}
   - component: {fileID: 1648283356}
-  - component: {fileID: 1648283361}
+  - component: {fileID: 1648283358}
   - component: {fileID: 1648283362}
   - component: {fileID: 1648283363}
   - component: {fileID: 1648283364}
-  - component: {fileID: 1648283358}
+  - component: {fileID: 1648283359}
+  - component: {fileID: 1648283361}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -6543,11 +6538,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ed0e1c623e00a34c985795bdcaf8f4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slicePrefab: {fileID: 4240868106546498254, guid: a36901e9cc35d8a4fa70c74c2c849ffa, type: 3}
-  arrowPrefab: {fileID: 6142362461846762948, guid: bc2b61bf28364684fa5e3967bfe32446, type: 3}
-  swordSoundPrefab: {fileID: 7975734833613702193, guid: 54a8bb85486af204c92d8a90b457ede8, type: 3}
-  shurikenSoundPrefab: {fileID: 2218295140639014530, guid: 096fba839ba766e4cbb2eb513d6dcc92, type: 3}
-  hitSoundPrefab: {fileID: 158761390616501580, guid: b04510583930f7048a1a0163fb89eb8a, type: 3}
   loseScreen: {fileID: 1619957828}
   primaryAttack: {fileID: 11400000, guid: 87743ffcb73a8cb44aa544875f2cab82, type: 2}
   secondaryAttack: {fileID: 11400000, guid: e2d2745ce7cc7a14ea27e365ce42fbba, type: 2}
@@ -6651,6 +6641,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17452160cad1e0c4c9a8029aeb5ea53e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundPrefab: {fileID: 158761390616501580, guid: b04510583930f7048a1a0163fb89eb8a, type: 3}
 --- !u!1 &1676518408
 GameObject:
   m_ObjectHideFlags: 0
@@ -6854,7 +6845,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameState: 2
-  player: {fileID: 0}
   currentRoomID: -1
   stunframes: 0
 --- !u!4 &1710093922 stripped

@@ -9,5 +9,12 @@ public static class GameValues
     public static float inputInfluenceOnKnockback = 0.75f;
     
     // Combat - Damage related
-    public static float invincibleTime = 0.66f;
+    public static float invincibleTimePlayer = 0.66f;
+    public static float invincibleTimeEnemy = 0.2f;
+
+    // Game Juice
+    public static float minDmgHitStop = 20; 
+    public static float minDmgPercentageHitStop = 0.5f; 
+    public static int stunlockFrames = 60;
+
 }

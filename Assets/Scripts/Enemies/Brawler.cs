@@ -2,11 +2,9 @@ using UnityEngine;
 
 public class Brawler : Enemy
 {
-    public override void MoveCharacter() { 
+    protected override void OnUpdate()
+    {
         Vector3 playerPosition = Player.GetPosition();
-        Vector3 direction = (playerPosition - transform.position).normalized;
-        transform.position += direction * movementSpeed * Time.deltaTime;
+        movementDirection = (playerPosition - transform.position).normalized;
     }
-
-    public override void CharacterAction() { return;}
 }

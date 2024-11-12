@@ -25,7 +25,6 @@ public class Knockback : MonoBehaviour
         knockbacktime = GameValues.knockbacktime;
         knockbackForceCurve = GameValues.kockbackAnimationCurve;
         rb = GetComponent<Rigidbody2D>();
-
     }
 
     // Update is called once per frame
@@ -44,8 +43,7 @@ public class Knockback : MonoBehaviour
             force = 0;
             knockbackCounter = 0;
             characterMovementForce = Vector3.zero;
-        }
-        
+        }        
     }
 
     void OnCollisionEnter2D(Collision2D collision)

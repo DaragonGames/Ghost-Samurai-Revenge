@@ -16,7 +16,7 @@ public class PlayerAttack : ScriptableObject
         Instantiate(soundPrefab, transform.position, Quaternion.identity); 
         // Create the Projectile
         GameObject projectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity, transform); 
-        projectile.GetComponent<Projectile>().SetSliceValues(stats, stats.attackSpeed);
+        projectile.GetComponent<Projectile>().SetSliceValues(stats, stats.attackSpeed*0.6f);
 
         // Change Position & Rotation based on Facing Direction
         float facing = Player.FacingFromVector(attackDirection);

@@ -1,4 +1,3 @@
-using System.Collections;
 using UnityEngine;
 
 public class Charger : Enemy
@@ -6,39 +5,29 @@ public class Charger : Enemy
     private bool charging;
     private Vector3 targetDirection;
 
-    void Start() {
-        //base.Start();
-        actionCounter = actionSpeed/2;
-    }
+    private float counter = 0;
+    private float actionTime = 3f;
 
-    public override void MoveCharacter() 
-    { 
-        if (targetDirection.x > 0) 
-        {
-            GetComponent<SpriteRenderer>().flipX = false;
-        }
-        if (targetDirection.x < 0) 
-        {
-            GetComponent<SpriteRenderer>().flipX = true;
-        }
-        if (charging) 
-        {
-            transform.position += targetDirection * movementSpeed * Time.deltaTime;
-        } 
-        GetComponent<Animator>().SetBool("charging", charging);       
-    }
-
-    public override void CharacterAction() 
-    {         
-        StartCoroutine(chargingDuration());
-        Vector3 playerPosition = Player.GetPosition();
-        targetDirection = (playerPosition - transform.position).normalized;
-    }
-
-    private IEnumerator chargingDuration()
+    protected override void OnUpdate()
     {
-        charging = true;
-        yield return new WaitForSeconds(actionSpeed/2); 
-        charging = false;      
+        counter -= Time.deltaTime;
+        if (counter <= 0)
+        {
+            charging = !charging;
+            counter = actionTime;
+            GetComponent<Animator>().SetBool("charging", charging);  
+        }
+        if (charging)
+        {
+            movementDirection = targetDirection;
+        }
+        else
+        {
+            movementDirection = Vector3.zero;
+            Vector3 playerPosition = Player.GetPosition();
+            targetDirection = (playerPosition - transform.position).normalized;
+            GetComponent<SpriteRenderer>().flipX = targetDirection.x < 0;
+        }
     }
+
 }

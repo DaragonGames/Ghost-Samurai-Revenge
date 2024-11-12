@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public GameObject hitSoundPrefab;
     public GameObject loseScreen;
 
     private PlayerStats stats;    
@@ -36,10 +35,11 @@ public class Player : MonoBehaviour
         damageable = GetComponent<Damageable>();
         inputManager.primaryEvent += PrimaryAttack;
         inputManager.secondaryEvent += SecondaryAttack;
-        GameManager.EnterNewRoom += EnterRoom;    
+        GameManager.EnterNewRoom += EnterRoom;   
+        GameManager.GameOver += GameOver; 
 
         // Temp
-        damageable.SetValues(stats.maxHealth, stats.defense);
+        damageable.SetValues(stats.maxHealth, stats.defense, true);
         damageable.DeathEvent += Die;
 
         
@@ -47,20 +47,14 @@ public class Player : MonoBehaviour
 
     void OnDestroy()
     {
-        GameManager.EnterNewRoom -= EnterRoom;        
+        GameManager.EnterNewRoom -= EnterRoom; 
+        GameManager.GameOver -= GameOver;        
     }
 
     // Update is called once per frame
     void Update()
     {
         // Old
-
-        if (GameManager.Instance.gameState == GameManager.GameState.GameOver)
-        {
-            state = States.gameOver; 
-            SetAnimation();
-            return;
-        }
 
         ammunition += Time.deltaTime * stats.AmmunitionReloadRate;
         if (ammunition > stats.maxAmmunition)
@@ -84,7 +78,7 @@ public class Player : MonoBehaviour
 
     }
 
-
+    
 
 
 
@@ -235,7 +229,18 @@ public class Player : MonoBehaviour
     }
 
 
+    private void GameOver(bool victory)
+    {
+        state = States.gameOver; 
+        SetAnimation();
+    }
 
+    private void Die()
+    {
+        GameManager.OnGameOverEvent(false);
+        animator.SetBool("death", true); 
+        loseScreen.SetActive(true);
+    }
 
 
 
@@ -256,32 +261,11 @@ public class Player : MonoBehaviour
 
     // OLD STUFF or Improve this
 
-    void Die()
-    {
-        GameManager.Instance.gameState = GameManager.GameState.GameOver;
-        animator.SetBool("death", true); 
-        state = States.gameOver; 
-        SetAnimation() ;
-        loseScreen.SetActive(true);
-        characterMovement.Movement(Vector3.zero,0); 
-    }
+
 
     public void TakeDamage(float amount, float piercingDamage)
     {
         damageable.TakeDamage(amount,piercingDamage);
-        Instantiate(hitSoundPrefab, transform.position, Quaternion.identity);
-        StartCoroutine(redFlash());
-    }
-
-    private IEnumerator redFlash()
-    {
-        for (int i = 0; i<16; i++ ) 
-        {
-            float redflash = 0.8f - 0.05f * i;
-            GetComponent<SpriteRenderer>().color = new Color(1, 1-redflash, 1-redflash);
-            yield return new WaitForSeconds(0.05f); 
-        }
-        GetComponent<SpriteRenderer>().color = new Color(1,1,1);
     }
 
     public float GetHealthPercentage() { return damageable.GetHealthPercentage(); }

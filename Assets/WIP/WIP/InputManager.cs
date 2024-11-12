@@ -13,6 +13,9 @@ public class InputManager : MonoBehaviour
 
     public event Action<Vector3> primaryEvent;
     public event Action<Vector3> secondaryEvent;
+
+    // Internal Variables
+    private float mouseCooldown = 0;
     
     // Internal Input Actions for this class
     private InputAction move;
@@ -53,7 +56,7 @@ public class InputManager : MonoBehaviour
         }
         else
         {
-            if (leftStick.magnitude > 0.15f)
+            if (leftStick.magnitude > 0.15f && mouseCooldown < 0)
             {
                 aiming = movement.normalized;           
             }
@@ -75,18 +78,21 @@ public class InputManager : MonoBehaviour
 
     void HandleMouseMovement()
     {
-        
+        mouseCooldown -= Time.deltaTime;
         float x = Input.GetAxis("Mouse X");
         float y = Input.GetAxis("Mouse Y");
         Vector3 input = new Vector3(x,y,0);
         if (input.magnitude > 0.05f)
         {
             aiming += input;
+            mouseCooldown = 0.5f;
         }
         if (aiming.magnitude > 3)
         {
             aiming = aiming.normalized*2.5f;
-        }        
+        }
+
+
     }
 
     void OnDestroy()
