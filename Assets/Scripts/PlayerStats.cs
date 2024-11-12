@@ -10,12 +10,12 @@ public class PlayerStats
     public float piercingDamage = 0;
     public float critChance = 0;
     public float critDamageMultiplier = 2;
-    public float maxAmmunition = 3;
+    public float maxEnergy = 1;
 
 
 
 
-    public float AmmunitionReloadRate = 0.33f;
+    public float EnergyReloadRate = 0.15f;
     public float arrowSpeed = 5;
     public int arrowPiercing = 0;
     public int arrowFlightDuration = 3;

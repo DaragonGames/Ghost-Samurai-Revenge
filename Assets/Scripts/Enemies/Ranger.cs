@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class Ranger : Enemy
@@ -7,21 +8,26 @@ public class Ranger : Enemy
     public float fleeRange = 2.5f;
     public GameObject shootSoundPrefab;
     private float counter = 0;
-    private float actionTime = 3f;
+    private float actionTime = 3.5f;
+    private bool isAttacking = false;
 
     protected override void OnUpdate()
     {
-        MoveCharacter();
+        movementDirection = Vector3.zero;
+        if (!isAttacking)
+        {
+            MoveCharacter();
+        }
+        
         counter -= Time.deltaTime;
         if (counter <= 0)
         {
             counter = actionTime;
-            Shoot();
+            StartCoroutine(Attack());
         }
     }
 
     private void MoveCharacter() { 
-        movementDirection = Vector3.zero;
         Vector3 playerPosition = Player.GetPosition();
         Vector3 distanceToPlayer = playerPosition - transform.position;
         if ( distanceToPlayer.magnitude < fleeRange) 
@@ -34,15 +40,23 @@ public class Ranger : Enemy
         }
     }
 
+    IEnumerator Attack()
+    {
+        animator.SetBool("attacking", true);
+        isAttacking = true;
+        yield return new WaitForSeconds(2);
+        Shoot();
+        yield return new WaitForSeconds(0.65f);
+        animator.SetBool("attacking", false);
+        isAttacking = false;
+    }
+
     private void Shoot() {
         Instantiate(shootSoundPrefab, transform.position, Quaternion.identity);
         
         // Create the Projectile
-        Vector3 attackDirection = Player.GetPosition() - transform.position;
-        attackDirection.z = 0;
-        attackDirection.Normalize();
-        Vector3 spawnPosition = transform.position + attackDirection*0.7f;
-        GameObject projectile = Instantiate(spawnAble, spawnPosition, Quaternion.identity);
+        Vector2 attackDirection = (Player.GetPosition() - transform.position).normalized;
+        GameObject projectile = Instantiate(spawnAble, transform.position, Quaternion.identity);
         
         // Rotate the Projectile
         float angle = Vector3.Angle(attackDirection, Vector3.left);

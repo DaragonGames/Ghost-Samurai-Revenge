@@ -17,7 +17,7 @@ public class Enemy : MonoBehaviour
     // Components
     private Damageable damageable;
     private Knockback knockback;
-    private Animator animator;
+    protected Animator animator;
     private CharacterMovement characterMovement;
     private DamageDealer damageDealer;
 

@@ -6,7 +6,6 @@ public class Player : MonoBehaviour
     public GameObject loseScreen;
 
     private PlayerStats stats;    
-    private float ammunition = 0;
 
     // NEW STUFF or clean
     private enum States {start, idl, moving, attacking, entering, gameOver};
@@ -56,10 +55,10 @@ public class Player : MonoBehaviour
     {
         // Old
 
-        ammunition += Time.deltaTime * stats.AmmunitionReloadRate;
-        if (ammunition > stats.maxAmmunition)
+        attackEnergy += Time.deltaTime * stats.EnergyReloadRate;
+        if (attackEnergy > stats.maxEnergy)
         {
-            ammunition = stats.maxAmmunition;
+            attackEnergy = stats.maxEnergy;
         } 
 
         // Clean
@@ -159,7 +158,7 @@ public class Player : MonoBehaviour
             animator.SetInteger("Facing", FacingFromVector(direction));
 
             // Start the internal Process of the Attack
-            StartCoroutine(AttackSequence(primaryAttack, direction));
+            StartCoroutine(AttackSequence(attack, direction));
         }        
     }
 
@@ -167,7 +166,10 @@ public class Player : MonoBehaviour
     {
         // Phase 1: Pre Attack - Set Values before Attack
         Vector3 time = attack.attackTime * stats.attackSpeed;
-        state = States.attacking;
+        if (time.magnitude > 0)
+        {
+            state = States.attacking;
+        }        
         GetComponent<Animator>().speed = stats.attackSpeed; 
         yield return new WaitForSeconds(time.x);
 
@@ -270,7 +272,7 @@ public class Player : MonoBehaviour
 
     public float GetHealthPercentage() { return damageable.GetHealthPercentage(); }
 
-    public float GetAmmunition() { return ammunition;}
+    public float GetAmmunition() { return attackEnergy*3;}
     public void UpdateStats() {stats.SetStats();}
     public PlayerStats GetStats() {return stats;}
 
