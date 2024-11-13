@@ -26,6 +26,7 @@ public class Projectile : MonoBehaviour
         {
             contactDamage *= 1 + 0.15f*GameManager.Instance.gameData.progression;
         }
+        GetComponent<DamageDealer>().SetDamage(contactDamage,piercingDamage,knockbackStrength,sourceTag);
     }
 
     // Update is called once per frame
@@ -48,6 +49,8 @@ public class Projectile : MonoBehaviour
             //Destroy(col.gameObject);  
             return; 
         }
+        Pierce();
+        /*
         Vector3 knockbackDirection = (col.transform.position - transform.position).normalized;
         if (col.gameObject.tag == "Player" && sourceTag == "Enemy")
         {            
@@ -59,7 +62,11 @@ public class Projectile : MonoBehaviour
             float crit = (Random.value<critChance) ? critDamageMultiplier : 1;
             col.transform.GetComponent<Enemy>().TakeDamage(contactDamage*crit,piercingDamage*crit, knockbackDirection,knockbackStrength);
             Pierce();   
-        }  
+        }
+        */
+
+
+
         if (col.gameObject.tag == "Storage")
         {
             col.transform.GetComponent<DestroyableStorage>().GetAttacked();

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1628880293840023395}
   - component: {fileID: 2741055164101574771}
   - component: {fileID: 2277308010849897091}
+  - component: {fileID: -9053042541645989924}
   m_Layer: 0
   m_Name: SwordProjectille
   m_TagString: Projectile
@@ -186,3 +187,15 @@ PolygonCollider2D:
       - {x: 0.5, y: 0.15}
       - {x: 0.5, y: 0.5}
   m_UseDelaunayMesh: 0
+--- !u!114 &-9053042541645989924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5278447728813278604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6eb3fc4348a383f4f8979e007ad865cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

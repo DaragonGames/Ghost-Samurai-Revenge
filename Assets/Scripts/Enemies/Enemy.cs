@@ -38,7 +38,7 @@ public class Enemy : MonoBehaviour
 
         damageable.DeathEvent += Die;
         damageable.SetValues(health, defense, false);
-        damageDealer.SetDamage(contactDamage,piercingContactDamage,knockbackPower);
+        damageDealer.SetDamage(contactDamage,piercingContactDamage,knockbackPower, tag);
     }
 
     void Update()

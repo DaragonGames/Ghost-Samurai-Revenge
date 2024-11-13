@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1435107550970070556}
   - component: {fileID: 7219484922059768949}
   - component: {fileID: 7626672048746037002}
+  - component: {fileID: -2298016065837851440}
   m_Layer: 0
   m_Name: Swipe
   m_TagString: Projectile
@@ -88,3 +89,15 @@ MonoBehaviour:
   piercingDamage: 0
   critChance: 0
   critDamageMultiplier: 1
+--- !u!114 &-2298016065837851440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4240868106546498254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6eb3fc4348a383f4f8979e007ad865cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

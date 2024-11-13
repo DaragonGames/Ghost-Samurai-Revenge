@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6625698498679175552}
   - component: {fileID: -8444091864018279285}
   - component: {fileID: -8015951246650466428}
+  - component: {fileID: -165205609468543882}
   m_Layer: 0
   m_Name: NinjaStar
   m_TagString: Projectile
@@ -169,3 +170,15 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &-165205609468543882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6142362461846762948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6eb3fc4348a383f4f8979e007ad865cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

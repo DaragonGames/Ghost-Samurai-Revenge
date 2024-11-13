@@ -8,10 +8,11 @@ public class DamageDealer : MonoBehaviour
     private float damage;
     private float piercingDamage;
     private float knockbackPower;
+    private string sourceTag;
 
     void OnCollisionStay2D(Collision2D collision)
     {
-        if (collision.gameObject.tag != gameObject.tag)
+        if (collision.gameObject.tag != sourceTag)
         {
             DealDamage(collision.gameObject);
             DealKnockback(collision.gameObject);
@@ -20,7 +21,7 @@ public class DamageDealer : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collider.gameObject.tag != gameObject.tag)
+        if (collider.gameObject.tag != sourceTag)
         {
             DealDamage(collider.gameObject);
             DealKnockback(collider.gameObject);
@@ -46,10 +47,11 @@ public class DamageDealer : MonoBehaviour
         }       
     }
 
-    public void SetDamage(float damage, float piercingDamage, float knockbackPower)
+    public void SetDamage(float damage, float piercingDamage, float knockbackPower, string tag)
     {
         this.damage = damage;
         this.piercingDamage = piercingDamage;
         this.knockbackPower = knockbackPower;
+        this.sourceTag = tag;
     }
 }
