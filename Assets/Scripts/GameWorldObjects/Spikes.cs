@@ -6,13 +6,11 @@ public class Spikes : MonoBehaviour
 {
     void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.gameObject.tag == "Player")
+        string tag = col.gameObject.tag;
+        if (tag == "Player" || tag == "Enemy")
         {            
-            col.transform.GetComponent<Player>().TakeDamage(0, 10); 
+            col.transform.GetComponent<Damageable>().TakeDamage(0,10);
         }
-        if (col.gameObject.tag == "Enemy")
-        {
-            col.transform.GetComponent<Enemy>().TakeDamage(0,10, Vector3.zero,0); 
-        }  
+
     }
 }

@@ -49,6 +49,10 @@ public class Projectile : MonoBehaviour
             //Destroy(col.gameObject);  
             return; 
         }
+        if (col.gameObject.tag == "Room")
+        {
+            return;
+        }
         Pierce();
         /*
         Vector3 knockbackDirection = (col.transform.position - transform.position).normalized;

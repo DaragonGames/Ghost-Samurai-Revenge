@@ -50,18 +50,14 @@ public class Player : MonoBehaviour
         GameManager.GameOver -= GameOver;        
     }
 
-    // Update is called once per frame
     void Update()
     {
-        // Old
 
         attackEnergy += Time.deltaTime * stats.EnergyReloadRate;
         if (attackEnergy > stats.maxEnergy)
         {
             attackEnergy = stats.maxEnergy;
         } 
-
-        // Clean
 
         if (state == States.moving || state == States.idl)
         {
@@ -76,12 +72,6 @@ public class Player : MonoBehaviour
         SetAnimation();
 
     }
-
-    
-
-
-
-    // NEW STUFF or GOOD
 
     private void SetAnimation() 
     {
@@ -261,13 +251,6 @@ public class Player : MonoBehaviour
 
 
     // OLD STUFF or Improve this
-
-
-
-    public void TakeDamage(float amount, float piercingDamage)
-    {
-        damageable.TakeDamage(amount,piercingDamage);
-    }
 
     public float GetHealthPercentage() { return damageable.GetHealthPercentage(); }
 

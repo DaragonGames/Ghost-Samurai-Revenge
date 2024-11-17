@@ -1,5 +1,4 @@
 using System;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -8,7 +7,7 @@ public class InputManager : MonoBehaviour
      // For the Player Class to work with
     [NonSerialized]
     public Vector3 movement;
-    [System.NonSerialized]
+    [NonSerialized]
     public Vector3 aiming = Vector3.up; 
 
     public event Action<Vector3> primaryEvent;
