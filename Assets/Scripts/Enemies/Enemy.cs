@@ -55,6 +55,7 @@ public class Enemy : MonoBehaviour
         }
         else
         {
+            characterMovement.Movement(movementDirection, movementSpeed);
             animator.SetBool("moving", false);
         }     
 
