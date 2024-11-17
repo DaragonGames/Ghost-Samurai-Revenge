@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4303216151305926726}
   - component: {fileID: 5347994868195101553}
+  - component: {fileID: 1070162834657444776}
   m_Layer: 0
   m_Name: FrontPart
   m_TagString: Untagged
@@ -71,7 +72,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1711365503
-  m_SortingLayer: -1
+  m_SortingLayer: -2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 2a473ba8d8b58274b9537279a5cb2e06, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -84,6 +85,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 2
   m_SpriteSortPoint: 0
+--- !u!114 &1070162834657444776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2074964242765485034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12c3424ba9a67db4598c4b8fbb9a608b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: 21300000, guid: 2a473ba8d8b58274b9537279a5cb2e06, type: 3}
+  - {fileID: 21300000, guid: 11f47ef60c58c0d4d8580a7ef5e346c5, type: 3}
+  - {fileID: 21300000, guid: 11f47ef60c58c0d4d8580a7ef5e346c5, type: 3}
 --- !u!1 &7931345119304479237
 GameObject:
   m_ObjectHideFlags: 0
@@ -95,6 +112,7 @@ GameObject:
   - component: {fileID: 7489548719906899365}
   - component: {fileID: 4763425895360003841}
   - component: {fileID: 5802182277169429714}
+  - component: {fileID: 6936506598468096654}
   m_Layer: 0
   m_Name: BambooTop
   m_TagString: wall
@@ -215,3 +233,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2, y: 0.65}
   m_EdgeRadius: 0
+--- !u!114 &6936506598468096654
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7931345119304479237}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12c3424ba9a67db4598c4b8fbb9a608b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: 21300000, guid: a2008d1f42ff0bf45a000f9ef7c48d5e, type: 3}
+  - {fileID: 21300000, guid: 2b8bc4e2dd880e1419c332e30c71b5a4, type: 3}
+  - {fileID: 21300000, guid: 2b8bc4e2dd880e1419c332e30c71b5a4, type: 3}

@@ -67,7 +67,10 @@ public class Damageable : MonoBehaviour
     {
         this.defense = defense;    
         this.maxHp = maxHp;
-        hp = maxHp;  
+        if (hp == 0)
+        {
+            hp = maxHp;  
+        }        
         invincibleTime = isPlayer ? GameValues.invincibleTimePlayer : GameValues.invincibleTimeEnemy;
     }
 

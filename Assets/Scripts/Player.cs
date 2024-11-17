@@ -255,7 +255,11 @@ public class Player : MonoBehaviour
     public float GetHealthPercentage() { return damageable.GetHealthPercentage(); }
 
     public float GetAmmunition() { return attackEnergy*3;}
-    public void UpdateStats() {stats.SetStats();}
+    public void UpdateStats() 
+    {
+        stats.SetStats();
+        damageable.SetValues(stats.maxHealth, stats.defense, true);
+    }
     public PlayerStats GetStats() {return stats;}
 
     public static Vector3 GetPosition()

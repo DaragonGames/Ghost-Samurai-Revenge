@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7636526410480122257}
   - component: {fileID: 3369918741655005996}
   - component: {fileID: 1451842118941821779}
+  - component: {fileID: 5665032790098914432}
   m_Layer: 0
   m_Name: BambooSide
   m_TagString: wall
@@ -130,3 +131,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &5665032790098914432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7179975686813294127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12c3424ba9a67db4598c4b8fbb9a608b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: 21300000, guid: adc5a7daf96ffc540b00f0c7ce29d8e0, type: 3}
+  - {fileID: 21300000, guid: e6bb519574f6fbb408701bbda65e3a3b, type: 3}
+  - {fileID: 21300000, guid: e6bb519574f6fbb408701bbda65e3a3b, type: 3}

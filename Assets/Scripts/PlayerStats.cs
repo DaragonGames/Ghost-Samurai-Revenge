@@ -5,7 +5,7 @@ public class PlayerStats
     public float arrowDamage;
     public float sliceDamage;
     public float maxHealth;
-    public float knockbackStrength = 3;
+    public float knockbackStrength = 10;
     public float defense = 0;
     public float piercingDamage = 0;
     public float critChance = 0;

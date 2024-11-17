@@ -85,7 +85,7 @@ MonoBehaviour:
   piercing: 10000
   movementSpeed: 0
   contactDamage: 10
-  knockbackStrength: 0
+  knockbackStrength: 300
   piercingDamage: 0
   critChance: 0
   critDamageMultiplier: 1

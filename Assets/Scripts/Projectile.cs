@@ -133,6 +133,7 @@ public class Projectile : MonoBehaviour
         critChance = stats.critChance;
         critDamageMultiplier = stats.critDamageMultiplier;
         isSlice = true;
+        GetComponent<DamageDealer>().SetDamage(contactDamage,piercingDamage,knockbackStrength,sourceTag);
     }
 
     public void SetValues(string source, Vector3 direction)
