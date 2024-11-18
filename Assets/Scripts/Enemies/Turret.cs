@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class Turret : Enemy
@@ -5,7 +6,7 @@ public class Turret : Enemy
     public GameObject spawnAble;
     public GameObject shootSoundPrefab;
     private float counter = 0;
-    private float actionTime = 3f;
+    private float actionTime = 4f;
 
     protected override void OnUpdate()
     {
@@ -13,8 +14,18 @@ public class Turret : Enemy
         if (counter <= 0)
         {
             counter = actionTime;
-            Shoot();
+            StartCoroutine(Attack());
         }
+    }
+
+    IEnumerator Attack()
+    {
+        animator.SetBool("attacking", true);
+        yield return new WaitForSeconds(2.25f);
+        Shoot();
+        yield return new WaitForSeconds(0.65f);
+        animator.SetBool("attacking", false);
+
     }
 
     private void Shoot() {

@@ -53,7 +53,7 @@ public class Projectile : MonoBehaviour
         {
             return;
         }
-        Pierce();
+        //Pierce();
         /*
         Vector3 knockbackDirection = (col.transform.position - transform.position).normalized;
         if (col.gameObject.tag == "Player" && sourceTag == "Enemy")

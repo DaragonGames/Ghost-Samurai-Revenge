@@ -6,6 +6,8 @@ public class DestroyableObstacle : MonoBehaviour
 {
     private int toughness;
     public GameObject soundPrefab;
+    public GameObject particlePrefab;
+    public GameObject particleBurstPrefab;
     private bool shaking;
     private float shakeDirection = 0.8f;
 
@@ -26,12 +28,14 @@ public class DestroyableObstacle : MonoBehaviour
     public void GetAttacked()
     {
         Instantiate(soundPrefab, transform.position, Quaternion.identity); 
+        Instantiate(particlePrefab, transform.position, Quaternion.identity); 
         toughness--;
         if (toughness > 0)
         {
             StartCoroutine(HandleShaking(0.22f, 0.06f));
             return;
         }
+        Instantiate(particleBurstPrefab, transform.position, Quaternion.identity); 
         Destroy(gameObject);
     }
 

@@ -12,6 +12,7 @@ TagManager:
   - DestroyableObstacle
   - wall
   - Room
+  - Feet
   layers:
   - Default
   - TransparentFX

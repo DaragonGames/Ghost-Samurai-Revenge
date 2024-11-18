@@ -100,6 +100,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundPrefab: {fileID: 3735444800177034736, guid: 682810a10e5cd77499cc62c01f4a0d00, type: 3}
+  particlePrefab: {fileID: 4913896032745815701, guid: c3b39b4d2f1d2604d8452b26a04ee169, type: 3}
+  particleBurstPrefab: {fileID: 5344555796153949958, guid: 85eeeeb6c2fa7e2489dcffd038503189, type: 3}
 --- !u!61 &-3371343164547432091
 BoxCollider2D:
   m_ObjectHideFlags: 0
