@@ -3272,7 +3272,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 6
-  attackSpeed: 0.5
+  attackSpeed: 1
   arrowDamage: 20
   sliceDamage: 20
   maxHealth: 100

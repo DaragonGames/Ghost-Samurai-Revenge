@@ -33,15 +33,19 @@ public class Ranger : Enemy
         if ( distanceToPlayer.magnitude < fleeRange) 
         {
             movementDirection = distanceToPlayer.normalized *-1;
+            animator.SetInteger("facing", FacingFromVector(movementDirection));
         }
         if (distanceToPlayer.magnitude > attackRange) 
         {
             movementDirection = distanceToPlayer.normalized;
+            animator.SetInteger("facing", FacingFromVector(movementDirection));
         }
     }
 
     IEnumerator Attack()
     {
+        int facing = FacingFromVector(Player.GetPosition()- transform.position);
+        animator.SetInteger("facing", facing);
         animator.SetBool("attacking", true);
         isAttacking = true;
         yield return new WaitForSeconds(2);

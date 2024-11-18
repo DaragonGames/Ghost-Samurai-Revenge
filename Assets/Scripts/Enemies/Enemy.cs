@@ -97,4 +97,16 @@ public class Enemy : MonoBehaviour
         this.knockback.RecieveKnockback(knockback, knockbackStrength);
     }
 
+    public int FacingFromVector(Vector3 direction)
+    {
+        if (Mathf.Abs(direction.x) > Mathf.Abs(direction.y) )
+        {
+            return (direction.x > 0) ? 1 : 3;
+        }
+        else
+        {
+            return (direction.y > 0) ? 0 : 2;
+        }       
+    }
+
 }

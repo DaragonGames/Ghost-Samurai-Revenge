@@ -100,6 +100,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemPrefab: {fileID: 5174449708874311532, guid: 9021f49da5d11ac4cbe525162a50f29e, type: 3}
   soundPrefab: {fileID: 4343678220942150121, guid: 687aa956176955c48aea75276e406576, type: 3}
+  particlePrefab: {fileID: 4772742546982121532, guid: a18e96309fc629b4a945ca5f37d7d458, type: 3}
+  particleBurstPrefab: {fileID: 925813523112011731, guid: 21677bdfce54a8d41b70e21269f71e9d, type: 3}
 --- !u!61 &3817713524369420376
 BoxCollider2D:
   m_ObjectHideFlags: 0

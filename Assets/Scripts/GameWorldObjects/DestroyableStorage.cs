@@ -6,6 +6,8 @@ public class DestroyableStorage : MonoBehaviour
 {
     public GameObject itemPrefab;
     public GameObject soundPrefab;
+    public GameObject particlePrefab;
+    public GameObject particleBurstPrefab;
     private int toughness;
     private bool shaking;
     private float shakeDirection = 0.8f;
@@ -26,17 +28,20 @@ public class DestroyableStorage : MonoBehaviour
 
     public void GetAttacked()
     {
+        Instantiate(particlePrefab, transform.position, Quaternion.identity);  
         Instantiate(soundPrefab, transform.position, Quaternion.identity); 
         toughness--;
         if (toughness > 0)
         {
+
             StartCoroutine(HandleShaking(0.22f, 0.06f));
             return;
         }
         if (Random.value <= GameManager.GetLuck() * 0.025f + 0.10f)
-        {
+        {            
             Instantiate(itemPrefab, transform.position, Quaternion.identity);            
         }
+        Instantiate(particleBurstPrefab, transform.position, Quaternion.identity);  
         Destroy(gameObject);
     }
 
