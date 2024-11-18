@@ -4,6 +4,8 @@
 *   Save Data from other points here and read them at other points
 */
 
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class GameData
@@ -53,6 +55,18 @@ public class GameData
                 break;
         }
         Player.Instance.GetComponent<Player>().UpdateStats();
+    }
+
+    public List<int> dataAsList()
+    {
+        List<int> output = new List<int>();
+        output.AddRange(Enumerable.Repeat(2, MovementSpeedUpgradesCollected));
+        output.AddRange(Enumerable.Repeat(3, AttackSpeedUpgradesCollected));
+        output.AddRange(Enumerable.Repeat(4, HealthUpgradesCollected));
+        output.AddRange(Enumerable.Repeat(5, DamageUpgradesCollected));
+        output.AddRange(Enumerable.Repeat(6, DefenseUpgradesCollected));
+        output.AddRange(Enumerable.Repeat(7, LuckUpgradesCollected));
+        return output;
     }
 
 }
