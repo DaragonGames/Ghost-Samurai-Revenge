@@ -29,7 +29,7 @@ public class DestroyableStorage : MonoBehaviour
     public void GetAttacked()
     {
         Instantiate(particlePrefab, transform.position, Quaternion.identity);  
-        Instantiate(soundPrefab, transform.position, Quaternion.identity); 
+        Destroy(Instantiate(soundPrefab, transform.position, Quaternion.identity),5); 
         toughness--;
         if (toughness > 0)
         {
@@ -41,7 +41,7 @@ public class DestroyableStorage : MonoBehaviour
         {            
             Instantiate(itemPrefab, transform.position, Quaternion.identity);            
         }
-        Instantiate(particleBurstPrefab, transform.position, Quaternion.identity);  
+        Destroy(Instantiate(particleBurstPrefab, transform.position, Quaternion.identity),5);  
         Destroy(gameObject);
     }
 

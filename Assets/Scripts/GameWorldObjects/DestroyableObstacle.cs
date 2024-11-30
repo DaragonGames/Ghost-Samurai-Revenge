@@ -28,14 +28,14 @@ public class DestroyableObstacle : MonoBehaviour
     public void GetAttacked()
     {
         Instantiate(soundPrefab, transform.position, Quaternion.identity); 
-        Instantiate(particlePrefab, transform.position, Quaternion.identity); 
+        Destroy(Instantiate(particlePrefab, transform.position, Quaternion.identity),5); 
         toughness--;
         if (toughness > 0)
         {
             StartCoroutine(HandleShaking(0.22f, 0.06f));
             return;
         }
-        Instantiate(particleBurstPrefab, transform.position, Quaternion.identity); 
+        Destroy(Instantiate(particleBurstPrefab, transform.position, Quaternion.identity),5); 
         Destroy(gameObject);
     }
 

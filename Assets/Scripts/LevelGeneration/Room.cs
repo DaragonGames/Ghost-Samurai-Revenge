@@ -93,6 +93,10 @@ public class Room : MonoBehaviour
 
     void Update()
     {
+        if (enemies.childCount == 0 && isEntered)
+        {
+            isCleared = true;
+        }   
         if (isBossRoom && ID == GameManager.Instance.currentRoomID)
         {
             doorLeft.SetActive(true);
@@ -114,11 +118,7 @@ public class Room : MonoBehaviour
             doorRight.SetActive(!rightOpen);
             doorUp.SetActive(!upOpen);
             doorDown.SetActive(!downOpen);
-        }  
-        if (enemies.childCount == 0 && isEntered)
-        {
-            isCleared = true;
-        }      
+        }   
     }
 
     void OnTriggerEnter2D(Collider2D col) {

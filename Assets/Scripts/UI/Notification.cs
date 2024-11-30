@@ -6,6 +6,7 @@ public class Notification : MonoBehaviour
 {
     public Sprite[] sprites;
     public Image icon;
+    public TMP_Text tagline;
     public TMP_Text info;
 
     private float counter = 0;
@@ -16,28 +17,36 @@ public class Notification : MonoBehaviour
         icon.sprite = sprites[id];
         switch (id){
             case 0:
-                info.text = "Uncover the truth";
+                tagline.text = "Uncover the truth";
+                info.text = "+1 Testimony available";
                 break;
             case 1:
-                info.text = "Rice is life";
+                tagline.text = "Rice is life";
+                info.text = "You regenrated some HP";
                 break;
             case 2:
-                info.text = "Faster than your reflection";
+                tagline.text = "Faster than your reflection";
+                info.text = "Increased Movementspeed";
                 break;
             case 3:
-                info.text = "A swift fighter's memory";
+                tagline.text = "A swift fighter's memory";
+                info.text = "Increased attackspeed";
                 break;
             case 4:
-                info.text = "The strength of another";
+                tagline.text = "The strength of another";
+                info.text = "Increased maximum HP";
                 break;
             case 5:
-                info.text = "The urge to kill";
+                tagline.text = "The urge to kill";
+                info.text = "Increased attack damage";
                 break;
             case 6:
-                info.text = "Protection against evil spirits";
+                tagline.text = "Protection against evil spirits";
+                info.text = "Increased Defense";
                 break;
             case 7:
-                info.text = "What a lucky sight";
+                tagline.text = "What a lucky sight";
+                info.text = "Increased Luck";
                 break;
         }
     }
