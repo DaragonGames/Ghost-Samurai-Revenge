@@ -117,14 +117,15 @@ public class Ghost_Old : Enemy
         state = states.fleeing;
     }
 
-    public override void TakeDamage(float amount, float piercingDamage, Vector3 knockback, float knockbackStrength) 
+    /* No longer valid see new Code
+    public void TakeDamage(float amount, float piercingDamage, Vector3 knockback, float knockbackStrength) 
     {
         base.TakeDamage(amount, piercingDamage, knockback, knockbackStrength);
         if (state == states.wandering) 
         {
             ReactToDamage();
         }
-    }
+    }*/
 
     private void ReactToDamage() 
     {

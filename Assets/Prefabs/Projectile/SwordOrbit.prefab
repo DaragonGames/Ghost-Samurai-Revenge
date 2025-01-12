@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2459983278271140335}
   - component: {fileID: 1375073461441960547}
   - component: {fileID: 929857590798454759}
+  - component: {fileID: 3808943182750841234}
   m_Layer: 0
   m_Name: SwordProjectille
   m_TagString: Projectile
@@ -93,8 +94,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 724671415
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b0631409d0b6fc244a9d223175614448, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -186,6 +187,18 @@ PolygonCollider2D:
       - {x: 0.5, y: 0.15}
       - {x: 0.5, y: 0.5}
   m_UseDelaunayMesh: 0
+--- !u!114 &3808943182750841234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1078231212434148949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6eb3fc4348a383f4f8979e007ad865cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5915706374649518649
 GameObject:
   m_ObjectHideFlags: 0

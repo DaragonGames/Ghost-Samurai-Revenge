@@ -11,7 +11,6 @@ public class GameManager : MonoBehaviour
     public GameState gameState;
     public int currentRoomID = -1;
     public GameData gameData;
-
     public int stunframes = 0;
 
     // Start is called before the first frame update

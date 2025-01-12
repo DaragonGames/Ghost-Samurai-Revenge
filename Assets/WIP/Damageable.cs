@@ -13,6 +13,7 @@ public class Damageable : MonoBehaviour
     // Not to be set
     private bool invincible = false;
     public event Action DeathEvent;
+    public event Action DamageEvent;
 
     // Set from Inspector
     public GameObject soundPrefab;
@@ -25,14 +26,16 @@ public class Damageable : MonoBehaviour
         {
             return;
         }
+        
+        DamageEvent?.Invoke();
 
         Instantiate(soundPrefab, transform.position, Quaternion.identity);
         hp -= damageTaken;
         StartCoroutine(invincibleTimer());
         if (damageTaken >= GameValues.minDmgHitStop && maxHp / damageTaken > GameValues.minDmgPercentageHitStop)
         {
-            GameManager.Instance.stunframes = GameValues.stunlockFrames;
-            Time.timeScale = 0f;      
+            //GameManager.Instance.stunframes = GameValues.stunlockFrames;
+            //Time.timeScale = 0f;      
         }
 
         if (hp <= 0)

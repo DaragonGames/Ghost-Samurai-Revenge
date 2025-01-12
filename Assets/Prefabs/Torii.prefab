@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1522048335041110389}
   - component: {fileID: -6916047074722495711}
   m_Layer: 0
-  m_Name: Tori
+  m_Name: Torii
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -72,8 +72,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 609472217
-  m_SortingLayer: 2
+  m_SortingLayerID: -91490965
+  m_SortingLayer: 3
   m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: f7a03a94b0f741e4a9f486fbe9d12891, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

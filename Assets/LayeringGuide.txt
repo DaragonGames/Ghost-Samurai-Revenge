@@ -1,0 +1,13 @@
+Ground - Ground, Bamboo Bottom, Item Shadow
+Deko
+Spikes
+World Objects - Enemies, Minion, Player, Stone, Box, Bush, Goal
+VFX_1 - Bush, Wood Particle
+Item - Item, Item Spark
+Player - Player
+VFX_2 - Smoke
+Projectilles
+Foreground - Bamboo Side, Bamboo Top
+Torii
+UI
+Ghost

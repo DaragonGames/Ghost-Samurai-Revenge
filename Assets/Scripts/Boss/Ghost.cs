@@ -10,6 +10,7 @@ public class Ghost : Enemy
 
     private Vector3 movingGoal;
     private GhostAttacks attacks;
+
     private enum states {wandering, fleeing, retaliation, waiting, attacking, postAttack};
     private states state = states.wandering; 
     private float attackCounter;
@@ -24,7 +25,13 @@ public class Ghost : Enemy
 
         movingGoal = transform.position;
         attacks = GetComponent<GhostAttacks>();
-        //GameManager.Instance.gameData.ghostWrath += 40; //For Debugging
+        damageable = GetComponent<Damageable>();
+        damageable.DamageEvent += ReactToDamage;
+        damageable.DeathEvent += Die;
+        damageable.SetValues(500, defense, false);
+
+        
+        /* Original Code
         anger = GameManager.Instance.gameData.ghostWrath;
         if (anger == 0)
         {
@@ -33,7 +40,19 @@ public class Ghost : Enemy
         if (anger >= 40)
         {
             PrepareBossRoom();
+        }*/
+
+        // Debug Code
+        if (GameManager.Instance.gameData.progression == 3)
+        {
+            PrepareBossRoom();
+            
         }
+        else
+        {
+            gameObject.SetActive(false);
+        }
+
     }
 
     void Update()
@@ -41,17 +60,12 @@ public class Ghost : Enemy
         if (GameManager.Instance.gameState == GameManager.GameState.GameOver)
         {
             return;
-        }
-        if (health <= 0)
-        {
-            StartCoroutine(Die());
-            return;
-        }   
+        }        
 
         // Handle Ghost UI
         if (state == states.attacking || state == states.postAttack) 
         {
-            float hpPercentage = health / 500f;
+            float hpPercentage = damageable.GetHealthPercentage();
             GhostUI.GetComponent<RectTransform>().sizeDelta = new Vector2 (hpPercentage*500, 16);
         }
 
@@ -143,17 +157,12 @@ public class Ghost : Enemy
         movingGoal.y = Random.Range(map[1], map[3]);
     }
 
-    public override void TakeDamage(float amount, float piercingDamage, Vector3 knockback, float knockbackStrength) 
-    {
-        base.TakeDamage(amount, piercingDamage, knockback, knockbackStrength);
-        if (state == states.wandering) 
-        {
-            ReactToDamage();
-        }
-    }
-
     private void ReactToDamage() 
     {
+        if (state != states.wandering) 
+        {
+            return;
+        }
         // Can either flee, attack or do nothing
         float ran = Random.value*50 + anger;
         if (ran > 100)
@@ -244,7 +253,12 @@ public class Ghost : Enemy
         }     
     }
 
-    IEnumerator Die()
+    public void Die()
+    {
+        StartCoroutine(DieSequence());
+    }
+
+    IEnumerator DieSequence()
     {
         GameManager.Instance.gameState = GameManager.GameState.GameOver;
         //Destroy(GetComponent<SpriteRenderer>());

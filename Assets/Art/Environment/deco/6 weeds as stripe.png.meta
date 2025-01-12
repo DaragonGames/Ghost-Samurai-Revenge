@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c1473724488b86f4f8690473bbef5eac
+guid: 07e47c52bfcb8724dbee552d6dd318d0
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -72,7 +72,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: 4
-    textureCompression: 2
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -123,7 +123,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ninja_star_0
+      name: 6 weeds as stripe_0
       rect:
         serializedVersion: 2
         x: 0
@@ -131,20 +131,20 @@ TextureImporter:
         width: 20
         height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: feefd939828729d4c955011f0ae6e8fb
-      internalID: -2105886249
+      spriteID: 81ba0a4ec44531940b5b157d20fd6fa2
+      internalID: -467267770
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ninja_star_1
+      name: 6 weeds as stripe_1
       rect:
         serializedVersion: 2
         x: 20
@@ -152,20 +152,20 @@ TextureImporter:
         width: 20
         height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8c112c6ab9716cb44b22af73b6043e89
-      internalID: -703470292
+      spriteID: a6f311bd9116d3747aa64edf98feb8af
+      internalID: -1020285775
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ninja_star_2
+      name: 6 weeds as stripe_2
       rect:
         serializedVersion: 2
         x: 40
@@ -173,20 +173,20 @@ TextureImporter:
         width: 20
         height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2216aa1aded4e184780d7ebcf83ab45b
-      internalID: 1563783923
+      spriteID: d88408d7e712c804b93f2062c2088006
+      internalID: 453455644
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ninja_star_3
+      name: 6 weeds as stripe_3
       rect:
         serializedVersion: 2
         x: 60
@@ -194,14 +194,56 @@ TextureImporter:
         width: 20
         height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 14305a4b1857a5a40983443843666821
-      internalID: 1458117352
+      spriteID: 41cd5a67c80463042b9cd9b8d1c0b815
+      internalID: 1624350607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 6 weeds as stripe_4
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 0
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94bb8e17edbbbd4428821115a38ad6fa
+      internalID: -2108993869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 6 weeds as stripe_5
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 0
+        width: 20
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7992d380e91df1e4d88749a09b206a0b
+      internalID: 1098316213
       vertices: []
       indices: 
       edges: []
@@ -217,10 +259,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      ninja_star_0: -2105886249
-      ninja_star_1: -703470292
-      ninja_star_2: 1563783923
-      ninja_star_3: 1458117352
+      6 weeds as stripe_0: -467267770
+      6 weeds as stripe_1: -1020285775
+      6 weeds as stripe_2: 453455644
+      6 weeds as stripe_3: 1624350607
+      6 weeds as stripe_4: -2108993869
+      6 weeds as stripe_5: 1098316213
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

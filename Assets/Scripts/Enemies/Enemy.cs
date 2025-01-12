@@ -15,7 +15,7 @@ public class Enemy : MonoBehaviour
     public GameObject smokePrefab;
     
     // Components
-    private Damageable damageable;
+    protected Damageable damageable;
     private Knockback knockback;
     protected Animator animator;
     private CharacterMovement characterMovement;
@@ -89,13 +89,6 @@ public class Enemy : MonoBehaviour
     private bool isMinion = false;
     public virtual void SetRoomID(int id){ roomID = id;}
     public virtual void DeclareAsMinion(){ isMinion = true;}    
-
-    // Refactor Please
-    public virtual void TakeDamage(float amount, float piercingDamage, Vector3 knockback, float knockbackStrength)
-    {
-        damageable.TakeDamage(amount, piercingDamage);
-        this.knockback.RecieveKnockback(knockback, knockbackStrength);
-    }
 
     public int FacingFromVector(Vector3 direction)
     {

@@ -12,6 +12,7 @@ public class leaf : Projectile
     {
         GetComponent<SpriteRenderer>().sprite = sprites[Random.Range(0,sprites.Length)];
         Destroy(gameObject,duration);
+        GetComponent<DamageDealer>().SetDamage(contactDamage,piercingDamage,knockbackStrength,"Enemy");
     }
 
 }

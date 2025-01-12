@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: -3583619893140273521}
   - component: {fileID: -8453128921512250973}
   - component: {fileID: 6086855693761455862}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Gate
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -107,14 +107,14 @@ CircleCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 4096
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 631
   m_ForceReceiveLayers:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 631
   m_ContactCaptureLayers:
     serializedVersion: 2
     m_Bits: 4294967295

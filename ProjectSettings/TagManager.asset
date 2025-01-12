@@ -26,8 +26,8 @@ TagManager:
   - Characters
   - 
   - 
-  - 
-  - 
+  - Minion
+  - Spawner
   - 
   - 
   - 
@@ -50,24 +50,42 @@ TagManager:
   - name: Background
     uniqueID: 2583601793
     locked: 0
+  - name: Decoration
+    uniqueID: 3270052475
+    locked: 0
   - name: Spikes
     uniqueID: 3959511201
     locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Character
+  - name: World Obejcts
     uniqueID: 1830794183
     locked: 0
-  - name: Foreground
-    uniqueID: 609472217
-    locked: 0
-  - name: Particle
+  - name: VFX_1
     uniqueID: 2673837957
     locked: 0
   - name: Item
     uniqueID: 4182524917
     locked: 0
+  - name: Player
+    uniqueID: 1346825735
+    locked: 0
+  - name: Projectile
+    uniqueID: 724671415
+    locked: 0
+  - name: VFX_2
+    uniqueID: 3095553579
+    locked: 0
+  - name: Foreground
+    uniqueID: 609472217
+    locked: 0
+  - name: Torii
+    uniqueID: 4203476331
+    locked: 0
   - name: Ghost
     uniqueID: 1197527697
+    locked: 0
+  - name: UI
+    uniqueID: 3016663841
     locked: 0

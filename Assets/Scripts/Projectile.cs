@@ -117,7 +117,7 @@ public class Projectile : MonoBehaviour
         piercingDamage = stats.piercingDamage;
         critChance = stats.critChance;
         critDamageMultiplier = stats.critDamageMultiplier;
-        roationSpeed = 4;
+        //roationSpeed = 4;
     }
 
     public void SetSliceValues(PlayerStats stats, float duration)

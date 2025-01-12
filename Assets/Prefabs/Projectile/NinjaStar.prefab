@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: -8444091864018279285}
   - component: {fileID: -8015951246650466428}
   - component: {fileID: -165205609468543882}
+  - component: {fileID: 8588224305021946141}
   m_Layer: 0
   m_Name: NinjaStar
   m_TagString: Projectile
@@ -74,10 +75,10 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: b48a689b941e0a148ac820031129fc27, type: 3}
+  m_SortingLayerID: 724671415
+  m_SortingLayer: 5
+  m_SortingOrder: 1
+  m_Sprite: {fileID: -2105886249, guid: c1473724488b86f4f8690473bbef5eac, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -182,3 +183,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6eb3fc4348a383f4f8979e007ad865cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8588224305021946141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6142362461846762948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c09ebc8a7cd4a77488828bea91a51e39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: -2105886249, guid: c1473724488b86f4f8690473bbef5eac, type: 3}
+  - {fileID: -703470292, guid: c1473724488b86f4f8690473bbef5eac, type: 3}
+  - {fileID: 1563783923, guid: c1473724488b86f4f8690473bbef5eac, type: 3}
+  - {fileID: 1458117352, guid: c1473724488b86f4f8690473bbef5eac, type: 3}
+  framesPerSecond: 48

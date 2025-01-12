@@ -850,6 +850,7 @@ GameObject:
   - component: {fileID: 36215103923728969}
   - component: {fileID: -1157779426635719334}
   - component: {fileID: 5156628374379772493}
+  - component: {fileID: -5929937781477227936}
   m_Layer: 0
   m_Name: Room
   m_TagString: Room
@@ -946,6 +947,29 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 13.5, y: 6.5}
   m_EdgeRadius: 0
+--- !u!114 &-5929937781477227936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3056222429538350162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f7a6ac36dfa97a4985a9d33f8cddc08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: 1201261555, guid: 3e1a1ac27256f8c42bc21ca6be3df29c, type: 3}
+  - {fileID: 330633786, guid: 3e1a1ac27256f8c42bc21ca6be3df29c, type: 3}
+  - {fileID: 1414838760, guid: 3e1a1ac27256f8c42bc21ca6be3df29c, type: 3}
+  - {fileID: -1358957254, guid: 3e1a1ac27256f8c42bc21ca6be3df29c, type: 3}
+  - {fileID: -467267770, guid: 07e47c52bfcb8724dbee552d6dd318d0, type: 3}
+  - {fileID: -1020285775, guid: 07e47c52bfcb8724dbee552d6dd318d0, type: 3}
+  - {fileID: 453455644, guid: 07e47c52bfcb8724dbee552d6dd318d0, type: 3}
+  - {fileID: 1624350607, guid: 07e47c52bfcb8724dbee552d6dd318d0, type: 3}
+  - {fileID: -2108993869, guid: 07e47c52bfcb8724dbee552d6dd318d0, type: 3}
+  - {fileID: 1098316213, guid: 07e47c52bfcb8724dbee552d6dd318d0, type: 3}
 --- !u!1 &3207310855096408236
 GameObject:
   m_ObjectHideFlags: 0

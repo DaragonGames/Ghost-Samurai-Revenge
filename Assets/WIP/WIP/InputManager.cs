@@ -33,7 +33,7 @@ public class InputManager : MonoBehaviour
         aim.Enable();
         primary.Enable();
         secondary.Enable();
-        Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.lockState = CursorLockMode.Locked;
     }
 
     // Update is called once per frame
