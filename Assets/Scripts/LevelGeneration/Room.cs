@@ -135,7 +135,7 @@ public class Room : MonoBehaviour
 
     IEnumerator DelayRoomAction()
     {
-        yield return new WaitForSeconds(1f); 
+        yield return new WaitForSeconds(0.75f); 
         isEntered = true;
         GameManager.Instance.currentRoomID = ID;
     }

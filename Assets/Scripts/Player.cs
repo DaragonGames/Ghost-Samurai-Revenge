@@ -196,9 +196,10 @@ public class Player : MonoBehaviour
     
     private IEnumerator enterRoomDelay(Vector3 direction)
     {  
-        characterMovement.Movement(direction,1); 
+        characterMovement.Movement(direction,3); 
         state = States.entering;        
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(0.6f);
+
         if (state == States.entering)
         {
             state = States.idl; 

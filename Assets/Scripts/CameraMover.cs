@@ -22,13 +22,11 @@ public class CameraMover : MonoBehaviour
     {
         if (transform.position != supposedPosition)
         {
-            counter += Time.deltaTime;
             Vector3 direction = supposedPosition - transform.position;
-            transform.position += direction * Time.deltaTime*2;
+            transform.position += direction * Time.deltaTime*3;
             if (direction.magnitude < Time.deltaTime*2f)
             {
-                transform.position = supposedPosition;
-                counter = 0;
+                transform.position = supposedPosition;                               
             }
             else
             {
