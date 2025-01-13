@@ -37,6 +37,7 @@ public class GameManager : MonoBehaviour
     public static event Action<int> CollectItem;
     public static void OnCollectItemEvent(int id)
     {
+        Instance.gameData.collectItem(id);
         CollectItem?.Invoke(id);
     }
 
@@ -52,13 +53,14 @@ public class GameManager : MonoBehaviour
         gameData.progression++;
         gameData.ghostWrath +=10;
         gameState = GameState.Reading;
+        Item.uncollectedItems = new int[8];
         SceneManager.LoadScene("Reading");
     }
 
     public void EnterGrove()
     {
         gameState = GameState.InGame;
-        SceneManager.LoadScene("Game");        
+        SceneManager.LoadScene("Game");                
     }
 
     public void SelectTestimony(int id)

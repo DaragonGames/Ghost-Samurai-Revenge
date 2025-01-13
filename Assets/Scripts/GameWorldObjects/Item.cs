@@ -7,10 +7,23 @@ public class Item : MonoBehaviour
     public Sprite[] sprites;
     public GameObject soundPrefab;
     private float hoverDirection = 1;
+    public static int[] uncollectedItems = new int[8];
 
     void Start()
     {
+        SetID();
+        GetComponent<SpriteRenderer>().sprite = sprites[id];
+        StartCoroutine(ChangeHoverDirection());
+    }
+
+    void SetID()
+    {
         id = Random.Range(0, 8);
+        if (GameManager.Instance.gameData.UpgradesCollected(id) + uncollectedItems[id] >= 5)
+        {
+            SetID();
+            return;
+        }
         if (Random.value > 0.4 + 0.08f*GameManager.GetLuck() && id == 0)
         {
             id=1;
@@ -19,8 +32,7 @@ public class Item : MonoBehaviour
         {
             id=1;
         }
-        GetComponent<SpriteRenderer>().sprite = sprites[id];
-        StartCoroutine(ChangeHoverDirection());
+        uncollectedItems[id] += 1;
     }
 
     void Update()
@@ -32,9 +44,9 @@ public class Item : MonoBehaviour
     {
         if (col.gameObject.tag == "Player")
         {            
-            GameManager.Instance.gameData.collectItem(id);
             GameManager.OnCollectItemEvent(id);
             Instantiate(soundPrefab,transform.position,Quaternion.identity);
+            uncollectedItems[id] -= 1;
             Destroy(transform.parent.gameObject);
         }
     }

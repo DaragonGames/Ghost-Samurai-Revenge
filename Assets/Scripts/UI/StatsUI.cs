@@ -32,6 +32,8 @@ public class StatsUI : MonoBehaviour
 
     private void CreateIcon(int id)
     {
+        id-=2;
+        if (id < 0) { return; } 
         // Activate in the first time
         startPart.SetActive(true);
         endPart.SetActive(true);

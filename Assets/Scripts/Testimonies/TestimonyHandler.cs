@@ -55,22 +55,22 @@ public static class TestimonyHandler
         switch (id)
         {
             case 0:
-                GameManager.Instance.gameData.DefenseUpgradesCollected++;
+                GameManager.Instance.gameData.collectItem(6);
                 break;
             case 1:
-                GameManager.Instance.gameData.DamageUpgradesCollected++;
+                GameManager.Instance.gameData.collectItem(5);
                 break;
             case 2:
-                GameManager.Instance.gameData.MovementSpeedUpgradesCollected++;
+                GameManager.Instance.gameData.collectItem(2);
                 break;
             case 3:
-                GameManager.Instance.gameData.LuckUpgradesCollected++;
+                GameManager.Instance.gameData.collectItem(7);
                 break;
             case 4:
-                GameManager.Instance.gameData.HealthUpgradesCollected++;
+                GameManager.Instance.gameData.collectItem(4);
                 break;
             case 5:
-                GameManager.Instance.gameData.AttackSpeedUpgradesCollected++;
+                GameManager.Instance.gameData.collectItem(3);
                 break;
             case 6:
                 GameManager.Instance.gameData.ghostWrath+=10;

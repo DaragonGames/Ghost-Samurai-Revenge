@@ -5,8 +5,8 @@ public class PlayerStats
     public float arrowDamage;
     public float sliceDamage;
     public float maxHealth;
-    public float knockbackStrength = 10;
-    public float defense = 0;
+    public float defense;
+    public float knockbackStrength = 10;    
     public float piercingDamage = 0;
     public float critChance = 0;
     public float critDamageMultiplier = 2;
@@ -26,14 +26,14 @@ public class PlayerStats
         SetStats();
     }
 
-    private float defaultSpeed = 6;
-    private float defaultAttackSpeed = 1;
+    private float defaultSpeed = 8;
+    private float defaultAttackSpeed = 0.5f;
     private float defaultArrowDamage = 20;
     private float defaultSliceDamage = 20;
     private float defaultHealth = 100;
     private float defaultDefense = 0;
-    private float upgradeSpeed = 0.5f;
-    private float upgradeAttackSpeed = .1f;
+    private float upgradeSpeed = 0.8f;
+    private float upgradeAttackSpeed = .05f;
     private float upgradeArrowDamage = 10;
     private float upgradeSliceDamage = 10;
     private float upgradeHealth = 20;
@@ -49,16 +49,6 @@ public class PlayerStats
         sliceDamage = defaultSliceDamage + gameData.DamageUpgradesCollected * upgradeSliceDamage;
         maxHealth = defaultHealth + gameData.HealthUpgradesCollected * upgradeHealth;
         defense = defaultDefense + gameData.DefenseUpgradesCollected * upgradeDefense;
-    }
-
-    public void OverWriteByDebugger(float movementSpeed, float attackSpeed, float arrowDamage, float sliceDamage, float maxHealth, float defense)
-    {
-        this.movementSpeed = movementSpeed;
-        this.attackSpeed = attackSpeed;
-        this.arrowDamage = arrowDamage;
-        this.sliceDamage = sliceDamage;
-        this.maxHealth = maxHealth;
-        this.defense = defense;
     }
 
 

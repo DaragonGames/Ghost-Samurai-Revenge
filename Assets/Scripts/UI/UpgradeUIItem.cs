@@ -10,10 +10,6 @@ public class UpgradeUIItem : MonoBehaviour
 
     public void SetSprite(int id)
     {
-        if (id > 1)
-        {
-            image.sprite = sprites[id-2];
-        }
-
+        image.sprite = sprites[id];
     }
 }

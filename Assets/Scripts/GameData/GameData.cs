@@ -35,26 +35,32 @@ public class GameData
                 Player.Instance.GetComponent<Damageable>().GainHealth(20);
                 break;
             case 2:
-                MovementSpeedUpgradesCollected= Mathf.Min(MovementSpeedUpgradesCollected+1, 10);
+                MovementSpeedUpgradesCollected= Mathf.Min(MovementSpeedUpgradesCollected+1, 5);
                 break;
             case 3:
-                AttackSpeedUpgradesCollected= Mathf.Min(AttackSpeedUpgradesCollected+1, 10);
+                AttackSpeedUpgradesCollected= Mathf.Min(AttackSpeedUpgradesCollected+1, 5);
                 break;
             case 4:
-                HealthUpgradesCollected= Mathf.Min(HealthUpgradesCollected+1, 10);
-                Player.Instance.GetComponent<Damageable>().IncreaseMaxHealth(10);
+                HealthUpgradesCollected= Mathf.Min(HealthUpgradesCollected+1, 5);
+                if (Player.Instance != null)
+                {
+                    Player.Instance.GetComponent<Damageable>().IncreaseMaxHealth(10);
+                }                
                 break;
             case 5:
-                DamageUpgradesCollected= Mathf.Min(DamageUpgradesCollected+1, 10);
+                DamageUpgradesCollected= Mathf.Min(DamageUpgradesCollected+1, 5);
                 break;
             case 6:
-                DefenseUpgradesCollected= Mathf.Min(DefenseUpgradesCollected+1, 10);
+                DefenseUpgradesCollected= Mathf.Min(DefenseUpgradesCollected+1, 5);
                 break;
             case 7:
-                LuckUpgradesCollected= Mathf.Min(LuckUpgradesCollected+1, 10);
+                LuckUpgradesCollected= Mathf.Min(LuckUpgradesCollected+1, 5);
                 break;
         }
-        Player.Instance.GetComponent<Player>().UpdateStats();
+        if (Player.Instance != null)
+        {
+            Player.Instance.GetComponent<Player>().UpdateStats();
+        }  
     }
 
     public List<int> dataAsList()
@@ -67,6 +73,27 @@ public class GameData
         output.AddRange(Enumerable.Repeat(6, DefenseUpgradesCollected));
         output.AddRange(Enumerable.Repeat(7, LuckUpgradesCollected));
         return output;
+    }
+
+    public int UpgradesCollected(int id)
+    {
+        switch (id)
+        {
+            case 2:
+                return MovementSpeedUpgradesCollected;
+            case 3:
+                return AttackSpeedUpgradesCollected;
+            case 4:
+                return HealthUpgradesCollected;
+            case 5:
+                return DamageUpgradesCollected;
+            case 6:
+                return DefenseUpgradesCollected;
+            case 7:
+                return LuckUpgradesCollected;
+            default:
+                return 0;
+        }
     }
 
 }
