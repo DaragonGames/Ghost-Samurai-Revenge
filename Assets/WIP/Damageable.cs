@@ -20,7 +20,8 @@ public class Damageable : MonoBehaviour
     
     public void TakeDamage(float damage, float piercingDamage)
     {
-        float damageTaken = Mathf.Max(0, damage-defense) + piercingDamage;
+        if (damage + piercingDamage <= 0) {return;}
+        float damageTaken = Mathf.Max(1, damage-defense) + piercingDamage;
 
         if (invincible || hp <= 0 || damageTaken <= 0)
         {
