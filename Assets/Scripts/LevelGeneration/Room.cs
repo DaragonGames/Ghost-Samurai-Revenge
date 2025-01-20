@@ -126,7 +126,8 @@ public class Room : MonoBehaviour
         {
             if (!isStart && !isEntered && !isEnd && !isBossRoom)
             {
-                fillRoom(col.transform.position);
+                GetComponent<RoomInitializer>().fillRoom(
+                col.transform.position, ID, leftOpen, rightOpen, upOpen, downOpen);
             }            
             GameManager.OnRoomEnterEvent(transform.position);            
             StartCoroutine(DelayRoomAction());
@@ -139,47 +140,5 @@ public class Room : MonoBehaviour
         isEntered = true;
         GameManager.Instance.currentRoomID = ID;
     }
-
-    public void fillRoom(Vector3 playerPosition)
-    {
-        float xdif = transform.position.x - playerPosition.x;
-        float ydif = transform.position.y - playerPosition.y;
-        bool flipX = false, flipY = false;
-        GameObject prefab;
-
-        if (Mathf.Abs(xdif) > Mathf.Abs(ydif))
-        {
-            prefab =  spawnables.roomLayoutsLeft[Random.Range(0,spawnables.roomLayoutsLeft.Count)];
-            flipX = xdif>0;
-        }
-        else
-        {
-            prefab =  spawnables.roomLayoutsTop[Random.Range(0,spawnables.roomLayoutsTop.Count)];
-            flipY = ydif<0;
-        }
-        GameObject roomLayout = Instantiate(prefab, transform.position, Quaternion.identity, transform);
-        for (int i = 0;i<roomLayout.transform.childCount;i++)
-        {
-            Vector3 pos = roomLayout.transform.GetChild(i).localPosition;
-            roomLayout.transform.GetChild(i).localPosition = new Vector3(pos.x *(flipX?-1:1),pos.y * (flipY?-1:1),pos.z);
-        }
-        
-
-        List<Transform> enemyList = new List<Transform>();
-        for (int i =0; i < roomLayout.transform.childCount; i++)
-        {            
-            Transform check = roomLayout.transform.GetChild(i);
-            if (check.tag == "Enemy")
-            {
-                enemyList.Add(check);
-                check.GetComponent<Enemy>().SetRoomID(ID);
-            }
-        }
-        foreach (Transform enemy in enemyList)
-        {
-            enemy.parent = enemies;
-        }
-
-    }
-
+    
 }

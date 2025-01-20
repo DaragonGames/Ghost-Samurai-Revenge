@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4407519747257687429}
+  - component: {fileID: -8205452837709589586}
   m_Layer: 0
   m_Name: RoomLayout Dead End Crates
   m_TagString: Untagged
@@ -48,6 +49,19 @@ Transform:
   - {fileID: 5130215971995966022}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-8205452837709589586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4392877756261045865}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b45707e45d3a5b408a3908335e1abaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultWeight: 1
 --- !u!1001 &1034368052222878175
 PrefabInstance:
   m_ObjectHideFlags: 0

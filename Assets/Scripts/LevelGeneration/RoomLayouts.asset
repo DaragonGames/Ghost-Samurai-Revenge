@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a07212eacb4cd344b91c1ecbf67f8ac5, type: 3}
+  m_Name: RoomLayouts
+  m_EditorClassIdentifier: 
+  deadEndSide:
+  - {fileID: 4392877756261045865, guid: 49a9e53b85ca2c64c83250c678e36f0f, type: 3}
+  - {fileID: 451879856219729634, guid: bec5bc81ecf21634d921a8dc823dd468, type: 3}
+  - {fileID: 7660873095434477787, guid: 3d49ba0a584a7744f9ad4e5f21214cdf, type: 3}
+  deadEndTop:
+  - {fileID: 8120080158571706847, guid: bd500d0b5991c8b478fe76a8fe67f1df, type: 3}
+  passageSide:
+  - {fileID: 8525853230117305461, guid: 834bc3af5b304534bafd915bd83cce6c, type: 3}
+  - {fileID: 6440210618918427405, guid: 348d5e6d41828b34a9512cdbdcd3d830, type: 3}
+  - {fileID: 4396369028808241425, guid: 400f0fbeab693c1469271891169ce880, type: 3}
+  passageTop:
+  - {fileID: 238074701587590485, guid: bf08c323051ddfb45a0a6fdb56c30106, type: 3}
+  - {fileID: 2785911716187532132, guid: 15e61a4c3a0f7ae4290cb04f84f44085, type: 3}
+  - {fileID: 3030091642957698460, guid: 325a58dfc624686409a78bc0a8c1fb2a, type: 3}
+  passageCorner:
+  - {fileID: 9155535862975093889, guid: 0a3edd18550cb174a84e423eec9dfa29, type: 3}
+  - {fileID: 8721826520647275536, guid: e4b90e5492ebddd44bf0beaed998e8df, type: 3}
+  - {fileID: 2008339255334714150, guid: 7aa09fc1f1bd65749aaa336c4296e3d2, type: 3}
+  open:
+  - {fileID: 8350483356490546393, guid: f71bb767a911ff2469e499a9ae12edc2, type: 3}
+  - {fileID: 3125510167481903469, guid: 74a431679f204d840976267ef20138e6, type: 3}
+  - {fileID: 5397550851790985060, guid: e43bb72918e1a7047a1f2c87d83aeba3, type: 3}
+  - {fileID: 175900284069096224, guid: 71b8d245648e7924f997861e5e655f6e, type: 3}
+  - {fileID: 437833219861219249, guid: acd058b3fe597e24fafbc6e9c366b373, type: 3}
+  - {fileID: 6536518132525641835, guid: 59f2938e990a0044d9cc982921d66d0b, type: 3}

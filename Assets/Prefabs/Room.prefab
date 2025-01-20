@@ -1323,6 +1323,7 @@ GameObject:
   - component: {fileID: -1157779426635719334}
   - component: {fileID: 5156628374379772493}
   - component: {fileID: -5929937781477227936}
+  - component: {fileID: 1696779861068424009}
   m_Layer: 0
   m_Name: Room
   m_TagString: Room
@@ -1444,6 +1445,20 @@ MonoBehaviour:
   - {fileID: 1098316213, guid: 07e47c52bfcb8724dbee552d6dd318d0, type: 3}
   puddle: {fileID: 0}
   glowbug: {fileID: 0}
+--- !u!114 &1696779861068424009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3056222429538350162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbcd519e2b8743b488b59e97bd111748, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dataset: {fileID: 11400000, guid: 5dd116d7b6e398f40b62a27bbe33f38b, type: 2}
+  enemies: {fileID: 4995915998873317990}
 --- !u!1 &3207310855096408236
 GameObject:
   m_ObjectHideFlags: 0
