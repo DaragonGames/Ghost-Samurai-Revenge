@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{284b4752-e163-49f9-bd80-2739f4ea41c3}">
+		<property name="assetPath">
+			<value>SFX/wood.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>1</value>
+		</property>
+		<property name="length">
+			<value>0.72582766439909296</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{c3925af2-e009-470f-a64b-4dc069e97d31}</destination>
+		</relationship>
+	</object>
+</objects>

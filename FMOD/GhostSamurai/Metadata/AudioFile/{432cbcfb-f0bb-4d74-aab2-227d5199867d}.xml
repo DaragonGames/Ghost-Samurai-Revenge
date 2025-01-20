@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{432cbcfb-f0bb-4d74-aab2-227d5199867d}">
+		<property name="assetPath">
+			<value>SFX/sword1.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>24</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.58479166666666671</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{c3925af2-e009-470f-a64b-4dc069e97d31}</destination>
+		</relationship>
+	</object>
+</objects>
