@@ -1,11 +1,8 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class DestroyableObstacle : MonoBehaviour
+public class DestroyableObjekt : MonoBehaviour
 {
-    private int toughness;
-    public GameObject soundPrefab;
     public GameObject particlePrefab;
     public GameObject particleBurstPrefab;
     private bool shaking;
@@ -14,7 +11,10 @@ public class DestroyableObstacle : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        toughness = Random.Range(0, 4);
+        Damageable damageable = GetComponent<Damageable>();
+        damageable.SetValues(Random.Range(1, 4));
+        damageable.DamageEvent +=GetAttacked;
+        damageable.DeathEvent += Die;
     }
     
     void Update()
@@ -27,15 +27,13 @@ public class DestroyableObstacle : MonoBehaviour
 
     public void GetAttacked()
     {
-        Instantiate(soundPrefab, transform.position, Quaternion.identity); 
         Destroy(Instantiate(particlePrefab, transform.position, Quaternion.identity),5); 
-        toughness--;
-        if (toughness > 0)
-        {
-            StartCoroutine(HandleShaking(0.22f, 0.06f));
-            return;
-        }
-        Destroy(Instantiate(particleBurstPrefab, transform.position, Quaternion.identity),5); 
+        StartCoroutine(HandleShaking(0.22f, 0.06f));
+    }
+
+    void Die()
+    {
+        Destroy(Instantiate(particleBurstPrefab, transform.position, Quaternion.identity),5);  
         Destroy(gameObject);
     }
 

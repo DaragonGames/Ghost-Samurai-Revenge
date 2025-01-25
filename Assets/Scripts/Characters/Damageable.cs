@@ -78,6 +78,14 @@ public class Damageable : MonoBehaviour
         invincibleTime = isPlayer ? GameValues.invincibleTimePlayer : GameValues.invincibleTimeEnemy;
     }
 
+    public void SetValues(float hp)
+    {
+        maxHp = hp;
+        this.hp = hp;
+        defense = 1000;
+        invincibleTime = 0;
+    }
+
     public void IncreaseMaxHealth(float value)
     {
         maxHp += value;

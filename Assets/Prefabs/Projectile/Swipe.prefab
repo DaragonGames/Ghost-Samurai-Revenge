@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1435107550970070556}
   - component: {fileID: 7219484922059768949}
+  - component: {fileID: 7039318775830649443}
   - component: {fileID: 7626672048746037002}
   - component: {fileID: -2298016065837851440}
   m_Layer: 0
@@ -69,6 +70,33 @@ CapsuleCollider2D:
   m_Offset: {x: -0.1, y: 0}
   m_Size: {x: 2.3, y: 1.1}
   m_Direction: 1
+--- !u!50 &7039318775830649443
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4240868106546498254}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!114 &7626672048746037002
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -81,14 +109,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfdf5f8f80d2a9f4690bea8dd8b320bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  duration: 1
-  piercing: 10000
   movementSpeed: 0
-  contactDamage: 10
-  knockbackStrength: 300
+  acceleration: 0
+  roationSpeed: 0
+  contactDamage: 20
   piercingDamage: 0
-  critChance: 0
-  critDamageMultiplier: 1
+  knockbackStrength: 12
+  piercing: 1000000
 --- !u!114 &-2298016065837851440
 MonoBehaviour:
   m_ObjectHideFlags: 0

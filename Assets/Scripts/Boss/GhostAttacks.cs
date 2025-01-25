@@ -94,8 +94,10 @@ public class GhostAttacks : MonoBehaviour
 
         // Actual Attack
         GameObject projectile = Instantiate(orbitingBlade, transform.position, Quaternion.identity, transform);
-        projectile.GetComponentInChildren<Projectile>().SetValues("Enemy",Vector3.zero, -2.25f+Random.value*0.5f);
+        float roationSpeed = -2.25f+Random.value*0.5f;
+        projectile.GetComponentInChildren<Projectile>().SetValues(Vector3.zero, "Enemy", 3f, 0f, roationSpeed);
         
+
         // Rotate the Projectile
         Vector3 attackDirection = Player.GetPosition() - transform.position;
         attackDirection.z = 0;
@@ -154,7 +156,10 @@ public class GhostAttacks : MonoBehaviour
         attackDirection.Normalize();
 
         GameObject projectile = Instantiate(demonBlade, transform.position+attackDirection, Quaternion.identity);
-        projectile.GetComponentInChildren<Projectile>().SetValues("Enemy",attackDirection, -3f+Random.value*0.5f,4f);
+        float roationSpeed = Random.Range(-2.5f,-3f);
+        projectile.GetComponentInChildren<Projectile>().SetValues(attackDirection, "Enemy", 4, 4f, roationSpeed);
+
+
         return;
     }
 
@@ -168,8 +173,9 @@ public class GhostAttacks : MonoBehaviour
         attackDirection.Normalize();
 
         float roationSpeed = Random.Range(0.4f,2f);
+        float acceleration = Random.Range(0,0.8f);
+        projectile.GetComponentInChildren<Projectile>().SetValues(attackDirection, "Enemy", 2f, acceleration, roationSpeed);
 
-        projectile.GetComponent<Projectile>().SetValues("Enemy",attackDirection, roationSpeed,Random.value*-2f);
     }   
 
     private GameObject SummonEnemy(GameObject prefab, Vector3 position)

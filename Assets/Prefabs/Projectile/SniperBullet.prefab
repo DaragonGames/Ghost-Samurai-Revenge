@@ -162,14 +162,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfdf5f8f80d2a9f4690bea8dd8b320bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  duration: 2
-  piercing: 0
   movementSpeed: 8
+  acceleration: 0
+  roationSpeed: 0
   contactDamage: 40
-  knockbackStrength: 0
   piercingDamage: 0
-  critChance: 0
-  critDamageMultiplier: 1
+  knockbackStrength: 0
+  piercing: 2
 --- !u!114 &3992640283688497726
 MonoBehaviour:
   m_ObjectHideFlags: 0

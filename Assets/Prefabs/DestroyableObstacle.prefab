@@ -10,8 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4261289676532756653}
   - component: {fileID: 9218883367003301729}
-  - component: {fileID: -8668399043363396454}
   - component: {fileID: -3371343164547432091}
+  - component: {fileID: -8668399043363396454}
+  - component: {fileID: 3109519066793612672}
   m_Layer: 0
   m_Name: DestroyableObstacle
   m_TagString: DestroyableObstacle
@@ -86,21 +87,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &-8668399043363396454
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 295741957195134023}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8ea8366e65f40e349b7d328053c1656f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  soundPrefab: {fileID: 3735444800177034736, guid: 682810a10e5cd77499cc62c01f4a0d00, type: 3}
-  particlePrefab: {fileID: 4913896032745815701, guid: c3b39b4d2f1d2604d8452b26a04ee169, type: 3}
-  particleBurstPrefab: {fileID: 5344555796153949958, guid: 85eeeeb6c2fa7e2489dcffd038503189, type: 3}
 --- !u!61 &-3371343164547432091
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -146,3 +132,30 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &-8668399043363396454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 295741957195134023}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ea8366e65f40e349b7d328053c1656f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particlePrefab: {fileID: 4913896032745815701, guid: c3b39b4d2f1d2604d8452b26a04ee169, type: 3}
+  particleBurstPrefab: {fileID: 5344555796153949958, guid: 85eeeeb6c2fa7e2489dcffd038503189, type: 3}
+--- !u!114 &3109519066793612672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 295741957195134023}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17452160cad1e0c4c9a8029aeb5ea53e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundPrefab: {fileID: 3735444800177034736, guid: 682810a10e5cd77499cc62c01f4a0d00, type: 3}

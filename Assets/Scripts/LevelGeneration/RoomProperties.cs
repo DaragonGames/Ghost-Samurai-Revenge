@@ -4,26 +4,29 @@ using UnityEngine;
 
 public class RoomProperties : MonoBehaviour
 {
+    // Set those Values in the Inspector
     public float defaultWeight = 1;
     public float treasureValue;
     public float dangerValue;
 
+    // Adjust these Values for Balancing
+    private float counterFactor = 0.1f;
+    private float dangerImpact = 2f;
+
+    // Don't touch these values directly
+    private static float x = 0.5f;
+
+    // Debug Values Replace ASAP
+    float dangerCounter = 0;
+    float treasureCounter = 0;
+
     public float GetAdjustedWeight() 
     {      
-        // Get Danger Faktor
-
-        /*
-        get the diff value
-        danger = [0,2]
-        counter = [-10,10]
-        Abs( danger - (counter*0,1 +1) )        
-        */
-        float counterValue = 0;
-        float counterFactor = 0.1f;
-        float diff = Mathf.Abs(dangerValue - counterValue * counterFactor - 1);
+        // Get the Danger Factor        
+        float diff = Mathf.Abs(dangerValue - dangerCounter * counterFactor - 1)*0.5f*dangerImpact;
         float dangerFaktor = 1 / (diff + x); 
 
-
+        diff = Mathf.Abs(treasureValue - treasureCounter);
 
         return defaultWeight*dangerFaktor;
     }
@@ -74,13 +77,11 @@ Result
 
 
 */
-    private static float x = 0.414f;
-    private float RM = 2;
+    
 
     public void SetX()
     {
-
-        x = (-RM + Mathf.Sqrt(RM *RM +4))/2.0f;
+        x = (-dangerImpact + Mathf.Sqrt(dangerImpact*dangerImpact +4))/2.0f;
     }
 
 }

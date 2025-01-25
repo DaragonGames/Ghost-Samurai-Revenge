@@ -16,7 +16,7 @@ public class PlayerAttack : ScriptableObject
         Instantiate(soundPrefab, transform.position, Quaternion.identity); 
         // Create the Projectile
         GameObject projectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity, transform); 
-        projectile.GetComponent<Projectile>().SetSliceValues(stats, stats.attackSpeed*attackTime.y);
+        projectile.GetComponent<Projectile>().SetValues(Vector3.zero, "Player", stats.attackSpeed*attackTime.y);
 
         // Change Position & Rotation based on Facing Direction
         float facing = Player.FacingFromVector(attackDirection);
@@ -44,7 +44,7 @@ public class PlayerAttack : ScriptableObject
         Instantiate(soundPrefab, transform.position, Quaternion.identity); 
         Vector3 spawnPosition = transform.position + attackDirection.normalized;
         GameObject projectile = Instantiate(projectilePrefab, spawnPosition, Quaternion.identity);        
-        projectile.GetComponent<Projectile>().SetShirukenValues(stats, attackDirection.normalized);       
+        projectile.GetComponent<Projectile>().SetValues(attackDirection.normalized, "Player", 10);       
     }
 
     public void Attack(Player player, Vector3 attackDirection)

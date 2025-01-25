@@ -47,7 +47,7 @@ public class Turret : Enemy
         projectile.transform.Rotate(new Vector3(0,0,angle));
 
         // Set Values
-        projectile.GetComponent<Projectile>().SetValues("Enemy",attackDirection);
+        projectile.GetComponentInChildren<Projectile>().SetValues(attackDirection, "Enemy", 4);
     }
 
 

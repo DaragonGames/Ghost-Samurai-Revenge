@@ -9,11 +9,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8271552338597223932}
-  - component: {fileID: 4021074643528981320}
   - component: {fileID: 5738493977195217323}
   - component: {fileID: 736202897102202103}
   - component: {fileID: 3627733530461728341}
   - component: {fileID: -3860273301116452380}
+  - component: {fileID: 1359494602987137928}
+  - component: {fileID: 697752338398282958}
   m_Layer: 0
   m_Name: Leaf
   m_TagString: Projectile
@@ -36,32 +37,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4021074643528981320
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4553558618811624311}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9461d26692768847b89576ba0d17579, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  duration: 2
-  piercing: 1000
-  movementSpeed: 4
-  contactDamage: 10
-  knockbackStrength: 0
-  piercingDamage: 0
-  critChance: 0
-  critDamageMultiplier: 1
-  sprites:
-  - {fileID: -1060717642, guid: 0fd32fd0b8e82d54084bb7747c070682, type: 3}
-  - {fileID: -1814059557, guid: 0fd32fd0b8e82d54084bb7747c070682, type: 3}
-  - {fileID: -1937919205, guid: 0fd32fd0b8e82d54084bb7747c070682, type: 3}
-  - {fileID: -1828795522, guid: 0fd32fd0b8e82d54084bb7747c070682, type: 3}
-  - {fileID: 1701229814, guid: 0fd32fd0b8e82d54084bb7747c070682, type: 3}
 --- !u!212 &5738493977195217323
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -188,3 +163,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6eb3fc4348a383f4f8979e007ad865cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1359494602987137928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4553558618811624311}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0c5f50b3c2acf04f83d13f6c95de6d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: -1060717642, guid: 0fd32fd0b8e82d54084bb7747c070682, type: 3}
+  - {fileID: -1814059557, guid: 0fd32fd0b8e82d54084bb7747c070682, type: 3}
+  - {fileID: -1937919205, guid: 0fd32fd0b8e82d54084bb7747c070682, type: 3}
+  - {fileID: -1828795522, guid: 0fd32fd0b8e82d54084bb7747c070682, type: 3}
+  - {fileID: 1701229814, guid: 0fd32fd0b8e82d54084bb7747c070682, type: 3}
+--- !u!114 &697752338398282958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4553558618811624311}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfdf5f8f80d2a9f4690bea8dd8b320bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementSpeed: 4
+  acceleration: 0
+  roationSpeed: 0
+  contactDamage: 10
+  piercingDamage: 0
+  knockbackStrength: 0
+  piercing: 400

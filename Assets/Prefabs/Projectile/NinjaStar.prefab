@@ -101,14 +101,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfdf5f8f80d2a9f4690bea8dd8b320bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  duration: 3
-  piercing: 0
-  movementSpeed: 4
+  movementSpeed: 5
+  acceleration: 0
+  roationSpeed: 0
   contactDamage: 20
-  knockbackStrength: 0
   piercingDamage: 0
-  critChance: 0
-  critDamageMultiplier: 1
+  knockbackStrength: 10
+  piercing: 0
 --- !u!50 &-8444091864018279285
 Rigidbody2D:
   serializedVersion: 4
@@ -135,7 +134,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 7
+  m_Constraints: 0
 --- !u!58 &-8015951246650466428
 CircleCollider2D:
   m_ObjectHideFlags: 0
