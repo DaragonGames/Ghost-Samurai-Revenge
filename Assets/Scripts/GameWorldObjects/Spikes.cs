@@ -6,7 +6,7 @@ public class Spikes : MonoBehaviour
     {
         if (col.gameObject.tag == "Feet")
         {         
-            col.transform.GetComponentInParent<Damageable>().TakeDamage(0,10);
+            col.transform.GetComponentInParent<Damageable>().TakeDamage(0,10, false);
         }
     }
 }

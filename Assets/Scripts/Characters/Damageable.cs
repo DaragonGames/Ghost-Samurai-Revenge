@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Damageable : MonoBehaviour
 {
+    public bool isObject;
+
     // To be set from outside
     private float maxHp;
     private float hp;
@@ -18,8 +20,9 @@ public class Damageable : MonoBehaviour
     // Set from Inspector
     public GameObject soundPrefab;
     
-    public void TakeDamage(float damage, float piercingDamage)
+    public void TakeDamage(float damage, float piercingDamage, bool canDamageObjects)
     {
+        if (isObject && !canDamageObjects) {return;}
         if (damage + piercingDamage <= 0) {return;}
         float damageTaken = Mathf.Max(1, damage-defense) + piercingDamage;
 
@@ -83,7 +86,7 @@ public class Damageable : MonoBehaviour
         maxHp = hp;
         this.hp = hp;
         defense = 1000;
-        invincibleTime = 0;
+        invincibleTime = 0.22f;
     }
 
     public void IncreaseMaxHealth(float value)

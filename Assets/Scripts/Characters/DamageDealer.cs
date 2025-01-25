@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class DamageDealer : MonoBehaviour
 {
+    public bool canDamageObjects;
     private float damage;
     private float piercingDamage;
     private float knockbackPower;
@@ -32,7 +33,7 @@ public class DamageDealer : MonoBehaviour
         Damageable main = target.GetComponent<Damageable>();
         if (main != null)
         {
-            main.TakeDamage(damage,piercingDamage);
+            main.TakeDamage(damage,piercingDamage, canDamageObjects);
         }        
     }
     void DealKnockback(GameObject target)
