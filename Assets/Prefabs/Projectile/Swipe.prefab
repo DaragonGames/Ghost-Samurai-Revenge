@@ -114,7 +114,7 @@ MonoBehaviour:
   roationSpeed: 0
   contactDamage: 20
   piercingDamage: 0
-  knockbackStrength: 12
+  knockbackStrength: 15
   piercing: 1000000
 --- !u!114 &-2298016065837851440
 MonoBehaviour:

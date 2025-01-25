@@ -17,3 +17,4 @@ MonoBehaviour:
   projectilePrefab: {fileID: 4240868106546498254, guid: a36901e9cc35d8a4fa70c74c2c849ffa, type: 3}
   soundPrefab: {fileID: 7975734833613702193, guid: 54a8bb85486af204c92d8a90b457ede8, type: 3}
   isSclice: 1
+  attackType: 1
