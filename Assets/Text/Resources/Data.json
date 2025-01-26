@@ -17,8 +17,8 @@
         {
             "id": 2,
             "testifier": "Testimony of the Bandit Tajomaru",
-            "testimony": "I told them there was an old mound in the mountain over there, and that I had dug it open and found many mirrors and swords",
-            "description": "Running speed upgrade",
+            "testimony": "I told them there was an old mound in the mountain over there, and that I had dug it open and found many mirrors and swords.",
+            "description": "Running Speed upgrade",
             "effectId": 2
         },
         {
@@ -39,7 +39,7 @@
             "id": 5,
             "testifier": "Testimony of Masago the Wife",
             "testimony": "But fortunately my small sword was lying at my feet.",
-            "description": "Attack speed upgrade",
+            "description": "Attack Speed upgrade",
             "effectId": 5
         },
         {
@@ -59,7 +59,7 @@
         {
             "id": 8,
             "testifier": "Testimony of an Old Woman",
-            "testimony": "He was of a gende disposition, so I am sure he did nothing to provoke the anger of others.",
+            "testimony": "He was of a gentle disposition, so I am sure he did nothing to provoke the anger of others.",
             "description": "Calms the ghost",
             "effectId": 7
         },
@@ -67,7 +67,7 @@
             "id": 9,
             "testifier": "Testimony of an Old Woman",
             "testimony": "What bad luck it is that things should have come to such a sad end!",
-            "description": "Angers ghost and brings bad luck",
+            "description": "Angers the ghost and brings bad luck",
             "effectId": 0
         },
         {
