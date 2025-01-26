@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
@@ -23,6 +24,7 @@ public class Enemy : MonoBehaviour
 
     // Internal Variables
     protected Vector3 movementDirection;
+    protected bool isStunned = false;
 
     void Start()
     {
@@ -45,6 +47,12 @@ public class Enemy : MonoBehaviour
     {
         if (GameManager.Instance.gameState == GameManager.GameState.GameOver || GameManager.Instance.currentRoomID != roomID)
         {
+            return;
+        }
+        if (isStunned) 
+        {
+            characterMovement.Movement(Vector3.zero, 0);
+            animator.SetBool("moving", false);
             return;
         }   
 
@@ -74,6 +82,18 @@ public class Enemy : MonoBehaviour
         }
         Destroy(Instantiate(smokePrefab, transform.position, Quaternion.identity),0.4f);            
         Destroy(gameObject);
+    }
+
+    public void GetStunned(float stunTime)
+    {
+        StartCoroutine(StunTime(stunTime));
+    }
+
+    IEnumerator StunTime(float stunTime)
+    {
+        isStunned = true;
+        yield return new WaitForSeconds(stunTime);
+        isStunned = false;
     }
 
 

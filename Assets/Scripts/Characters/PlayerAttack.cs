@@ -10,7 +10,9 @@ public class PlayerAttack : ScriptableObject
     public GameObject projectilePrefab;
     public GameObject soundPrefab;
     public AttackType attackType;
+    public SpecialEffect specialEffect;
     public enum AttackType {thrown, closeCombat};
+    public enum SpecialEffect {none, invincible};
 
     public void Attack(Player player, Vector3 attackDirection)
     {    
@@ -26,39 +28,19 @@ public class PlayerAttack : ScriptableObject
         // Create and adjust Projectille
         GameObject projectile = Instantiate(projectilePrefab, player.transform.position, Quaternion.identity, parent); 
         projectile.GetComponent<Projectile>().SetValues(attackDirection.normalized, "Player", duration);
-        AdjustPosition(projectile.transform, attackDirection);   
+        float degree = 270 - 90 * Player.FacingFromVector(attackDirection);
+        projectile.transform.Rotate(new Vector3(0,0,degree)); 
 
         // Create a Soundeffect
         Instantiate(soundPrefab,player.transform.position, Quaternion.identity); 
-    }
 
-    private void AdjustPosition(Transform projectile, Vector3 attackDirection)
-    {
-        switch (attackType)
+        // Special Effect
+        switch (specialEffect)
         {
-            case AttackType.thrown:
-                projectile.transform.position += attackDirection.normalized;
-                break;
-            case AttackType.closeCombat:
-                float facing = Player.FacingFromVector(attackDirection);
-                switch (facing)
-                {
-                    case 0:
-                        projectile.transform.position += new Vector3(0, 0.8f,0);
-                        projectile.transform.Rotate(new Vector3(0,0,90));
-                        break;
-                    case 1:
-                        projectile.transform.position += new Vector3(0.65f, -0.1f,0);
-                        break;
-                    case 2:
-                        projectile.transform.position +=new Vector3(0, -0.8f,0);
-                        projectile.transform.Rotate(new Vector3(0,0,90));
-                        break;
-                    case 3:
-                        projectile.transform.position += new Vector3(-0.65f, -0.1f,0);
-                        break;
-                }
+            case SpecialEffect.invincible:
+                player.GetComponent<Damageable>().BecomeInvincible(0.5f);
                 break;
         }
     }
+
 }

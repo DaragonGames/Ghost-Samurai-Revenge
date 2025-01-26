@@ -17,6 +17,7 @@ public class Player : MonoBehaviour
 
     public PlayerAttack primaryAttack;
     public PlayerAttack secondaryAttack;
+    public PlayerAttack specialAttack;
     public static Player Instance;
     private float attackEnergy = 1;
 
@@ -34,6 +35,7 @@ public class Player : MonoBehaviour
         damageable = GetComponent<Damageable>();
         inputManager.primaryEvent += PrimaryAttack;
         inputManager.secondaryEvent += SecondaryAttack;
+        inputManager.specialEvent += SpecialAttack;
         GameManager.EnterNewRoom += EnterRoom;   
         GameManager.GameOver += GameOver; 
 
@@ -129,6 +131,12 @@ public class Player : MonoBehaviour
     {
         Attack(secondaryAttack, direction);       
     }
+
+    private void SpecialAttack(Vector3 direction)
+    {
+        Attack(specialAttack, direction);       
+    }
+
 
     private void Attack(PlayerAttack attack, Vector3 direction)
     {

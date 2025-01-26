@@ -12,6 +12,7 @@ public class Projectile : MonoBehaviour
     public float piercingDamage = 0;
     public float knockbackStrength = 0;    
     public int piercing = 0;
+    public float stunPower = 0;
 
     // Those are private 
     private string sourceTag;
@@ -28,6 +29,18 @@ public class Projectile : MonoBehaviour
         {
             return;
         }
+
+        // Check for Effects
+        if (stunPower > 0)
+        {
+            Enemy enemy = col.GetComponent<Enemy>();
+            if (enemy != null)
+            { 
+                enemy.GetStunned(stunPower);
+            }
+        }
+
+        // Check for Piercing
         if (col.GetComponent<Damageable>() != null)
         {
             Pierce();
@@ -42,7 +55,7 @@ public class Projectile : MonoBehaviour
         {
             Pierce(500);
             return;
-        }
+        }        
     }
 
     private void Pierce(int value = 1) {

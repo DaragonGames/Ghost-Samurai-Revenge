@@ -12,6 +12,7 @@ public class InputManager : MonoBehaviour
 
     public event Action<Vector3> primaryEvent;
     public event Action<Vector3> secondaryEvent;
+    public event Action<Vector3> specialEvent;
 
     // Internal Variables
     private float mouseCooldown = 0;
@@ -21,6 +22,7 @@ public class InputManager : MonoBehaviour
     private InputAction aim;
     private InputAction primary;
     private InputAction secondary;
+    private InputAction special;
 
     void Start()
     {
@@ -29,10 +31,12 @@ public class InputManager : MonoBehaviour
         aim = controls.Main.Aim;
         primary = controls.Main.Primary;
         secondary = controls.Main.Secondary;
+        special = controls.Main.Special;
         move.Enable();
         aim.Enable();
         primary.Enable();
         secondary.Enable();
+        special.Enable();
         //Cursor.lockState = CursorLockMode.Locked;
     }
 
@@ -71,6 +75,11 @@ public class InputManager : MonoBehaviour
         if (secondary.triggered)
         {
             secondaryEvent?.Invoke(aiming);
+            return;
+        }
+        if (special.triggered)
+        {
+            specialEvent?.Invoke(aiming);
             return;
         }
     }

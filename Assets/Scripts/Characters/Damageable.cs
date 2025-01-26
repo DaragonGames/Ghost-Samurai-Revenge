@@ -35,7 +35,7 @@ public class Damageable : MonoBehaviour
 
         Instantiate(soundPrefab, transform.position, Quaternion.identity);
         hp -= damageTaken;
-        StartCoroutine(invincibleTimer());
+        StartCoroutine(invincibleByDamage());
         if (damageTaken >= GameValues.minDmgHitStop && maxHp / damageTaken > GameValues.minDmgPercentageHitStop)
         {
             //GameManager.Instance.stunframes = GameValues.stunlockFrames;
@@ -48,7 +48,7 @@ public class Damageable : MonoBehaviour
         }     
     }
 
-    private IEnumerator invincibleTimer()
+    private IEnumerator invincibleByDamage()
     {
         invincible = true;
         for (float i = 0; i < invincibleTime; i+=0.02f )
@@ -59,6 +59,18 @@ public class Damageable : MonoBehaviour
         }
         GetComponent<SpriteRenderer>().color = new Color(1,1,1);
         invincible = false;
+    }
+
+    private IEnumerator invincibleByEffect(float time)
+    {
+        invincible = true;
+        yield return new WaitForSeconds(time);
+        invincible = false;
+    }
+
+    public void BecomeInvincible(float duration)
+    {
+        StartCoroutine(invincibleByEffect(duration));
     }
 
     public void GainHealth(float value)

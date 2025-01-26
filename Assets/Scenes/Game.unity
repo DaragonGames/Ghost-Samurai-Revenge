@@ -15115,6 +15115,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17452160cad1e0c4c9a8029aeb5ea53e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isObject: 0
   soundPrefab: {fileID: 4201426831179979751, guid: 3fc31534ed02f0046b6a3e24aba47b32, type: 3}
 --- !u!1 &1473786670
 GameObject:
@@ -17321,6 +17322,7 @@ MonoBehaviour:
   loseScreen: {fileID: 1619957828}
   primaryAttack: {fileID: 11400000, guid: 87743ffcb73a8cb44aa544875f2cab82, type: 2}
   secondaryAttack: {fileID: 11400000, guid: e2d2745ce7cc7a14ea27e365ce42fbba, type: 2}
+  specialAttack: {fileID: 11400000, guid: b6b8b39444a729b4e870ea5aadab6d63, type: 2}
 --- !u!95 &1648283359
 Animator:
   serializedVersion: 5
@@ -17413,6 +17415,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17452160cad1e0c4c9a8029aeb5ea53e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isObject: 0
   soundPrefab: {fileID: 158761390616501580, guid: b04510583930f7048a1a0163fb89eb8a, type: 3}
 --- !u!114 &1648283365
 MonoBehaviour:
