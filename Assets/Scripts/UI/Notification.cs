@@ -22,15 +22,15 @@ public class Notification : MonoBehaviour
                 break;
             case 1:
                 tagline.text = "Rice is life";
-                info.text = "You regenrated some HP";
+                info.text = "Restored some HP";
                 break;
             case 2:
                 tagline.text = "Faster than your reflection";
-                info.text = "Increased Movementspeed";
+                info.text = "Increased movement speed";
                 break;
             case 3:
                 tagline.text = "A swift fighter's memory";
-                info.text = "Increased attackspeed";
+                info.text = "Increased sword attack speed";
                 break;
             case 4:
                 tagline.text = "The strength of another";
@@ -42,11 +42,11 @@ public class Notification : MonoBehaviour
                 break;
             case 6:
                 tagline.text = "Protection against evil spirits";
-                info.text = "Increased Defense";
+                info.text = "Increased defense";
                 break;
             case 7:
                 tagline.text = "What a lucky sight";
-                info.text = "Increased Luck";
+                info.text = "Increased luck";
                 break;
         }
     }
