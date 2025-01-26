@@ -13,22 +13,22 @@ public class Projectile : MonoBehaviour
     public float knockbackStrength = 0;    
     public int piercing = 0;
     public float stunPower = 0;
-
-    // Those are private 
-    private string sourceTag;
+    public string sourceTag;
 
     void Update()
     {
         transform.Rotate(new Vector3(0,0,roationSpeed*360*Time.deltaTime));
-        GetComponent<Rigidbody2D>().velocity *= 1+acceleration*Time.deltaTime;
+        GetComponent<Rigidbody2D>().velocity *= 1+(acceleration*Time.deltaTime);
     }
 
     void OnTriggerEnter2D(Collider2D col)
     {
+        Projectile projectile = col.GetComponent<Projectile>();
         if (col.gameObject.tag == sourceTag)
         {
             return;
         }
+        
 
         // Check for Effects
         if (stunPower > 0)
@@ -51,10 +51,12 @@ public class Projectile : MonoBehaviour
             Pierce(20);
             return;              
         } 
-        if (col.GetComponent<Projectile>() != null)
+        if (projectile != null)
         {
-            Pierce(500);
-            return;
+            if (projectile.sourceTag != sourceTag)
+            {
+                Pierce(500);
+            }
         }        
     }
 

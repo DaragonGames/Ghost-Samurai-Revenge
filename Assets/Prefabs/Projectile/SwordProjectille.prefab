@@ -48,13 +48,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfdf5f8f80d2a9f4690bea8dd8b320bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 0
-  acceleration: 0
+  movementSpeed: 0.5
+  acceleration: 1
   roationSpeed: 0
   contactDamage: 10
   piercingDamage: 0
   knockbackStrength: 0
   piercing: 10000
+  stunPower: 0
+  sourceTag: 
 --- !u!212 &1628880293840023395
 SpriteRenderer:
   m_ObjectHideFlags: 0

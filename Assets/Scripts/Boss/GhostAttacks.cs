@@ -157,7 +157,7 @@ public class GhostAttacks : MonoBehaviour
 
         GameObject projectile = Instantiate(demonBlade, transform.position+attackDirection, Quaternion.identity);
         float roationSpeed = Random.Range(-2.5f,-3f);
-        projectile.GetComponentInChildren<Projectile>().SetValues(attackDirection, "Enemy", 4, 4f, roationSpeed);
+        projectile.GetComponentInChildren<Projectile>().SetValues(attackDirection, "Enemy", 4f, 2f, roationSpeed);
 
 
         return;
@@ -173,7 +173,7 @@ public class GhostAttacks : MonoBehaviour
         attackDirection.Normalize();
 
         float roationSpeed = Random.Range(0.4f,2f);
-        float acceleration = Random.Range(0,0.8f);
+        float acceleration = Random.Range(0,0.2f);
         projectile.GetComponentInChildren<Projectile>().SetValues(attackDirection, "Enemy", 2f, acceleration, roationSpeed);
 
     }   
