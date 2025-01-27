@@ -14,7 +14,7 @@ public class Charger : Enemy
         counter -= Time.deltaTime;
         if (counter <= 0)
         {
-            StartCoroutine(Attack());
+            ongoingAction = StartCoroutine(Attack());
             charging = true;
             counter = actionTime;
         }
@@ -37,6 +37,18 @@ public class Charger : Enemy
         movementDirection = targetDirection;
         yield return new WaitForSeconds(2);
         // Stop the movement and make the enemy aim again
+        charging = false;
+    }
+
+    private Coroutine ongoingAction;
+
+    protected override void StopOngoingAction() 
+    {
+        if (ongoingAction != null)
+        {
+            StopCoroutine(ongoingAction);
+        }
+        GetComponent<Animator>().SetBool("charging", false);  
         charging = false;
     }
 

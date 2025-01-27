@@ -73,6 +73,8 @@ public class Enemy : MonoBehaviour
 
     protected virtual void OnUpdate() {}
 
+    protected virtual void StopOngoingAction() {}
+
     public void Die()
     {
         float ran = Random.value;
@@ -87,6 +89,7 @@ public class Enemy : MonoBehaviour
     public void GetStunned(float stunTime)
     {
         StartCoroutine(StunTime(stunTime));
+        StopOngoingAction();
     }
 
     IEnumerator StunTime(float stunTime)
