@@ -79,6 +79,10 @@ public class Projectile : MonoBehaviour
         {
             contactDamage *= 1 + 0.15f*GameManager.Instance.gameData.progression;
         }
+        if (sourceTag == "Player")
+        {
+            contactDamage *= Player.GetStats().attackDamage;
+        }
     }
 
     public void SetValues(Vector3 direction, string source, float duration, float acceleration, float roationSpeed)

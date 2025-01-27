@@ -165,10 +165,12 @@ MonoBehaviour:
   movementSpeed: 4
   acceleration: 0
   roationSpeed: 0
-  contactDamage: 15
+  contactDamage: 20
   piercingDamage: 0
   knockbackStrength: 0
   piercing: 0
+  stunPower: 0
+  sourceTag: 
 --- !u!114 &-6466366671492711615
 MonoBehaviour:
   m_ObjectHideFlags: 0

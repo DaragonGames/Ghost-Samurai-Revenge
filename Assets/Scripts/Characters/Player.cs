@@ -269,7 +269,7 @@ public class Player : MonoBehaviour
         stats.SetStats();
         damageable.SetValues(stats.maxHealth, stats.defense, true);
     }
-    public PlayerStats GetStats() {return stats;}
+    public static PlayerStats GetStats() {return Player.Instance.stats;}
 
     public static Vector3 GetPosition()
     {

@@ -21,7 +21,7 @@ public class PlayerAttack : ScriptableObject
         Transform parent = null;
         if (attackType == AttackType.closeCombat)
         {   
-            duration = player.GetStats().attackSpeed*attackTime.y;
+            duration = Player.GetStats().attackSpeed*attackTime.y;
             parent = player.transform;      
         }
 

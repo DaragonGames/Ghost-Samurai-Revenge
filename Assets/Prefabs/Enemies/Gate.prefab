@@ -187,6 +187,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17452160cad1e0c4c9a8029aeb5ea53e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isObject: 0
   soundPrefab: {fileID: 4201426831179979751, guid: 3fc31534ed02f0046b6a3e24aba47b32, type: 3}
 --- !u!114 &-6533519405462540853
 MonoBehaviour:
@@ -224,6 +225,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6eb3fc4348a383f4f8979e007ad865cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canDamageObjects: 0
 --- !u!95 &6086855693761455862
 Animator:
   serializedVersion: 5
