@@ -74,3 +74,7 @@ Assets/ExportableScripts/WIP/Controls.cs.meta
 Assets/ExportableScripts/WIP/Controls.cs
 Assets/ExportableScripts/WIP.meta
 Assets/ExportableScripts.meta
+fmod_editor.log
+Assets/Plugins/FMOD/Cache/Editor/FMODStudioCache.asset
+.vsconfig
+Assets/Plugins/FMOD/Cache/Editor/FMODStudioCache.asset
