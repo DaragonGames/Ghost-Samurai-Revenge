@@ -10,6 +10,7 @@ public class PlayerAttack : ScriptableObject
     public GameObject projectilePrefab;
     public GameObject soundPrefab;
     public AttackType attackType;
+    public int attackID;
     public SpecialEffect specialEffect;
     public enum AttackType {thrown, closeCombat};
     public enum SpecialEffect {none, invincible};

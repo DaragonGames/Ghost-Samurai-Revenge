@@ -101,13 +101,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfdf5f8f80d2a9f4690bea8dd8b320bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 5
+  movementSpeed: 10
   acceleration: 0
   roationSpeed: 0
   contactDamage: 20
   piercingDamage: 0
   knockbackStrength: 10
   piercing: 0
+  stunPower: 0
+  sourceTag: 
 --- !u!50 &-8444091864018279285
 Rigidbody2D:
   serializedVersion: 4

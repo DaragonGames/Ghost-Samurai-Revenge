@@ -165,10 +165,12 @@ public class Player : MonoBehaviour
         // Phase 1: Pre Attack - Set Values before Attack
         Vector3 time = attack.attackTime * stats.attackSpeed;
         animator.SetFloat("attackSpeed", 1/stats.attackSpeed);
+        animator.SetInteger("attackID", attack.attackID);
         if (time.magnitude > 0)
         {
             state = States.attacking;
-        }        
+        }
+        SetAnimation();        
         yield return new WaitForSeconds(time.x);
 
         // Phase 2: Attack
@@ -182,7 +184,8 @@ public class Player : MonoBehaviour
         if (state == States.attacking)
         {
             state = States.idl; 
-        }          
+        }
+        SetAnimation();          
     }
 
     // Handeling the Short peacefull Moment of entering a new room
