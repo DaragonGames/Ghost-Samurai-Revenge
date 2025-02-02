@@ -10,10 +10,12 @@ public class Enemy : MonoBehaviour
     public float health = 20f;
     public float defense = 0;
     public float knockbackPower = 0;
+    public float stunResistance = 0;
 
     // Prefabs
     public GameObject itemPrefab;
     public GameObject smokePrefab;
+    public GameObject stunPrefab;
     
     // Components
     protected Damageable damageable;
@@ -88,15 +90,21 @@ public class Enemy : MonoBehaviour
 
     public void GetStunned(float stunTime)
     {
+        stunTime -= stunResistance*0.1f;
+        if (stunTime < 0 || isStunned) {return;}
         StartCoroutine(StunTime(stunTime));
         StopOngoingAction();
+        Vector3 position = transform.position + Vector3.left*0.25f + Vector3.up*0.3f;
+        Destroy(Instantiate(stunPrefab, position, Quaternion.identity, transform), stunTime);
     }
 
     IEnumerator StunTime(float stunTime)
     {
         isStunned = true;
+        animator.SetBool("stunned", true);
         yield return new WaitForSeconds(stunTime);
         isStunned = false;
+        animator.SetBool("stunned", false);
     }
 
 

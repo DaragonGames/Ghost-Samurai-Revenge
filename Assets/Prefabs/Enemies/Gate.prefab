@@ -81,7 +81,7 @@ SpriteRenderer:
   m_SortingLayerID: 1830794183
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 2080833780, guid: ad6e647325334034fa63b9beb6c3056c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3b5e03f2179a745409a2ee2e2baad924, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -172,8 +172,10 @@ MonoBehaviour:
   health: 20
   defense: 0
   knockbackPower: 0
+  stunResistance: 0
   itemPrefab: {fileID: 5174449708874311532, guid: 9021f49da5d11ac4cbe525162a50f29e, type: 3}
   smokePrefab: {fileID: 2473401214114011642, guid: ea66e59f1234ba547831d1940efd9741, type: 3}
+  stunPrefab: {fileID: 6460274093662308865, guid: 57630ed27de9a15498cb679281d81ed1, type: 3}
   spawnAble: {fileID: 5326132410285193330, guid: eddb4985fa1332844a414d1961e88be6, type: 3}
 --- !u!114 &8105654655822061840
 MonoBehaviour:

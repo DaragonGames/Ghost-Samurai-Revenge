@@ -253,7 +253,7 @@ MonoBehaviour:
   Path: FMOD/GhostSamurai/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638732642599483569
+  lastModified: 638730587764999925
   FileSizes:
   - Name: Desktop
     Value: 1380
@@ -320,7 +320,7 @@ MonoBehaviour:
   - {fileID: 7403886489983397821}
   StringsBanks:
   - {fileID: -2430196565148404707}
-  cacheTime: 638732642599793785
+  cacheTime: 638730587765667735
   cacheVersion: 131622
 --- !u!114 &673495583003268056
 MonoBehaviour:
@@ -337,7 +337,7 @@ MonoBehaviour:
   Path: FMOD/GhostSamurai/Build/Desktop/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 638732642599793785
+  lastModified: 638730003883959040
   FileSizes:
   - Name: Desktop
     Value: 100448
@@ -411,7 +411,7 @@ MonoBehaviour:
   Path: FMOD/GhostSamurai/Build/Desktop/Music.bank
   Name: Music
   StudioPath: bank:/Music
-  lastModified: 638732642599578610
+  lastModified: 638730587765667735
   FileSizes:
   - Name: Desktop
     Value: 3680032
@@ -431,7 +431,7 @@ MonoBehaviour:
   Path: FMOD/GhostSamurai/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638732642599473567
+  lastModified: 638730587764989945
   FileSizes:
   - Name: Desktop
     Value: 1036

@@ -14,7 +14,7 @@ public class Gate : Enemy
         if (counter <= 0)
         {
             counter = actionTime;
-            StartCoroutine(Spawn());
+            ongoingAction = StartCoroutine(Spawn());
         }
     }
 
@@ -27,5 +27,17 @@ public class Gate : Enemy
         minion.GetComponent<Brawler>().SetRoomID(roomID);
         minion.GetComponent<Brawler>().DeclareAsMinion();
     }
+
+    private Coroutine ongoingAction;
+
+    protected override void StopOngoingAction() 
+    {
+        if (ongoingAction != null)
+        {
+            StopCoroutine(ongoingAction);
+        }
+        GetComponent<Animator>().SetBool("spawning", false);  
+    }
+
 
 }

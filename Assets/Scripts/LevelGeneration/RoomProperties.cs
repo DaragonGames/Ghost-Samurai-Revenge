@@ -6,15 +6,14 @@ public class RoomProperties : MonoBehaviour
 {
     // Set those Values in the Inspector
     public float defaultWeight = 1;
-    public float treasureValue;
-    public float dangerValue;
+    public float treasureValue = 1;
+    public float dangerValue = 1;
 
     // Adjust these Values for Balancing
-    private float counterFactor = 0.1f;
+    private float dcf = 0.1f; // Treasure Counter Factor
     private float dangerImpact = 2f;
-
-    // Don't touch these values directly
-    private static float x = 0.5f;
+    private float tcf = 0.5f; // Treasure Counter Factor
+    private float treasureImpact = 2f;
 
     // Debug Values Replace ASAP
     float dangerCounter = 0;
@@ -22,66 +21,37 @@ public class RoomProperties : MonoBehaviour
 
     public float GetAdjustedWeight() 
     {      
-        // Get the Danger Factor        
-        float diff = Mathf.Abs(dangerValue - dangerCounter * counterFactor - 1)*0.5f*dangerImpact;
+        // Get the Danger Factor    
+        float i = (dangerImpact*dangerImpact-1) / dangerImpact;  
+        float x = 1 / dangerImpact;
+        float diff = Mathf.Min(Mathf.Abs(dangerValue - 1 - dangerCounter * dcf)*0.5f, 1)*i;
         float dangerFaktor = 1 / (diff + x); 
 
-        diff = Mathf.Abs(treasureValue - treasureCounter);
+        // Get the Treasure Factor
+        i = (treasureImpact*treasureImpact-1) / treasureImpact;  
+        x = 1 / treasureImpact;
+        diff = Mathf.Min(Mathf.Abs((treasureValue - treasureCounter) * tcf), 1) * i;
+        float treasureFaktor = 1 / (diff + x); 
 
-        return defaultWeight*dangerFaktor;
+        return defaultWeight*dangerFaktor*treasureFaktor;
     }
 
-/*
-lets say we go for 2 enemies in average
-so when we have a room with 4
-we have a +2 on our counter
-so now we want to adjust the weight value by a multiplication
-based on the danger level
-
-so we compare danger level with the counter
-counter ? danger = 1 / x = factor
-1 / danger = factor
-
-
-get the diff value
-danger = [0,2]
-counter = [-10,10]
-Abs( danger - (counter*0,1 +1) ) = [0, 2]
-
-0 - (-10*0.1 + 1) = 0
-2 - (-10*0.1 + 1) = 2
-0 - (10*0.1 + 1) = -2
-2 - (10*0.1 + 1) = 0
-
-1 / 1 + diff = [0.33 , 1]
-1 / diff = [0.5, 1/0]
-1 / diff+0.5 = [0.4, 2]
-
-f(x) = 1 / diff + x
-[1/x+2 ,1/x]
-Min = 1 / Rm + x
-Max = 1 / x
-
-k = 1 / Min
-Max  = k
-1 / Min = Max
-
-1 / (1 / Rm + x) = 1 / x
-0 = x^2 + Rm*x -1
-0 = x^2 + 2x -1
-
-Result
-1 / diff + 0,414
-
-(-RM + Root(RM^2 +4))/2
-
-
-*/
-    
-
-    public void SetX()
-    {
-        x = (-dangerImpact + Mathf.Sqrt(dangerImpact*dangerImpact +4))/2.0f;
-    }
+    /*
+    *   Explaining the Math
+    *   Danger Impact is how strongly it affects the weight
+    *   2 means twice as likely or unlikely 
+    *   This mean the worst chance time the best chance is 1 
+    *   f1 * f2 = 1
+    *   f1 = worst & f2 = best
+    *   the formular for the factor is 1 / diff + x
+    *   diff is between 0 and i
+    *   f1 = 1 / i + x and f2 = 1 / x
+    *   therefore 1 = (1 / i + x) * (1 / x)
+    *   lastly x + i = k
+    *   k is the Danger Impact
+    *   Now we put this in a calculator and get
+    *   x  = 1 / k
+    *   i = (k * k - 1) / k
+    */
 
 }

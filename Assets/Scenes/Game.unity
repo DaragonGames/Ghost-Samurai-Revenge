@@ -14964,8 +14964,10 @@ MonoBehaviour:
   health: 10000
   defense: 0
   knockbackPower: 0
+  stunResistance: 0
   itemPrefab: {fileID: 5174449708874311532, guid: 9021f49da5d11ac4cbe525162a50f29e, type: 3}
   smokePrefab: {fileID: 2473401214114011642, guid: ea66e59f1234ba547831d1940efd9741, type: 3}
+  stunPrefab: {fileID: 0}
   GhostUI: {fileID: 1604630398}
   destructionBladesPrefab: {fileID: 4862784856443059678, guid: a0dfc7b061f5bca4686d660b7067fd8b, type: 3}
   victoryScreen: {fileID: 1152563573}
