@@ -39,12 +39,14 @@ public class DamageDealer : MonoBehaviour
     void DealKnockback(GameObject target)
     {
         Knockback knockback = target.GetComponent<Knockback>();
-        if (knockback != null && knockbackPower > 0)
-        {
-            Vector3 direction = target.transform.position - transform.position;
-            knockback.RecieveKnockback(direction,knockbackPower);
-            transform.position -= direction.normalized*0.01f;
-        }       
+        
+        if (knockback == null) {return;}
+        float knockbackPower = this.knockbackPower - knockback.knockbackResistance;
+        if (knockbackPower <= 0) {return;}
+
+        Vector3 direction = target.transform.position - transform.position;
+        knockback.RecieveKnockback(direction,knockbackPower);
+        transform.position -= direction.normalized*0.01f;     
     }
 
     public void SetDamage(float damage, float piercingDamage, float knockbackPower, string tag)

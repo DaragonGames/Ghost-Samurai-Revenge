@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class Knockback : MonoBehaviour
 {   
-    
+
+    public float knockbackResistance = 0;
     private Rigidbody2D rb;
     private float knockbackCounter = 0f;
 

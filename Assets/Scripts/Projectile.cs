@@ -55,7 +55,7 @@ public class Projectile : MonoBehaviour
         {
             if (projectile.sourceTag != sourceTag)
             {
-                Pierce(500);
+                //Pierce(500);
             }
         }        
     }

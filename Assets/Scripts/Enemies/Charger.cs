@@ -34,10 +34,12 @@ public class Charger : Enemy
         yield return new WaitForSeconds(1);
         // Start Moving and reset Animation Value
         GetComponent<Animator>().SetBool("charging", false);  
+        GetComponent<Knockback>().knockbackResistance = 15;
         movementDirection = targetDirection;
         yield return new WaitForSeconds(2);
         // Stop the movement and make the enemy aim again
         charging = false;
+        GetComponent<Knockback>().knockbackResistance = 5;
     }
 
     private Coroutine ongoingAction;
@@ -50,6 +52,7 @@ public class Charger : Enemy
         }
         GetComponent<Animator>().SetBool("charging", false);  
         charging = false;
+        GetComponent<Knockback>().knockbackResistance = 5;
     }
 
 }

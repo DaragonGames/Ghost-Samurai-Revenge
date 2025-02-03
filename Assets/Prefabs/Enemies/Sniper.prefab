@@ -180,7 +180,7 @@ MonoBehaviour:
   contactDamage: 5
   piercingContactDamage: 0
   movementSpeed: 1
-  health: 16
+  health: 20
   defense: 0
   knockbackPower: 0
   stunResistance: 0
@@ -189,8 +189,8 @@ MonoBehaviour:
   stunPrefab: {fileID: 6460274093662308865, guid: 57630ed27de9a15498cb679281d81ed1, type: 3}
   spawnAble: {fileID: 5757757581385322907, guid: e9313e659a8d2c145a5cf6925efd947e, type: 3}
   shootSoundPrefab: {fileID: 8637452205097828324, guid: 6ea351dc1d445374699be44d6caf8e23, type: 3}
-  attackRange: 20
-  fleeRange: 4
+  attackRange: 10
+  fleeRange: 3
 --- !u!114 &8867957393996622616
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -217,6 +217,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db1b964acabf13449a9ca0efd7afd083, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  knockbackResistance: 0
 --- !u!114 &3207419982021483161
 MonoBehaviour:
   m_ObjectHideFlags: 0

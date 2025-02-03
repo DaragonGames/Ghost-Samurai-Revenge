@@ -18,7 +18,7 @@ public class PlayerStats
     private float defaultAttackDamage = 1;
     private float defaultHealth = 100;
     private float defaultDefense = 0;
-    private float upgradeSpeed = 0.8f;
+    private float upgradeSpeed = 0.1f;
     private float upgradeAttackSpeed = .05f;
     private float upgradeAttackDamage = 0.2f;
     private float upgradeHealth = 20;
@@ -28,7 +28,7 @@ public class PlayerStats
     public void SetStats()
     {
         GameData gameData = GameManager.Instance.gameData;
-        movementSpeed = defaultSpeed + gameData.MovementSpeedUpgradesCollected * upgradeSpeed;
+        movementSpeed = defaultSpeed * (1 + gameData.MovementSpeedUpgradesCollected * upgradeSpeed);
         attackSpeed = defaultAttackSpeed - gameData.AttackSpeedUpgradesCollected * upgradeAttackSpeed;
         attackDamage = defaultAttackDamage + gameData.DamageUpgradesCollected * upgradeAttackDamage;
         maxHealth = defaultHealth + gameData.HealthUpgradesCollected * upgradeHealth;

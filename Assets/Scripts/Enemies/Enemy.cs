@@ -19,7 +19,6 @@ public class Enemy : MonoBehaviour
     
     // Components
     protected Damageable damageable;
-    private Knockback knockback;
     protected Animator animator;
     private CharacterMovement characterMovement;
     private DamageDealer damageDealer;
@@ -31,7 +30,6 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         damageable = GetComponent<Damageable>();
-        knockback = GetComponent<Knockback>();
         animator = GetComponent<Animator>();
         characterMovement = GetComponent<CharacterMovement>();
         damageDealer= GetComponent<DamageDealer>();
