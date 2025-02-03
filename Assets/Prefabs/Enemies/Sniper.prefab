@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 3207419982021483161}
   - component: {fileID: 8351417539427479555}
   - component: {fileID: 1506093106963415588}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Sniper
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -189,7 +189,9 @@ MonoBehaviour:
   stunPrefab: {fileID: 6460274093662308865, guid: 57630ed27de9a15498cb679281d81ed1, type: 3}
   spawnAble: {fileID: 5757757581385322907, guid: e9313e659a8d2c145a5cf6925efd947e, type: 3}
   shootSoundPrefab: {fileID: 8637452205097828324, guid: 6ea351dc1d445374699be44d6caf8e23, type: 3}
-  attackRange: 10
+  actionTimes: {x: 1.9, y: 0.65, z: 1.5}
+  attackSpeed: 1
+  attackRange: 9
   fleeRange: 3
 --- !u!114 &8867957393996622616
 MonoBehaviour:

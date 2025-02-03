@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 5967693822678113005}
   - component: {fileID: 7312291383442246816}
   - component: {fileID: 4195550585452929119}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Tank
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -203,6 +203,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db1b964acabf13449a9ca0efd7afd083, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  knockbackResistance: 0
 --- !u!114 &5967693822678113005
 MonoBehaviour:
   m_ObjectHideFlags: 0

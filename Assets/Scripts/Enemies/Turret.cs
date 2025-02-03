@@ -5,8 +5,9 @@ public class Shooter : Enemy
 {
     public GameObject spawnAble;
     public GameObject shootSoundPrefab;
+    public Vector3 actionTimes;
+    public float attackSpeed = 1;
     private float counter = 0;
-    private float actionTime = 4f;
     private bool isAttacking = false;
 
     protected override void OnUpdate()
@@ -20,9 +21,14 @@ public class Shooter : Enemy
         counter -= Time.deltaTime;
         if (counter <= 0)
         {
-            counter = actionTime;
+            counter = actionTimes.z + (actionTimes.y + actionTimes.x) / attackSpeed;
             ongoingAction = StartCoroutine(Attack());
         }
+    }
+
+    protected override void OnStart() 
+    {
+        animator.SetFloat("attackSpeed", attackSpeed);
     }
 
     protected virtual void MoveCharacter() {}
@@ -31,12 +37,11 @@ public class Shooter : Enemy
     {
         animator.SetBool("attacking", true);
         isAttacking = true;
-        yield return new WaitForSeconds(2.25f);
+        yield return new WaitForSeconds(actionTimes.x / attackSpeed);
         Shoot();
-        yield return new WaitForSeconds(0.65f);
         animator.SetBool("attacking", false);
+        yield return new WaitForSeconds(actionTimes.y / attackSpeed);    
         isAttacking = false;
-
     }
 
     private void Shoot() {

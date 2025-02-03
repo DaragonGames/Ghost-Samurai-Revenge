@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4484633892266089580}
   - component: {fileID: 9032061114672570753}
   - component: {fileID: 6136909206441318113}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: GroundHazard
   m_TagString: Spikes
   m_Icon: {fileID: 0}

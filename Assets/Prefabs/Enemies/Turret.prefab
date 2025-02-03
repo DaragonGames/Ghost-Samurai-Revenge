@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: -1177941080346815958}
   - component: {fileID: -8019382491279654891}
   - component: {fileID: -7242274664362282638}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Turret
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -189,6 +189,8 @@ MonoBehaviour:
   stunPrefab: {fileID: 6460274093662308865, guid: 57630ed27de9a15498cb679281d81ed1, type: 3}
   spawnAble: {fileID: 4308189967123230318, guid: d5c352845d66b504f95dd2aad130e032, type: 3}
   shootSoundPrefab: {fileID: 8637452205097828324, guid: 6ea351dc1d445374699be44d6caf8e23, type: 3}
+  actionTimes: {x: 2.1, y: 0.8, z: 1.5}
+  attackSpeed: 1
 --- !u!114 &3022665635278323789
 MonoBehaviour:
   m_ObjectHideFlags: 0

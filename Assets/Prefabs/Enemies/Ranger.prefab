@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: -8033869512074606214}
   - component: {fileID: 494354838263491367}
   - component: {fileID: -6126676514940749853}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Ranger
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -189,8 +189,10 @@ MonoBehaviour:
   stunPrefab: {fileID: 6460274093662308865, guid: 57630ed27de9a15498cb679281d81ed1, type: 3}
   spawnAble: {fileID: 4308189967123230318, guid: d5c352845d66b504f95dd2aad130e032, type: 3}
   shootSoundPrefab: {fileID: 8637452205097828324, guid: 6ea351dc1d445374699be44d6caf8e23, type: 3}
-  attackRange: 6
-  fleeRange: 2.5
+  actionTimes: {x: 2, y: 0.65, z: 2}
+  attackSpeed: 1.5
+  attackRange: 5
+  fleeRange: 2
 --- !u!114 &-3127730926599618493
 MonoBehaviour:
   m_ObjectHideFlags: 0

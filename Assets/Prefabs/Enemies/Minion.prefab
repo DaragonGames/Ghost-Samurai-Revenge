@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 159882659241588543}
   - component: {fileID: 6683608026526127731}
   - component: {fileID: -400192104251827774}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Minion
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -107,14 +107,14 @@ CircleCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 8192
+    m_Bits: 9728
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
-    m_Bits: 4727
+    m_Bits: 2048
   m_ForceReceiveLayers:
     serializedVersion: 2
-    m_Bits: 4727
+    m_Bits: 2048
   m_ContactCaptureLayers:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -126,7 +126,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.45
 --- !u!50 &7196572815600632317
 Rigidbody2D:
   serializedVersion: 4
@@ -202,6 +202,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db1b964acabf13449a9ca0efd7afd083, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  knockbackResistance: 0
 --- !u!114 &159882659241588543
 MonoBehaviour:
   m_ObjectHideFlags: 0
