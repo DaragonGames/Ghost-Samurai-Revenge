@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class Shooter : Enemy
 {
@@ -22,6 +23,7 @@ public class Shooter : Enemy
         if (counter <= 0)
         {
             counter = actionTimes.z + (actionTimes.y + actionTimes.x) / attackSpeed;
+            counter += -0.25f * Random.Range(-1, 1);
             ongoingAction = StartCoroutine(Attack());
         }
     }

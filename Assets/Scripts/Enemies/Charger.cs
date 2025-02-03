@@ -17,6 +17,7 @@ public class Charger : Enemy
             ongoingAction = StartCoroutine(Attack());
             charging = true;
             counter = actionTime;
+            counter += -0.25f * Random.Range(-1, 1);
         }
         if (!charging)
         {

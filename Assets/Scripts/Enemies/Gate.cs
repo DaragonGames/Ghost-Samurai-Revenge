@@ -14,6 +14,7 @@ public class Gate : Enemy
         if (counter <= 0)
         {
             counter = actionTime;
+            counter += -0.25f * Random.Range(-1, 1);
             ongoingAction = StartCoroutine(Spawn());
         }
     }
