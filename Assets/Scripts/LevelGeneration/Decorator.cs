@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Decorator : MonoBehaviour
 {
-    public Sprite[] sprites;
+    public Sprite[] spritesWeeds;
+    public Sprite[] spritesFlowers;
 
     public GameObject puddle;
     public GameObject glowbug;
@@ -21,15 +22,25 @@ public class Decorator : MonoBehaviour
                 float y = -3 + Random.value*1.5f + n*1.5f;
                 if (Random.value > 0.4f)
                 {
-                    GameObject g = new GameObject("Deco");
-                    SpriteRenderer sr = g.AddComponent<SpriteRenderer>();
-                    sr.sortingLayerName = "Decoration";
-                    sr.sprite = sprites[Random.Range(0, sprites.Length)];
-                    g.transform.parent = transform;
-                    g.transform.localPosition = new Vector3(x, y, 0);
+                    Sprite sprite = spritesWeeds[Random.Range(0, spritesWeeds.Length)];
+                    if (Random.value > 0.5f && GameManager.Instance.gameData.progression < 1)
+                    {
+                        sprite = spritesFlowers[Random.Range(0, spritesFlowers.Length)];
+                    }                    
+                    CreateDecoObject(sprite, x, y);
                 }
             }
         }
+    }
+
+    private void CreateDecoObject(Sprite sprite, float x, float y)
+    {
+        GameObject g = new GameObject("Deco");
+        SpriteRenderer sr = g.AddComponent<SpriteRenderer>();
+        sr.sortingLayerName = "Decoration";
+        sr.sprite = sprite;
+        g.transform.parent = transform;
+        g.transform.localPosition = new Vector3(x, y, 0);
     }
 
 }
