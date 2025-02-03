@@ -28,6 +28,11 @@ public class Charger : Enemy
         }
     }
 
+    protected override void OnStart() 
+    {
+        counter = Random.value;
+    }
+
     IEnumerator Attack()
     {
         // Pre Attack Set Animation and wait a second

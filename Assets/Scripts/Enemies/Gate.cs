@@ -19,6 +19,11 @@ public class Gate : Enemy
         }
     }
 
+    protected override void OnStart() 
+    {
+        counter = Random.value;
+    }
+
     IEnumerator Spawn()
     {
         animator.SetBool("spawning", true);

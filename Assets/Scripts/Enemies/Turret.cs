@@ -30,6 +30,7 @@ public class Shooter : Enemy
 
     protected override void OnStart() 
     {
+        counter = Random.value;
         animator.SetFloat("attackSpeed", attackSpeed);
     }
 
