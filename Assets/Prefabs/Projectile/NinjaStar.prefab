@@ -104,7 +104,7 @@ MonoBehaviour:
   movementSpeed: 10
   acceleration: 0
   roationSpeed: 0
-  contactDamage: 20
+  contactDamage: 25
   piercingDamage: 0
   knockbackStrength: 10
   piercing: 0

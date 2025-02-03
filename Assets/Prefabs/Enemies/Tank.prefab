@@ -169,7 +169,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   contactDamage: 20
   piercingContactDamage: 0
-  movementSpeed: 2
+  movementSpeed: 1.5
   health: 100
   defense: 0
   knockbackPower: 0
@@ -203,7 +203,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db1b964acabf13449a9ca0efd7afd083, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  knockbackResistance: 0
+  knockbackResistance: 10
 --- !u!114 &5967693822678113005
 MonoBehaviour:
   m_ObjectHideFlags: 0

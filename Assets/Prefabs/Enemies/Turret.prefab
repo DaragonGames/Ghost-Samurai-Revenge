@@ -177,10 +177,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cadd813693c3d4349bbb2390a6c3812d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  contactDamage: 5
+  contactDamage: 0
   piercingContactDamage: 0
   movementSpeed: 0
-  health: 40
+  health: 25
   defense: 0
   knockbackPower: 0
   stunResistance: 0
@@ -217,7 +217,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db1b964acabf13449a9ca0efd7afd083, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  knockbackResistance: 5
+  knockbackResistance: 10
 --- !u!114 &-1177941080346815958
 MonoBehaviour:
   m_ObjectHideFlags: 0

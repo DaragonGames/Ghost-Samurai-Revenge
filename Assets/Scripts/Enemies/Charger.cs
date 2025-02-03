@@ -7,7 +7,7 @@ public class Charger : Enemy
     private Vector3 targetDirection;
 
     private float counter = 1;
-    private float actionTime = 5f;
+    private float actionTime = 3f;
 
     protected override void OnUpdate()
     {
@@ -42,7 +42,7 @@ public class Charger : Enemy
         GetComponent<Animator>().SetBool("charging", false);  
         GetComponent<Knockback>().knockbackResistance = 15;
         movementDirection = targetDirection;
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1.2f);
         // Stop the movement and make the enemy aim again
         charging = false;
         GetComponent<Knockback>().knockbackResistance = 5;
