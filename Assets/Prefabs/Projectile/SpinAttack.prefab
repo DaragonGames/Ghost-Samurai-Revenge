@@ -94,8 +94,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1071704030834806864}
   - component: {fileID: 7590975122329696063}
-  - component: {fileID: 4957049596013437761}
   - component: {fileID: 4456157187828980688}
+  - component: {fileID: 4957049596013437761}
   - component: {fileID: 5823912748202333561}
   m_Layer: 0
   m_Name: SpinAttack
@@ -156,6 +156,27 @@ CapsuleCollider2D:
   m_Offset: {x: -1, y: 0}
   m_Size: {x: 2, y: 1}
   m_Direction: 1
+--- !u!114 &4456157187828980688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8442633936586785807}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfdf5f8f80d2a9f4690bea8dd8b320bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementSpeed: 0
+  acceleration: 0
+  roationSpeed: -1.5
+  contactDamage: 25
+  piercingDamage: 5
+  knockbackStrength: 30
+  piercing: 1000000
+  stunPower: 2
+  sourceTag: 
 --- !u!50 &4957049596013437761
 Rigidbody2D:
   serializedVersion: 4
@@ -183,27 +204,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &4456157187828980688
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8442633936586785807}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bfdf5f8f80d2a9f4690bea8dd8b320bd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movementSpeed: 0
-  acceleration: 0
-  roationSpeed: -1.5
-  contactDamage: 30
-  piercingDamage: 0
-  knockbackStrength: 30
-  piercing: 1000000
-  stunPower: 2
-  sourceTag: 
 --- !u!114 &5823912748202333561
 MonoBehaviour:
   m_ObjectHideFlags: 0

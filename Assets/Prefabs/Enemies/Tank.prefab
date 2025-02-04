@@ -170,8 +170,8 @@ MonoBehaviour:
   contactDamage: 20
   piercingContactDamage: 0
   movementSpeed: 1.5
-  health: 100
-  defense: 0
+  health: 75
+  defense: 5
   knockbackPower: 0
   stunResistance: 0
   itemPrefab: {fileID: 1200971565368751780, guid: d1eb115ef81b8f04aa6c42ca49d518ad, type: 3}
