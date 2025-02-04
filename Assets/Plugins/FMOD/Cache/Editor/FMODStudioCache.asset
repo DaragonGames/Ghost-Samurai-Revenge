@@ -238,6 +238,33 @@ MonoBehaviour:
   IsGlobal: 0
   Labels: []
   Exists: 1
+--- !u!114 &-4258067564555889498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Music/Reading
+  m_EditorClassIdentifier: 
+  Path: event:/Music/Reading
+  Guid:
+    Data1: 1819640636
+    Data2: 1206429941
+    Data3: -505969750
+    Data4: -1090561545
+  Banks:
+  - {fileID: 6226000496169622008}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 25600
 --- !u!114 &-2430196565148404707
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -253,10 +280,10 @@ MonoBehaviour:
   Path: FMOD/GhostSamurai/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638730587764999925
+  lastModified: 638742959650255703
   FileSizes:
   - Name: Desktop
-    Value: 1380
+    Value: 1498
   Exists: 1
 --- !u!114 &-970396961922556047
 MonoBehaviour:
@@ -303,6 +330,7 @@ MonoBehaviour:
   - {fileID: 7403886489983397821}
   - {fileID: 6226000496169622008}
   - {fileID: 673495583003268056}
+  - {fileID: 2101220549348099766}
   EditorEvents:
   - {fileID: 4100537285977475301}
   - {fileID: -6575946849945273528}
@@ -315,12 +343,14 @@ MonoBehaviour:
   - {fileID: -7165778317829511858}
   - {fileID: -6265610219889895171}
   - {fileID: -970396961922556047}
+  - {fileID: -4258067564555889498}
+  - {fileID: 1295376710970609558}
   EditorParameters: []
   MasterBanks:
   - {fileID: 7403886489983397821}
   StringsBanks:
   - {fileID: -2430196565148404707}
-  cacheTime: 638730587765667735
+  cacheTime: 638742959718671110
   cacheVersion: 131622
 --- !u!114 &673495583003268056
 MonoBehaviour:
@@ -341,6 +371,53 @@ MonoBehaviour:
   FileSizes:
   - Name: Desktop
     Value: 100448
+  Exists: 1
+--- !u!114 &1295376710970609558
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Ambient/Wind
+  m_EditorClassIdentifier: 
+  Path: event:/Ambient/Wind
+  Guid:
+    Data1: 627937547
+    Data2: 1314263932
+    Data3: -1827735646
+    Data4: 618227354
+  Banks:
+  - {fileID: 2101220549348099766}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 306192
+--- !u!114 &2101220549348099766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Ambient.bank
+  m_EditorClassIdentifier: 
+  Path: FMOD/GhostSamurai/Build/Desktop/Ambient.bank
+  Name: Ambient
+  StudioPath: bank:/Ambient
+  lastModified: 638742959718671110
+  FileSizes:
+  - Name: Desktop
+    Value: 3857376
   Exists: 1
 --- !u!114 &3078103298010087107
 MonoBehaviour:
@@ -411,10 +488,10 @@ MonoBehaviour:
   Path: FMOD/GhostSamurai/Build/Desktop/Music.bank
   Name: Music
   StudioPath: bank:/Music
-  lastModified: 638730587765667735
+  lastModified: 638742958754194030
   FileSizes:
   - Name: Desktop
-    Value: 3680032
+    Value: 3970144
   Exists: 1
 --- !u!114 &7403886489983397821
 MonoBehaviour:
@@ -431,7 +508,7 @@ MonoBehaviour:
   Path: FMOD/GhostSamurai/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638730587764989945
+  lastModified: 638742959650235688
   FileSizes:
   - Name: Desktop
     Value: 1036
