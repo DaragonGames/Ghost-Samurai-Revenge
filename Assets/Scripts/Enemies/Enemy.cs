@@ -37,6 +37,7 @@ public class Enemy : MonoBehaviour
         contactDamage *= 1 + 0.15f*GameManager.Instance.gameData.progression;
         movementSpeed *= 1 + 0.1f*GameManager.Instance.gameData.progression;
         health *= 1 + 0.2f*GameManager.Instance.gameData.progression;
+        health *= isMinion ? 0.5f : 1f;
 
         damageable.DeathEvent += Die;
         damageable.SetValues(health, defense, false);

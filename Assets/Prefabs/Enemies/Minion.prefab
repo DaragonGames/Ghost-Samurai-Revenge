@@ -107,7 +107,7 @@ CircleCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 9728
+    m_Bits: 1536
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -169,7 +169,7 @@ MonoBehaviour:
   contactDamage: 10
   piercingContactDamage: 0
   movementSpeed: 5
-  health: 10
+  health: 20
   defense: 0
   knockbackPower: 0
   stunResistance: 0
