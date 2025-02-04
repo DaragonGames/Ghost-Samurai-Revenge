@@ -92,4 +92,10 @@ public class Projectile : MonoBehaviour
         this.roationSpeed = roationSpeed;
     }
 
+    public void AdjustSecondaryValues(float accelerationFactor = 1, float roationSpeedFactor=1)
+    {
+        acceleration = acceleration * accelerationFactor;
+        roationSpeed = roationSpeed * roationSpeedFactor;
+    }
+
 }

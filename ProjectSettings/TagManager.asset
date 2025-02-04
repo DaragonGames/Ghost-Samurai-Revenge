@@ -45,7 +45,7 @@ TagManager:
   - 
   - 
   - 
-  - 
+  - Leaves
   m_SortingLayers:
   - name: Background
     uniqueID: 2583601793
@@ -88,4 +88,7 @@ TagManager:
     locked: 0
   - name: UI
     uniqueID: 3016663841
+    locked: 0
+  - name: VFX_3
+    uniqueID: 3384553719
     locked: 0

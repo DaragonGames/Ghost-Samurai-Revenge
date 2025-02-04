@@ -5596,17 +5596,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f7a6ac36dfa97a4985a9d33f8cddc08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sprites:
-  - {fileID: 1201261555, guid: 3e1a1ac27256f8c42bc21ca6be3df29c, type: 3}
-  - {fileID: 330633786, guid: 3e1a1ac27256f8c42bc21ca6be3df29c, type: 3}
-  - {fileID: 1414838760, guid: 3e1a1ac27256f8c42bc21ca6be3df29c, type: 3}
-  - {fileID: -1358957254, guid: 3e1a1ac27256f8c42bc21ca6be3df29c, type: 3}
-  - {fileID: -467267770, guid: 07e47c52bfcb8724dbee552d6dd318d0, type: 3}
-  - {fileID: -1020285775, guid: 07e47c52bfcb8724dbee552d6dd318d0, type: 3}
-  - {fileID: 453455644, guid: 07e47c52bfcb8724dbee552d6dd318d0, type: 3}
-  - {fileID: 1624350607, guid: 07e47c52bfcb8724dbee552d6dd318d0, type: 3}
-  - {fileID: -2108993869, guid: 07e47c52bfcb8724dbee552d6dd318d0, type: 3}
-  - {fileID: 1098316213, guid: 07e47c52bfcb8724dbee552d6dd318d0, type: 3}
+  spritesWeeds: []
+  spritesFlowers: []
   puddle: {fileID: 0}
   glowbug: {fileID: 0}
 --- !u!61 &593574073
@@ -17378,8 +17369,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.21}
-  m_Size: {x: 0.75, y: 0.98}
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 0.75, y: 1.4}
   m_Direction: 0
 --- !u!114 &1648283362
 MonoBehaviour:

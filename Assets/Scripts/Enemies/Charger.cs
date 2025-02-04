@@ -3,6 +3,9 @@ using UnityEngine;
 
 public class Charger : Enemy
 {
+    public float chargeDamage;
+    private float touchDamage;
+
     private bool charging;
     private Vector3 targetDirection;
 
@@ -31,6 +34,7 @@ public class Charger : Enemy
     protected override void OnStart() 
     {
         counter = Random.value;
+        touchDamage = contactDamage;
     }
 
     IEnumerator Attack()
@@ -42,10 +46,12 @@ public class Charger : Enemy
         GetComponent<Animator>().SetBool("charging", false);  
         GetComponent<Knockback>().knockbackResistance = 15;
         movementDirection = targetDirection;
+        damageDealer.SetDamage(chargeDamage,piercingContactDamage,knockbackPower, tag);
         yield return new WaitForSeconds(1.2f);
         // Stop the movement and make the enemy aim again
         charging = false;
         GetComponent<Knockback>().knockbackResistance = 5;
+        damageDealer.SetDamage(touchDamage,piercingContactDamage,knockbackPower, tag);
     }
 
     private Coroutine ongoingAction;
@@ -59,6 +65,7 @@ public class Charger : Enemy
         GetComponent<Animator>().SetBool("charging", false);  
         charging = false;
         GetComponent<Knockback>().knockbackResistance = 5;
+        damageDealer.SetDamage(touchDamage,piercingContactDamage,knockbackPower, tag);
     }
 
 }

@@ -95,6 +95,10 @@ public class Room : MonoBehaviour
     {
         if (enemies.childCount == 0 && isEntered)
         {
+            if (!isCleared)
+            {
+                Player.Instance.RegainEnergy();
+            }
             isCleared = true;
         }   
         if (isBossRoom && ID == GameManager.Instance.currentRoomID)

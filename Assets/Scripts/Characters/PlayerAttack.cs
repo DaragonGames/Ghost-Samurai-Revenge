@@ -27,10 +27,11 @@ public class PlayerAttack : ScriptableObject
         }
 
         // Create and adjust Projectille
-        GameObject projectile = Instantiate(projectilePrefab, player.transform.position, Quaternion.identity, parent); 
-        projectile.GetComponent<Projectile>().SetValues(attackDirection.normalized, "Player", duration);
+        Projectile projectile = Instantiate(projectilePrefab, player.transform.position, Quaternion.identity, parent).GetComponent<Projectile>(); 
+        projectile.SetValues(attackDirection.normalized, "Player", duration);
         float degree = 270 - 90 * Player.FacingFromVector(attackDirection);
         projectile.transform.Rotate(new Vector3(0,0,degree)); 
+        projectile.AdjustSecondaryValues(1, 1 / Player.GetStats().attackSpeed);
 
         // Create a Soundeffect
         Instantiate(soundPrefab,player.transform.position, Quaternion.identity); 

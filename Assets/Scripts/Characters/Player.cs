@@ -55,11 +55,11 @@ public class Player : MonoBehaviour
     void Update()
     {
 
-        attackEnergy += Time.deltaTime * stats.EnergyReloadRate;
+        /*attackEnergy += Time.deltaTime * stats.EnergyReloadRate;
         if (attackEnergy > stats.maxEnergy)
         {
             attackEnergy = stats.maxEnergy;
-        } 
+        } */
 
         if (state == States.moving || state == States.idl)
         {
@@ -73,6 +73,15 @@ public class Player : MonoBehaviour
 
         SetAnimation();
 
+    }
+
+    public void RegainEnergy()
+    {
+        attackEnergy += 0.34f;
+        if (attackEnergy > stats.maxEnergy)
+        {
+            attackEnergy = stats.maxEnergy;
+        } 
     }
 
     private void SetAnimation() 

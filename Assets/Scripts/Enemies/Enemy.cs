@@ -21,7 +21,7 @@ public class Enemy : MonoBehaviour
     protected Damageable damageable;
     protected Animator animator;
     private CharacterMovement characterMovement;
-    private DamageDealer damageDealer;
+    protected DamageDealer damageDealer;
 
     // Internal Variables
     protected Vector3 movementDirection;
