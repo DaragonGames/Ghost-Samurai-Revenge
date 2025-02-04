@@ -177,7 +177,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cadd813693c3d4349bbb2390a6c3812d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  contactDamage: 5
+  contactDamage: 0
   piercingContactDamage: 0
   movementSpeed: 0
   health: 25

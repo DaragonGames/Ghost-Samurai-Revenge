@@ -5,15 +5,13 @@ public class Item : MonoBehaviour
 {
     private int id;
     public Sprite[] sprites;
-    public GameObject soundPrefab;
-    private float hoverDirection = 1;
+    public GameObject soundPrefab;    
     public static int[] uncollectedItems = new int[8];
 
     void Start()
     {
         SetID();
-        GetComponent<SpriteRenderer>().sprite = sprites[id];
-        StartCoroutine(ChangeHoverDirection());
+        GetComponent<SpriteRenderer>().sprite = sprites[id];        
     }
 
     void SetID()
@@ -35,11 +33,6 @@ public class Item : MonoBehaviour
         uncollectedItems[id] += 1;
     }
 
-    void Update()
-    {
-        transform.position += Vector3.up*Time.deltaTime*hoverDirection*0.15f;
-    }
-
     void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.tag == "Player")
@@ -51,15 +44,5 @@ public class Item : MonoBehaviour
         }
     }
 
-    public void SetId(int id) { this.id = id; }
 
-    IEnumerator ChangeHoverDirection()
-    {
-        yield return new WaitForSeconds(0.5f);
-        hoverDirection *= -1;
-        if (gameObject != null)
-        {
-            StartCoroutine(ChangeHoverDirection());
-        }        
-    }
 }
