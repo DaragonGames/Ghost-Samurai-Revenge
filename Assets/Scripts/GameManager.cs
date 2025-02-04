@@ -63,13 +63,15 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("Game");                
     }
 
-    public void SelectTestimony(int id)
+    public static event Action SelectTestimony;
+
+    public void OnSelectTestimony(int id)
     {
         TestimonyHandler.SelectTestimonies(id);
         gameData.collectedSheets--;
         if (gameData.collectedSheets > 0)
         {
-            SceneManager.LoadScene("Reading");
+            SelectTestimony?.Invoke();
         }    
         else
         {

@@ -72,16 +72,6 @@ public static class TestimonyHandler
             case 5:
                 GameManager.Instance.gameData.collectItem(3);
                 break;
-            case 6:
-                GameManager.Instance.gameData.ghostWrath+=10;
-                break;
-            case 7:
-                GameManager.Instance.gameData.ghostWrath-=10f;
-                break;
-            case 8:
-                GameManager.Instance.gameData.ghostWrath=50;
-                GameManager.Instance.gameData.LuckUpgradesCollected-=3;
-                break;
         }
     }
 

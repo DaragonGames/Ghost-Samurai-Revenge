@@ -15,11 +15,17 @@ public class TestimonyUI : MonoBehaviour
     void Start()
     {        
         SetTestimony();
+        GameManager.SelectTestimony += SetTestimony;
+    }
+
+    void OnDestroy()
+    {
+        GameManager.SelectTestimony -= SetTestimony;
     }
 
     public void SelectFate()
     {
-        GameManager.Instance.SelectTestimony(id);
+        GameManager.Instance.OnSelectTestimony(id);
     }
 
     public void SetTestimony()

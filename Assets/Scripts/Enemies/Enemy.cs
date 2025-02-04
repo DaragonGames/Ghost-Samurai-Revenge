@@ -87,7 +87,7 @@ public class Enemy : MonoBehaviour
         {
             Instantiate(itemPrefab, transform.position, Quaternion.identity);
         }
-        if (Random.value <= (GameManager.GetLuck() * 0.02f + 0.2f) && !isMinion)
+        if (random <= (GameManager.GetLuck() * 0.02f + 0.2f) && !isMinion)
         {
             Instantiate(commonItemPrefab, transform.position, Quaternion.identity);
         }
