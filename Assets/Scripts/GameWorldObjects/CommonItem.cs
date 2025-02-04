@@ -10,18 +10,28 @@ public class CommonItem : MonoBehaviour
 
     void Start()
     {
-        id = Random.Range(0, 8);
-        GetComponent<SpriteRenderer>().sprite = sprites[id];     
+        id = 1;
+        GetComponent<SpriteRenderer>().sprite = sprites[0];
+        if (Player.Instance.GetHealthPercentage() == 1)     
+        {
+            Destroy(transform.parent.gameObject);
+        }
     }
 
     void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.tag == "Player")
         {            
-            GameManager.OnCollectItemEvent(id);
+            DirectEffect();
+            GameManager.OnCollectItemEvent(id);            
             Instantiate(soundPrefab,transform.position,Quaternion.identity);
             Destroy(transform.parent.gameObject);
         }
+    }
+
+    public void DirectEffect()
+    {
+        Player.Instance.GetComponent<Damageable>().GainHealth(25);
     }
 
 

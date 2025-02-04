@@ -1550,7 +1550,7 @@ MonoBehaviour:
   - {fileID: 1414838760, guid: 3e1a1ac27256f8c42bc21ca6be3df29c, type: 3}
   - {fileID: -1358957254, guid: 3e1a1ac27256f8c42bc21ca6be3df29c, type: 3}
   puddle: {fileID: 0}
-  glowbug: {fileID: 0}
+  glowbug: {fileID: 3025127117192287876, guid: 6fbeff8bd4cce9f40ad9af9f368c34b4, type: 3}
 --- !u!114 &1696779861068424009
 MonoBehaviour:
   m_ObjectHideFlags: 0

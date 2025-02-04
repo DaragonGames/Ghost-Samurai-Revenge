@@ -6,12 +6,14 @@ public class Item : MonoBehaviour
     private int id;
     public Sprite[] sprites;
     public GameObject soundPrefab;    
+    public GameObject glowbug;
     public static int[] uncollectedItems = new int[8];
 
     void Start()
     {
         SetID();
-        GetComponent<SpriteRenderer>().sprite = sprites[id];        
+        GetComponent<SpriteRenderer>().sprite = sprites[id];   
+        Instantiate(glowbug, transform.position, Quaternion.identity);     
     }
 
     void SetID()

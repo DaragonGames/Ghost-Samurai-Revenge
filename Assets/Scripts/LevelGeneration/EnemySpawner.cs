@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    public string type;
+    public EnemyType type = EnemyType.all;
+    public enum EnemyType {common, ranged, though, special, all};
     public float spawnChance;
     public Spawnables spawnables;
 
@@ -20,20 +21,20 @@ public class EnemySpawner : MonoBehaviour
         GameObject prefab;
         switch (type)
         {
-            case "common":
+            case EnemyType.common:
                 options = spawnables.commonEnemies;                
                 break;
-            case "ranged":
+            case EnemyType.ranged:
                 options = spawnables.rangedEnemies;
                 break;
-            case "though":
+            case EnemyType.though:
                 options = spawnables.thoughEnemies;
                 break;
-            case "special":
+            case EnemyType.special:
                 options = spawnables.specialEnemies;
                 break;
-            case "all":
-                options = spawnables.specialEnemies;
+            case EnemyType.all:
+                options = spawnables.allEnemies;
                 break;
             default:
                 options = spawnables.allEnemies;  

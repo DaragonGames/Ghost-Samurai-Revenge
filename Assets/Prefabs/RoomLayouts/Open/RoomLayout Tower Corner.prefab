@@ -48,7 +48,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b45707e45d3a5b408a3908335e1abaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  value: 5
+  defaultWeight: 1
+  treasureValue: 1
+  dangerValue: 1
 --- !u!1001 &621387029194345476
 PrefabInstance:
   m_ObjectHideFlags: 0

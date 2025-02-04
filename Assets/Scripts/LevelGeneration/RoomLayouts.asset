@@ -26,6 +26,7 @@ MonoBehaviour:
   - {fileID: 238074701587590485, guid: bf08c323051ddfb45a0a6fdb56c30106, type: 3}
   - {fileID: 2785911716187532132, guid: 15e61a4c3a0f7ae4290cb04f84f44085, type: 3}
   - {fileID: 3030091642957698460, guid: 325a58dfc624686409a78bc0a8c1fb2a, type: 3}
+  - {fileID: 148218255546154490, guid: 3a4df10fbb4655443ae3dbe8a06350eb, type: 3}
   passageCorner:
   - {fileID: 9155535862975093889, guid: 0a3edd18550cb174a84e423eec9dfa29, type: 3}
   - {fileID: 8721826520647275536, guid: e4b90e5492ebddd44bf0beaed998e8df, type: 3}
@@ -37,3 +38,6 @@ MonoBehaviour:
   - {fileID: 175900284069096224, guid: 71b8d245648e7924f997861e5e655f6e, type: 3}
   - {fileID: 437833219861219249, guid: acd058b3fe597e24fafbc6e9c366b373, type: 3}
   - {fileID: 6536518132525641835, guid: 59f2938e990a0044d9cc982921d66d0b, type: 3}
+  - {fileID: 1715522176196054459, guid: 380db4b6fe610544c9975d3ee93fffc7, type: 3}
+  - {fileID: 7737648987107463233, guid: 138623259499a8f4586e476052cbd821, type: 3}
+  - {fileID: 3242072243274300644, guid: 27db92e8689f6c74c8d90bb68fafd48a, type: 3}

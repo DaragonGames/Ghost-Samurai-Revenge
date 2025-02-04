@@ -55,6 +55,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultWeight: 1
+  treasureValue: 1
+  dangerValue: 1
 --- !u!1001 &1170446962275104828
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -102,6 +104,10 @@ PrefabInstance:
     - target: {fileID: 269190788918142472, guid: 96b14209d46e6c14d9f4a6257cc4b6df, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5867233491713287458, guid: 96b14209d46e6c14d9f4a6257cc4b6df, type: 3}
+      propertyPath: type
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5867233491713287458, guid: 96b14209d46e6c14d9f4a6257cc4b6df, type: 3}
       propertyPath: spawnChance
@@ -168,6 +174,10 @@ PrefabInstance:
     - target: {fileID: 269190788918142472, guid: 96b14209d46e6c14d9f4a6257cc4b6df, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5867233491713287458, guid: 96b14209d46e6c14d9f4a6257cc4b6df, type: 3}
+      propertyPath: type
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5867233491713287458, guid: 96b14209d46e6c14d9f4a6257cc4b6df, type: 3}
       propertyPath: spawnChance
@@ -484,6 +494,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5867233491713287458, guid: 96b14209d46e6c14d9f4a6257cc4b6df, type: 3}
+      propertyPath: type
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5867233491713287458, guid: 96b14209d46e6c14d9f4a6257cc4b6df, type: 3}
       propertyPath: spawnChance
       value: 0.5
       objectReference: {fileID: 0}
@@ -548,6 +562,10 @@ PrefabInstance:
     - target: {fileID: 269190788918142472, guid: 96b14209d46e6c14d9f4a6257cc4b6df, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5867233491713287458, guid: 96b14209d46e6c14d9f4a6257cc4b6df, type: 3}
+      propertyPath: type
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5867233491713287458, guid: 96b14209d46e6c14d9f4a6257cc4b6df, type: 3}
       propertyPath: spawnChance

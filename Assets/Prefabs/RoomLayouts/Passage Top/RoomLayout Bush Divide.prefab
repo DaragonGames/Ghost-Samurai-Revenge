@@ -56,6 +56,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultWeight: 10
+  treasureValue: 1
+  dangerValue: 1
 --- !u!1001 &1434479464304667506
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -292,7 +294,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5867233491713287458, guid: 96b14209d46e6c14d9f4a6257cc4b6df, type: 3}
       propertyPath: type
-      value: common
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5867233491713287458, guid: 96b14209d46e6c14d9f4a6257cc4b6df, type: 3}
       propertyPath: spawnChance
@@ -362,7 +364,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5867233491713287458, guid: 96b14209d46e6c14d9f4a6257cc4b6df, type: 3}
       propertyPath: type
-      value: ranged
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7976769614909942925, guid: 96b14209d46e6c14d9f4a6257cc4b6df, type: 3}
       propertyPath: m_Name
@@ -738,7 +740,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5867233491713287458, guid: 96b14209d46e6c14d9f4a6257cc4b6df, type: 3}
       propertyPath: type
-      value: ranged
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7976769614909942925, guid: 96b14209d46e6c14d9f4a6257cc4b6df, type: 3}
       propertyPath: m_Name

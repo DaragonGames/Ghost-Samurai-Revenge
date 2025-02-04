@@ -365,6 +365,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 01da622f2b058954e8e7237eeefb0f8b, type: 3}
   - {fileID: 21300000, guid: e134db64ab66afb479ee6d87d251864e, type: 3}
   soundPrefab: {fileID: 1351368662016406038, guid: 6570861511b028a48a637aa532e7ac14, type: 3}
+  glowbug: {fileID: 3025127117192287876, guid: 6fbeff8bd4cce9f40ad9af9f368c34b4, type: 3}
 --- !u!114 &6752397307740830368
 MonoBehaviour:
   m_ObjectHideFlags: 0

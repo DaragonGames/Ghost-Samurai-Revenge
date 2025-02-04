@@ -14,6 +14,7 @@ public class Enemy : MonoBehaviour
 
     // Prefabs
     public GameObject itemPrefab;
+    public GameObject commonItemPrefab;
     public GameObject smokePrefab;
     public GameObject stunPrefab;
     
@@ -81,10 +82,14 @@ public class Enemy : MonoBehaviour
 
     public void Die()
     {
-        float ran = Random.value;
-        if (ran <= (GameManager.GetLuck() * 0.025f + 0.10f) && !isMinion)
+        float random = Random.value;
+        if (random > 1 - (GameManager.GetLuck() * 0.018f + 0.01f) && !isMinion)
         {
             Instantiate(itemPrefab, transform.position, Quaternion.identity);
+        }
+        if (Random.value <= (GameManager.GetLuck() * 0.02f + 0.2f) && !isMinion)
+        {
+            Instantiate(commonItemPrefab, transform.position, Quaternion.identity);
         }
         Destroy(Instantiate(smokePrefab, transform.position, Quaternion.identity),0.4f);            
         Destroy(gameObject);

@@ -174,7 +174,8 @@ MonoBehaviour:
   defense: 0
   knockbackPower: 0
   stunResistance: 0
-  itemPrefab: {fileID: 5174449708874311532, guid: 9021f49da5d11ac4cbe525162a50f29e, type: 3}
+  itemPrefab: {fileID: 1200971565368751780, guid: d1eb115ef81b8f04aa6c42ca49d518ad, type: 3}
+  commonItemPrefab: {fileID: 5174449708874311532, guid: 9021f49da5d11ac4cbe525162a50f29e, type: 3}
   smokePrefab: {fileID: 2473401214114011642, guid: ea66e59f1234ba547831d1940efd9741, type: 3}
   stunPrefab: {fileID: 6460274093662308865, guid: 57630ed27de9a15498cb679281d81ed1, type: 3}
 --- !u!114 &386159658375309844

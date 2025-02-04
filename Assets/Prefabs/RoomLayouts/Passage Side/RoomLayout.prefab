@@ -305,14 +305,14 @@ PrefabInstance:
     - target: {fileID: 3916325016066937279, guid: 96b14209d46e6c14d9f4a6257cc4b6df, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 479591322, guid: 901c7484e987a2541a23904d7efeb082, type: 3}
+      objectReference: {fileID: 467569879, guid: 3eea1c96560beec4aa9eaa7a8190bb9a, type: 3}
     - target: {fileID: 3916325016066937279, guid: 96b14209d46e6c14d9f4a6257cc4b6df, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5867233491713287458, guid: 96b14209d46e6c14d9f4a6257cc4b6df, type: 3}
       propertyPath: type
-      value: ranged
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7976769614909942925, guid: 96b14209d46e6c14d9f4a6257cc4b6df, type: 3}
       propertyPath: m_Name

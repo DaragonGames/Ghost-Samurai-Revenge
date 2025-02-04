@@ -31,9 +31,6 @@ public class GameData
             case 0:
                 collectedSheets++;
                 break;
-            case 1:
-                Player.Instance.GetComponent<Damageable>().GainHealth(20);
-                break;
             case 2:
                 MovementSpeedUpgradesCollected= Mathf.Min(MovementSpeedUpgradesCollected+1, 5);
                 break;

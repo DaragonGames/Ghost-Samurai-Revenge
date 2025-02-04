@@ -7,7 +7,6 @@ public class Decorator : MonoBehaviour
     public Sprite[] spritesWeeds;
     public Sprite[] spritesFlowers;
 
-    public GameObject puddle;
     public GameObject glowbug;
 
 
@@ -30,6 +29,10 @@ public class Decorator : MonoBehaviour
                     CreateDecoObject(sprite, x, y);
                 }
             }
+        }
+        if (Random.value > 0.9f)
+        {
+            Instantiate(glowbug, transform);
         }
     }
 
