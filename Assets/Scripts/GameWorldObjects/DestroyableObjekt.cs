@@ -5,13 +5,15 @@ public class DestroyableObjekt : MonoBehaviour
 {
     public GameObject particlePrefab;
     public GameObject particleBurstPrefab;
+    public Sprite secondState;
     private bool shaking;
     private float shakeDirection = 0.8f;
+    private Damageable damageable;
 
     // Start is called before the first frame update
     void Start()
     {
-        Damageable damageable = GetComponent<Damageable>();
+        damageable = GetComponent<Damageable>();
         damageable.SetValues(Random.Range(1, 4));
         damageable.DamageEvent +=GetAttacked;
         damageable.DeathEvent += Die;
@@ -22,6 +24,11 @@ public class DestroyableObjekt : MonoBehaviour
         if (shaking)
         {
             transform.position += Vector3.right * Time.deltaTime * shakeDirection;
+        }
+        if (secondState != null && damageable.GetHealthPercentage() <= 0.51f) 
+        {
+            GetComponent<SpriteRenderer>().sprite = secondState;
+            secondState = null;
         }        
     }
 

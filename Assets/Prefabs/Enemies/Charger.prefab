@@ -244,7 +244,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91513518f4ebe9844b58196b1dd789f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  contactDamage: 5
+  contactDamage: 0
   piercingContactDamage: 0
   movementSpeed: 9
   health: 50
@@ -307,7 +307,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6eb3fc4348a383f4f8979e007ad865cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canDamageObjects: 0
+  canDamageObjects: 1
 --- !u!95 &1252552166368688284
 Animator:
   serializedVersion: 5

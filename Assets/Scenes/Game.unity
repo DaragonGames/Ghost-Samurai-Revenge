@@ -14538,6 +14538,7 @@ MonoBehaviour:
   knockbackPower: 0
   stunResistance: 0
   itemPrefab: {fileID: 5174449708874311532, guid: 9021f49da5d11ac4cbe525162a50f29e, type: 3}
+  commonItemPrefab: {fileID: 0}
   smokePrefab: {fileID: 2473401214114011642, guid: ea66e59f1234ba547831d1940efd9741, type: 3}
   stunPrefab: {fileID: 0}
   GhostUI: {fileID: 1604630398}
