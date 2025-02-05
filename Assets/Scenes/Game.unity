@@ -6197,6 +6197,7 @@ MonoBehaviour:
   doorDown: {fileID: 915808973}
   bambooTop: {fileID: 7931345119304479237, guid: baa1d882f65faf84bbaf1b93d394b448, type: 3}
   bambooSide: {fileID: 7179975686813294127, guid: 76b42d66099cf074eaeb099f47fe10c7, type: 3}
+  Tutorial: {fileID: 0}
   enemies: {fileID: 0}
   border: {fileID: 610988516}
   spawnables: {fileID: 11400000, guid: 4f1b128eec4a51147ab2eb2ce946fecd, type: 2}
