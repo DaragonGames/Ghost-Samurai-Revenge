@@ -75,4 +75,16 @@ public static class TestimonyHandler
         }
     }
 
+    public static void ResetTestimonies()
+    {
+        seenTestimonies = new List<int>();
+        avaibleTestimonies = new List<int>();
+        selectedTestimonies = new List<int>();
+        shownTestimonies = new List<int>();
+        foreach (var entry in testimonyData)
+        {
+            avaibleTestimonies.Add(entry.Key);
+        }
+    }
+
 }

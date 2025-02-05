@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SpinAttack
   m_EditorClassIdentifier: 
   attackTime: {x: 0, y: 0.65, z: 0}
-  attackCost: 0
+  attackCost: 0.6
   projectilePrefab: {fileID: 8442633936586785807, guid: 0bfd4fd6d525359439de2c8627900dd3, type: 3}
   soundPrefab: {fileID: 7975734833613702193, guid: 54a8bb85486af204c92d8a90b457ede8, type: 3}
   attackType: 1

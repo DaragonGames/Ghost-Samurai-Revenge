@@ -1457,6 +1457,7 @@ Transform:
   - {fileID: 2657954940657251725}
   - {fileID: 1997449351797516559}
   - {fileID: 2880408733716002882}
+  - {fileID: 1300941590792195642}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &-1157779426635719334
@@ -1477,6 +1478,7 @@ MonoBehaviour:
   doorDown: {fileID: 5782778966394547435}
   bambooTop: {fileID: 7931345119304479237, guid: baa1d882f65faf84bbaf1b93d394b448, type: 3}
   bambooSide: {fileID: 7179975686813294127, guid: 76b42d66099cf074eaeb099f47fe10c7, type: 3}
+  Tutorial: {fileID: 4203601187801219126}
   enemies: {fileID: 4995915998873317990}
   border: {fileID: 6053523808567179480}
   spawnables: {fileID: 11400000, guid: 4f1b128eec4a51147ab2eb2ce946fecd, type: 2}
@@ -1549,7 +1551,6 @@ MonoBehaviour:
   - {fileID: 330633786, guid: 3e1a1ac27256f8c42bc21ca6be3df29c, type: 3}
   - {fileID: 1414838760, guid: 3e1a1ac27256f8c42bc21ca6be3df29c, type: 3}
   - {fileID: -1358957254, guid: 3e1a1ac27256f8c42bc21ca6be3df29c, type: 3}
-  puddle: {fileID: 0}
   glowbug: {fileID: 3025127117192287876, guid: 6fbeff8bd4cce9f40ad9af9f368c34b4, type: 3}
 --- !u!114 &1696779861068424009
 MonoBehaviour:
@@ -1844,6 +1845,37 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 77ec92614f50a0d449c72f5acae944d6, type: 3}
   - {fileID: 21300000, guid: 66368dcab611f8543b947e097c8e8350, type: 3}
   - {fileID: 21300000, guid: 66368dcab611f8543b947e097c8e8350, type: 3}
+--- !u!1 &4203601187801219126
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1300941590792195642}
+  m_Layer: 0
+  m_Name: Tutorial
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1300941590792195642
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4203601187801219126}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 36215103923728969}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4891509437609752768
 GameObject:
   m_ObjectHideFlags: 0

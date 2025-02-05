@@ -1,12 +1,10 @@
 
 using System.Collections;
-using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 
 public class Room : MonoBehaviour
 {
-    public GameObject doorLeft, doorRight, doorUp, doorDown, bambooTop, bambooSide;
+    public GameObject doorLeft, doorRight, doorUp, doorDown, bambooTop, bambooSide, Tutorial;
     public Transform enemies, border;
     public Spawnables spawnables;
 
@@ -50,9 +48,11 @@ public class Room : MonoBehaviour
 
     void Start()
     {
+        Tutorial.SetActive(isStart && GameManager.Instance.gameData.progression == 0);
         if (isStart)
         {
             isCleared = true;
+            
         }
         if (isEnd)
         {
@@ -125,6 +125,8 @@ public class Room : MonoBehaviour
         }   
     }
 
+    public static int exploredRooms = 0;
+
     void OnTriggerEnter2D(Collider2D col) {
         if (col.gameObject.tag == "Player")
         {
@@ -132,6 +134,7 @@ public class Room : MonoBehaviour
             {
                 GetComponent<RoomInitializer>().fillRoom(
                 col.transform.position, ID, leftOpen, rightOpen, upOpen, downOpen);
+                exploredRooms++;
             }            
             GameManager.OnRoomEnterEvent(transform.position);            
             StartCoroutine(DelayRoomAction());

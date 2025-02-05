@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{0ed96983-dc89-472d-94a4-750789f1bfa6}">
+		<property name="assetPath">
+			<value>Intro/Hyoshigi-Intro.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>6.4000000000000004</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{c3925af2-e009-470f-a64b-4dc069e97d31}</destination>
+		</relationship>
+	</object>
+</objects>

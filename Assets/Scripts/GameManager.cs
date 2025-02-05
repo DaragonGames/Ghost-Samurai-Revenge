@@ -95,7 +95,7 @@ public class GameManager : MonoBehaviour
         {
             gameState = GameState.Title;
             SceneManager.LoadScene("Title");    
-            gameData = new GameData();
+            Reset();
         }
         if (stunframes > 0)
         {
@@ -105,6 +105,13 @@ public class GameManager : MonoBehaviour
         {
             Time.timeScale = 1;
         }
+    }
+
+    public void Reset()
+    {
+        gameData = new GameData();
+        Room.exploredRooms = 0;
+        TestimonyHandler.ResetTestimonies();
     }
 
     

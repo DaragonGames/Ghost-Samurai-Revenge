@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Shiruken
   m_EditorClassIdentifier: 
   attackTime: {x: 0.15, y: 0.1, z: 0}
-  attackCost: 0.33
+  attackCost: 0.2
   projectilePrefab: {fileID: 6142362461846762948, guid: bc2b61bf28364684fa5e3967bfe32446, type: 3}
   soundPrefab: {fileID: 2218295140639014530, guid: 096fba839ba766e4cbb2eb513d6dcc92, type: 3}
   attackType: 0

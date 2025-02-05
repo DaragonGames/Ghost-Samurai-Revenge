@@ -54,7 +54,10 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-
+        if (Room.exploredRooms == 0)
+        {
+            attackEnergy = stats.maxEnergy;
+        }
         /*attackEnergy += Time.deltaTime * stats.EnergyReloadRate;
         if (attackEnergy > stats.maxEnergy)
         {
@@ -77,7 +80,7 @@ public class Player : MonoBehaviour
 
     public void RegainEnergy()
     {
-        attackEnergy += 0.34f;
+        attackEnergy += 0.3f;
         if (attackEnergy > stats.maxEnergy)
         {
             attackEnergy = stats.maxEnergy;

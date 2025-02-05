@@ -9,9 +9,10 @@ public class TryAgain : MonoBehaviour
 
     public void ClickTryAgain()
     {
-        GameManager.Instance.gameState = GameManager.GameState.Title;
+        GameManager.Instance.gameState = GameManager.GameState.Title;        
         SceneManager.LoadScene("Title");    
-        GameManager.Instance.gameData = new GameData();
+        GameManager.Instance.Reset();
+        
     }
 
     public void ToSteam()
