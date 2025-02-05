@@ -97,7 +97,7 @@ public class Room : MonoBehaviour
         {
             if (!isCleared)
             {
-                Player.Instance.RegainEnergy();
+                Player.Instance.RegainEnergy(0.3f);
             }
             isCleared = true;
         }   

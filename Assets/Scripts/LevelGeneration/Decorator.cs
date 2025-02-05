@@ -14,11 +14,11 @@ public class Decorator : MonoBehaviour
     void Start()
     {
         for (int i = 0; i <4; i++)
-        {
-            float x = -6 + Random.value*3 + i*3;
+        {            
             for (int n = 0; n <4; n++)
             {
-                float y = -3 + Random.value*1.5f + n*1.5f;
+                float x = Random.Range(-1.1f, 1.1f) + (i-1.5f)*3.1f;
+                float y = Random.Range(-1.1f, 1.1f) + (n-1.5f)*1.5f;
                 if (Random.value > 0.4f)
                 {
                     Sprite sprite = spritesWeeds[Random.Range(0, spritesWeeds.Length)];

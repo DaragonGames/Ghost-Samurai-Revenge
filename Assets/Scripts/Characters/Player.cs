@@ -78,9 +78,9 @@ public class Player : MonoBehaviour
 
     }
 
-    public void RegainEnergy()
+    public void RegainEnergy(float value)
     {
-        attackEnergy += 0.3f;
+        attackEnergy += value;
         if (attackEnergy > stats.maxEnergy)
         {
             attackEnergy = stats.maxEnergy;

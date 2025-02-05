@@ -13,7 +13,7 @@ public class Notification : MonoBehaviour
 
     public void SetValues(int id){
         gameObject.SetActive(true);
-        counter = 3;
+        counter = 2;
         icon.sprite = sprites[id];
         switch (id){
             case 0:

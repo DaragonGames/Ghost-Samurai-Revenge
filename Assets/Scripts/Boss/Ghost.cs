@@ -159,6 +159,7 @@ public class Ghost : Enemy
 
     private void ReactToDamage() 
     {
+        Player.Instance.RegainEnergy(0.075f);
         if (state != states.wandering) 
         {
             return;
