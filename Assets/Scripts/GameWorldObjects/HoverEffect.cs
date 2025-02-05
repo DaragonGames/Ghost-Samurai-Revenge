@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class HoverEffect : MonoBehaviour
 {
+    public float impact = 1;
     private float hoverDirection = 1;
 
     // Start is called before the first frame update
@@ -15,7 +16,7 @@ public class HoverEffect : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position += Vector3.up*Time.deltaTime*hoverDirection*0.15f;
+        transform.position += Vector3.up*Time.deltaTime*hoverDirection*0.15f * impact;
     }
 
     IEnumerator ChangeHoverDirection()

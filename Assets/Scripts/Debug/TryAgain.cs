@@ -5,22 +5,17 @@ using UnityEngine.SceneManagement;
 
 public class TryAgain : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public GameObject steam;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    public void Button()
+    public void ClickTryAgain()
     {
         GameManager.Instance.gameState = GameManager.GameState.Title;
         SceneManager.LoadScene("Title");    
         GameManager.Instance.gameData = new GameData();
+    }
+
+    public void ToSteam()
+    {
+        steam.SetActive(true);
     }
 }
