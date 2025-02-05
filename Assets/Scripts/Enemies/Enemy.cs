@@ -52,6 +52,7 @@ public class Enemy : MonoBehaviour
     {
         if (GameManager.Instance.gameState == GameManager.GameState.GameOver || GameManager.Instance.currentRoomID != roomID)
         {
+            characterMovement.Movement(Vector3.zero, 0);
             return;
         }
         if (isStunned) 

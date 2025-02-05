@@ -14,6 +14,10 @@ public class AimCircle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (GameManager.Instance.gameState == GameManager.GameState.GameOver)
+        {
+            return;
+        }
         Vector2 input = inputManager.aiming;
         float angle = Vector3.Angle(input, Vector3.up);
         if (input.x > 0)
