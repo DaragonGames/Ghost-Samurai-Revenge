@@ -196,7 +196,7 @@
                 {
                     "name": "",
                     "id": "986890d8-62d6-476a-96f8-6db80fbec766",
-                    "path": "<Gamepad>/rightTrigger",
+                    "path": "<Gamepad>/rightShoulder",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -240,7 +240,7 @@
                 {
                     "name": "",
                     "id": "0d01efac-dfe1-4799-abeb-990f7f038a1a",
-                    "path": "<Gamepad>/leftTrigger",
+                    "path": "<Gamepad>/leftShoulder",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -284,7 +284,7 @@
                 {
                     "name": "",
                     "id": "09913d58-959c-463e-8b5d-c71a09a01c1a",
-                    "path": "<Gamepad>/rightShoulder",
+                    "path": "<Gamepad>/rightTrigger",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -328,7 +328,7 @@
                 {
                     "name": "",
                     "id": "8383db2f-79f0-4515-a4a9-b9b53d2edeec",
-                    "path": "<Gamepad>/leftShoulder",
+                    "path": "<Gamepad>/leftTrigger",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
